@@ -37,6 +37,25 @@
 	const allPartners = $derived(
 		landing.partners.tiers.flatMap(tier => tier.items)
 	);
+
+
+	let carouselScroll = $state<HTMLElement | undefined>(undefined);
+	const CAROUSEL_ITEM_WIDTH = 200; // approximate width + gap
+
+	function handleCarouselScroll() {
+		if (!carouselScroll) return;
+		
+		const scrollLeft = carouselScroll.scrollLeft;
+		const scrollWidth = carouselScroll.scrollWidth;
+		const clientWidth = carouselScroll.clientWidth;
+		const itemCount = allPartners.length;
+		const totalWidth = itemCount * CAROUSEL_ITEM_WIDTH;
+		
+		// When scrolled past 2/3 of the total width, reset to start
+		if (scrollLeft > totalWidth * 0.66) {
+			carouselScroll.scrollLeft = 0;
+		}
+	}
 </script>
 
 <svelte:head>
@@ -88,8 +107,8 @@
 			{language === "de" ? "Unterstützt von & in Zusammenarbeit mit" : "Supported by & in collaboration with"}
 		</h2>
 		<div class="carousel-container">
-			<div class="carousel-scroll">
-				{#each allPartners as partner (partner.name)}
+			<div class="carousel-scroll" bind:this={carouselScroll} onscroll={handleCarouselScroll}>
+				{#each [...allPartners, ...allPartners] as partner, idx (partner.name + "_" + idx)}
 					<a
 						class="carousel-item"
 						href={partner.url}
@@ -378,7 +397,7 @@
 			transform: translateX(0);
 		}
 		100% {
-			transform: translateX(calc(-100% - 2rem));
+			transform: translateX(calc(-50% - 1rem));
 		}
 	}
 

@@ -44,12 +44,12 @@
 </svelte:head>
 
 <!-- Hero Statement -->
-<section class="hero-statement reveal" aria-labelledby="hero-statement-title">
+<section class="panel hero-statement reveal" aria-labelledby="hero-statement-title">
 	<h1 id="hero-statement-title" class="statement-text">{t(landing.about.heroStatement)}</h1>
 </section>
 
 <!-- Die Geschichte (Story) -->
-<section class="content-section story-section reveal" aria-labelledby="story-title">
+<section class="panel content-section story-section reveal" aria-labelledby="story-title">
 	<div class="section-header">
 		<h2 id="story-title" class="section-title">{language === "de" ? "Die Geschichte" : "The story"}</h2>
 	</div>
@@ -57,7 +57,7 @@
 </section>
 
 <!-- Was uns antreibt (Mission) -->
-<section class="content-section mission-section reveal" aria-labelledby="mission-title">
+<section class="panel content-section mission-section reveal" aria-labelledby="mission-title">
 	<div class="section-header">
 		<h2 id="mission-title" class="section-title">{language === "de" ? "Was uns antreibt" : "What drives us"}</h2>
 	</div>
@@ -65,7 +65,7 @@
 </section>
 
 <!-- Team Section -->
-<section class="team-section reveal" aria-labelledby="team-title">
+<section class="panel team-section reveal" aria-labelledby="team-title">
 	<div class="section-header">
 		<h2 id="team-title" class="section-title">{t(landing.team.title)}</h2>
 		<p class="team-label">{t(landing.about.teamLabel)}</p>
@@ -127,6 +127,19 @@
 		font-family: "Space Grotesk", "Manrope", sans-serif;
 		color: rgb(var(--rgb-text-bright-dark));
 		letter-spacing: 0;
+	}
+
+	/* Panel blocks */
+	.panel {
+		width: 100%;
+		border: 1px solid var(--line-soft);
+		border-radius: 0.9rem;
+		background:
+			linear-gradient(150deg, rgb(var(--rgb-white) / 0.09), rgb(var(--rgb-white) / 0.035)),
+			var(--shell-1);
+		box-shadow:
+			0 24px 50px rgb(var(--rgb-black) / 0.24),
+			inset 0 1px 0 rgb(var(--rgb-white) / 0.1);
 	}
 
 	/* Hero Statement */
@@ -375,6 +388,15 @@
 	}
 
 	/* Light mode */
+	:global(html:not(.dark)) .panel {
+		background:
+			linear-gradient(150deg, rgb(var(--rgb-white) / 0.97), rgb(238 246 255 / 0.5)),
+			rgb(var(--rgb-white));
+		box-shadow:
+			0 20px 32px rgb(var(--rgb-slate-900) / 0.08),
+			inset 0 1px 0 rgb(var(--rgb-white) / 0.8);
+	}
+
 	:global(html:not(.dark)) h1,
 	:global(html:not(.dark)) h2,
 	:global(html:not(.dark)) h3 {
