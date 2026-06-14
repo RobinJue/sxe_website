@@ -189,7 +189,7 @@
 	}
 
 	.statement-text {
-		max-width: 20ch;
+		max-width: 21ch;
 		font-size: clamp(2rem, 5.8vw, 4.3rem);
 		line-height: 1;
 		letter-spacing: 0;
