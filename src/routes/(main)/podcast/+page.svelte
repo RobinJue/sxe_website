@@ -334,7 +334,6 @@
 		max-width: 20ch;
 		font-size: clamp(2rem, 5.8vw, 4.3rem);
 		line-height: 1;
-		color: rgb(255 205 130);
 	}
 
 	h2 {
@@ -561,13 +560,14 @@
 		box-shadow: 0 18px 28px rgb(var(--rgb-slate-900) / 0.08);
 	}
 
+	:global(html:not(.dark)) h1,
 	:global(html:not(.dark)) h2,
 	:global(html:not(.dark)) h3 {
 		color: rgb(18 37 63);
 	}
 
-	:global(html:not(.dark)) h1 {
-		color: rgb(176 112 24);
+	:global(html:not(.dark)) .kicker {
+		color: rgb(255 205 130);
 	}
 
 	:global(html:not(.dark)) .platform-list a,
