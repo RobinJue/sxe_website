@@ -197,16 +197,6 @@
 		white-space: pre-line;
 	}
 
-	.statement-text::after {
-		content: "";
-		display: block;
-		width: 3.5rem;
-		height: 4px;
-		background: rgb(255 205 130);
-		border-radius: 2px;
-		margin-top: 1.5rem;
-	}
-
 	/* Content Sections */
 	.content-section {
 		width: 100%;
@@ -520,11 +510,6 @@
 		.team-grid {
 			grid-template-columns: repeat(2, 1fr);
 			gap: 1rem;
-		}
-
-		.statement-text::after {
-			width: 2.5rem;
-			height: 3px;
 		}
 	}
 
