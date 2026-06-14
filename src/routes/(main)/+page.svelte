@@ -106,6 +106,23 @@
 						{/if}
 					</a>
 				{/each}
+				{#each allPartners as partner (partner.name)}
+					<a
+						class="carousel-item"
+						href={partner.url}
+						target="_blank"
+						rel="noopener noreferrer"
+						title={partner.name}
+						aria-hidden="true"
+						tabindex="-1"
+					>
+						{#if partner.logo}
+							<img src={partner.logo} alt="" loading="lazy" decoding="async" />
+						{:else}
+							<span class="logo-fallback">{partner.name}</span>
+						{/if}
+					</a>
+				{/each}
 			</div>
 		</div>
 	</section>
@@ -323,11 +340,9 @@
 
 	.carousel-scroll {
 		display: flex;
-		gap: clamp(1rem, 3vw, 2rem);
-		overflow-x: auto;
-		scroll-behavior: smooth;
-		padding: 0.5rem 0;
+		width: max-content;
 		align-items: center;
+		padding: 0.5rem 0;
 
 		/* Smooth scrolling animation */
 		animation: carousel-scroll 60s linear infinite;
@@ -343,6 +358,7 @@
 		justify-content: center;
 		min-width: clamp(100px, 15vw, 160px);
 		height: clamp(60px, 8vw, 100px);
+		margin-right: clamp(1rem, 3vw, 2rem);
 		padding: 0.8rem;
 		border-radius: 0.65rem;
 		background: rgb(var(--rgb-white) / 0.05);
@@ -380,7 +396,7 @@
 			transform: translateX(0);
 		}
 		100% {
-			transform: translateX(calc(-50% - 1rem));
+			transform: translateX(-50%);
 		}
 	}
 
@@ -516,7 +532,7 @@
 
 	:global(html:not(.dark)) .content-card {
 		border-color: rgb(176 112 24 / 0.18);
-		background: linear-gradient(150deg, rgb(var(--rgb-white) / 0.96), rgb(255 238 214 / 0.48));
+		background: linear-gradient(150deg, rgb(var(--rgb-white) / 0.97), rgb(238 246 255 / 0.5));
 	}
 
 	:global(html:not(.dark)) .proof-number,
@@ -568,13 +584,10 @@
 			padding: 1.5rem 1rem;
 		}
 
-		.carousel-scroll {
-			gap: 0.75rem;
-		}
-
 		.carousel-item {
 			min-width: 80px;
 			height: 60px;
+			margin-right: 0.75rem;
 		}
 
 		.testimonial-quote {

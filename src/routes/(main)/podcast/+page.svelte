@@ -541,7 +541,7 @@
 	:global(html:not(.dark)) .newsletter-panel,
 	:global(html:not(.dark)) .status-panel {
 		border-color: rgb(176 112 24 / 0.18);
-		background: linear-gradient(150deg, rgb(var(--rgb-white) / 0.96), rgb(255 238 214 / 0.44));
+		background: linear-gradient(150deg, rgb(var(--rgb-white) / 0.97), rgb(238 246 255 / 0.5));
 		box-shadow: 0 18px 28px rgb(var(--rgb-slate-900) / 0.08);
 	}
 
@@ -561,8 +561,8 @@
 	}
 
 	:global(html:not(.dark)) .episode-card {
-		border-color: rgb(var(--rgb-slate-900) / 0.12);
-		background: rgb(var(--rgb-white) / 0.62);
+		border-color: rgb(176 112 24 / 0.18);
+		background: linear-gradient(150deg, rgb(var(--rgb-white) / 0.97), rgb(238 246 255 / 0.5));
 	}
 
 	@media (max-width: 820px) {

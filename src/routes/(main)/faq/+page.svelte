@@ -237,7 +237,7 @@
 
 	:global(html:not(.dark)) .faq-item {
 		border-color: rgb(176 112 24 / 0.18);
-		background: linear-gradient(150deg, rgb(var(--rgb-white) / 0.96), rgb(255 238 214 / 0.48));
+		background: linear-gradient(150deg, rgb(var(--rgb-white) / 0.97), rgb(238 246 255 / 0.5));
 	}
 
 	@media (max-width: 640px) {
