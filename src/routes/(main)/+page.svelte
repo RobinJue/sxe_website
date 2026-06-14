@@ -169,6 +169,7 @@
 		grid-template-columns: 1fr;
 		gap: clamp(1rem, 3vw, 2rem);
 		align-items: center;
+		padding-top: clamp(2rem, 5vw, 3.5rem);
 	}
 
 	.hero-copy,
