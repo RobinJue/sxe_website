@@ -50,24 +50,32 @@
 
 <!-- Story Section -->
 <section class="panel content-section story-section reveal" aria-labelledby="story-title">
-	<div class="section-header">
-		<div class="section-icon-title">
-			<BookOpen size={24} strokeWidth={1.5} aria-hidden="true" />
-			<h2 id="story-title" class="section-title">{language === "de" ? "Die Geschichte" : "The story"}</h2>
+	<div class="section-content">
+		<div class="section-icon" aria-hidden="true">
+			<BookOpen size={28} strokeWidth={1.5} />
+		</div>
+		<div class="section-body">
+			<div class="section-header">
+				<h2 id="story-title" class="section-title">{language === "de" ? "Die Geschichte" : "The story"}</h2>
+			</div>
+			<p class="story-text">{t(landing.about.story)}</p>
 		</div>
 	</div>
-	<p class="story-text">{t(landing.about.story)}</p>
 </section>
 
 <!-- Mission Section -->
 <section class="panel content-section mission-section reveal" aria-labelledby="mission-title">
-	<div class="section-header">
-		<div class="section-icon-title">
-			<Target size={24} strokeWidth={1.5} aria-hidden="true" />
-			<h2 id="mission-title" class="section-title">{language === "de" ? "Was uns antreibt" : "What drives us"}</h2>
+	<div class="section-content">
+		<div class="section-icon" aria-hidden="true">
+			<Target size={28} strokeWidth={1.5} />
+		</div>
+		<div class="section-body">
+			<div class="section-header">
+				<h2 id="mission-title" class="section-title">{language === "de" ? "Was uns antreibt" : "What drives us"}</h2>
+			</div>
+			<p class="mission-text">{t(landing.about.mission)}</p>
 		</div>
 	</div>
-	<p class="mission-text">{t(landing.about.mission)}</p>
 </section>
 
 <!-- Team Section -->
@@ -179,19 +187,26 @@
 	.content-section {
 		width: 100%;
 		padding: clamp(2rem, 5vw, 3.5rem) clamp(1.25rem, 4vw, 2rem);
-		max-width: 900px;
-		margin: 0 auto;
 	}
 
-	.section-icon-title {
+	.section-content {
+		display: flex;
+		gap: clamp(1.5rem, 3vw, 2.5rem);
+		align-items: flex-start;
+	}
+
+	.section-icon {
+		flex-shrink: 0;
+		color: rgb(255 205 130);
 		display: flex;
 		align-items: center;
-		gap: clamp(0.75rem, 2vw, 1.2rem);
+		justify-content: center;
+		margin-top: clamp(0.25rem, 1vw, 0.5rem);
 	}
 
-	.section-icon-title :global(svg) {
-		color: rgb(255 205 130);
-		flex-shrink: 0;
+	.section-body {
+		flex: 1;
+		min-width: 0;
 	}
 
 	.section-header {
