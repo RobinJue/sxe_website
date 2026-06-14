@@ -249,6 +249,10 @@
 		background: linear-gradient(150deg, rgb(var(--rgb-white) / 0.97), rgb(238 246 255 / 0.5));
 	}
 
+	:global(html:not(.dark)) .faq-item h4 button {
+		color: rgb(18 37 63);
+	}
+
 	@media (max-width: 640px) {
 		.section-panel {
 			padding: 1rem;

@@ -232,6 +232,10 @@
 		color: rgb(64 84 114);
 	}
 
+	:global(html:not(.dark)) .resource-card strong {
+		color: rgb(18 37 63);
+	}
+
 	:global(html:not(.dark)) .resource-logo {
 		border-color: rgb(176 112 24 / 0.2);
 		background: rgb(var(--rgb-white) / 0.96);
