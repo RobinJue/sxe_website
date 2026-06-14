@@ -173,9 +173,13 @@ export type LandingContent = {
 	testimonial?: Testimonial;
 	about: {
 		kicker: LocalizedString;
-		title: LocalizedString;
-		body: LocalizedString;
-		features: LandingFeature[];
+		heroStatement: LocalizedString;
+		story: LocalizedString;
+		mission: LocalizedString;
+		teamLabel: LocalizedString;
+		title?: LocalizedString;
+		body?: LocalizedString;
+		features?: LandingFeature[];
 	};
 	infographics: {
 		kicker: LocalizedString;

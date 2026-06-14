@@ -250,11 +250,15 @@ function mapAbout(value: unknown): LandingContent["about"] {
 
 	return {
 		kicker: localizedString(row.kicker, "landing_content.about.kicker"),
-		title: localizedString(row.title, "landing_content.about.title"),
-		body: localizedString(row.body, "landing_content.about.body"),
-		features: list(row.features, "landing_content.about.features").map((feature, index) =>
+		heroStatement: localizedString(row.heroStatement, "landing_content.about.heroStatement"),
+		story: localizedString(row.story, "landing_content.about.story"),
+		mission: localizedString(row.mission, "landing_content.about.mission"),
+		teamLabel: localizedString(row.teamLabel, "landing_content.about.teamLabel"),
+		...(row.title && { title: localizedString(row.title, "landing_content.about.title") }),
+		...(row.body && { body: localizedString(row.body, "landing_content.about.body") }),
+		...(row.features && { features: list(row.features, "landing_content.about.features").map((feature, index) =>
 			mapFeature(feature, `landing_content.about.features[${index}]`)
-		)
+		) })
 	};
 }
 
