@@ -126,10 +126,7 @@
 	/>
 </svelte:head>
 
-<div class="podcast-shell">
-	<div class="ambient" aria-hidden="true"></div>
-
-	<main class="podcast-main">
+<main class="podcast-main">
 		<section class="hero-panel">
 			<div class="hero-copy">
 				<p class="kicker">{t(podcast.kicker)}</p>
@@ -249,30 +246,12 @@
 			</form>
 		</section>
 	</main>
-</div>
 
 <style>
 	:global(body) {
 		margin: 0;
 		font-family: "Manrope", system-ui, sans-serif;
 		background: var(--background);
-	}
-
-	.podcast-shell {
-		min-height: 100vh;
-		color: var(--foreground);
-		position: relative;
-		overflow-x: clip;
-	}
-
-	.ambient {
-		position: fixed;
-		inset: 0;
-		pointer-events: none;
-		background:
-			radial-gradient(circle at 10% 8%, rgb(var(--rgb-brand-blue) / 0.18), transparent 30%),
-			radial-gradient(circle at 86% 14%, rgb(var(--rgb-accent-teal) / 0.12), transparent 34%);
-		z-index: 0;
 	}
 
 	.podcast-main {
@@ -542,12 +521,6 @@
 		color: rgb(16 32 58);
 		font-weight: 900;
 		cursor: pointer;
-	}
-
-	:global(html:not(.dark)) .podcast-shell {
-		background:
-			linear-gradient(180deg, rgb(249 250 252 / 0.98), rgb(246 248 251 / 0.98)),
-			rgb(var(--rgb-surface-light));
 	}
 
 	:global(html:not(.dark)) .ambient {
