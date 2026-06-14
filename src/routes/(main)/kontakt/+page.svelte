@@ -273,7 +273,6 @@
 		}
 	}
 
-	:global(html:not(.dark)) .panel,
 	:global(html:not(.dark)) .contact-section {
 		background:
 			linear-gradient(150deg, rgb(var(--rgb-white) / 0.97), rgb(238 246 255 / 0.5)),
