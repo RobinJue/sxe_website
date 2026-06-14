@@ -145,6 +145,7 @@ export type Testimonial = {
 	author: string;
 	title: LocalizedString;
 	attribution: LocalizedString;
+	photo?: string;
 };
 
 export type LandingContent = {

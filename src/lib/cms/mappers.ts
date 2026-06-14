@@ -163,7 +163,8 @@ function mapTestimonial(value: unknown): Testimonial {
 		quote: localizedString(row.quote, "landing_content.testimonial.quote"),
 		author: requiredString(row.author, "landing_content.testimonial.author"),
 		title: localizedString(row.title, "landing_content.testimonial.title"),
-		attribution: localizedString(row.attribution, "landing_content.testimonial.attribution")
+		attribution: localizedString(row.attribution, "landing_content.testimonial.attribution"),
+		...(row.photo ? { photo: optionalString(row.photo) } : {})
 	};
 }
 
