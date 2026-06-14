@@ -436,13 +436,18 @@ function mapPartners(value: unknown): LandingContent["partners"] {
 }
 
 function mapPartnerTier(row: UnknownRecord, index: number): PartnerTier {
+	const tierTitle = optionalRecord(row.title);
+	const tierDescription = optionalRecord(row.description);
+
 	return {
 		id: requiredString(row.id, `landing_content.partners.tiers[${index}].id`),
 		name: localizedString(row.name, `landing_content.partners.tiers[${index}].name`),
 		items: optionalList(row.items, `landing_content.partners.tiers[${index}].items`).map(
 			(item, itemIndex) =>
 				mapPartnerItem(item, `landing_content.partners.tiers[${index}].items[${itemIndex}]`)
-		)
+		),
+		title: tierTitle ? localizedString(tierTitle, `landing_content.partners.tiers[${index}].title`) : undefined,
+		description: tierDescription ? localizedString(tierDescription, `landing_content.partners.tiers[${index}].description`) : undefined
 	};
 }
 

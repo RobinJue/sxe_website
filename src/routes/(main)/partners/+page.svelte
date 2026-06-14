@@ -27,13 +27,11 @@
 	const content = $derived(data.content);
 	const landing = $derived(content.landing);
 
-	// Get partners by tier
-	const silverPartners = $derived(
-		landing.partners.tiers.find((t) => t.id === "silver")?.items || []
-	);
-	const bronzePartners = $derived(
-		landing.partners.tiers.find((t) => t.id === "bronze")?.items || []
-	);
+	// Get tiers and partners
+	const silverTier = $derived(landing.partners.tiers.find((t) => t.id === "silver") || {});
+	const bronzeTier = $derived(landing.partners.tiers.find((t) => t.id === "bronze") || {});
+	const silverPartners = $derived(silverTier.items || []);
+	const bronzePartners = $derived(bronzeTier.items || []);
 </script>
 
 <svelte:head>
@@ -45,8 +43,8 @@
 		<section class="partner-block" aria-labelledby="silver-title">
 			<div class="block-content">
 				<div class="block-text">
-					<h2 id="silver-title">{t(landing.partners.title)}</h2>
-					<p class="block-description">{t(landing.partners.intro)}</p>
+					<h2 id="silver-title">{silverTier.title ? t(silverTier.title) : t(landing.partners.title)}</h2>
+					<p class="block-description">{silverTier.description ? t(silverTier.description) : t(landing.partners.intro)}</p>
 				</div>
 				<div class="block-logos">
 					{#each silverPartners as partner (partner.name)}
@@ -74,16 +72,8 @@
 		<section class="partner-block" aria-labelledby="bronze-title">
 			<div class="block-content">
 				<div class="block-text">
-					<h2 id="bronze-title">
-						{language === "de"
-							? "Wir führen Workshops durch"
-							: "We conduct workshops"}
-					</h2>
-					<p class="block-description">
-						{language === "de"
-							? "Mit praktischen Formaten unterstützen wir Wissenschaftler bei ihren ersten Schritten in Richtung Gründung."
-							: "Through practical formats, we support scientists in their first steps towards entrepreneurship."}
-					</p>
+					<h2 id="bronze-title">{bronzeTier.title ? t(bronzeTier.title) : (language === "de" ? "Wir führen Workshops durch" : "We conduct workshops")}</h2>
+					<p class="block-description">{bronzeTier.description ? t(bronzeTier.description) : (language === "de" ? "Mit praktischen Formaten unterstützen wir Wissenschaftler bei ihren ersten Schritten in Richtung Gründung." : "Through practical formats, we support scientists in their first steps towards entrepreneurship.")}</p>
 				</div>
 				<div class="block-logos">
 					{#each bronzePartners as partner (partner.name)}

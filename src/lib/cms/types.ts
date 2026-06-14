@@ -118,6 +118,8 @@ export type PartnerTier = {
 	id: string;
 	name: LocalizedString;
 	items: PartnerItem[];
+	title?: LocalizedString;
+	description?: LocalizedString;
 };
 
 export type TeamMember = {

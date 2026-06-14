@@ -940,6 +940,14 @@
           "de": "Silver Partner",
           "en": "Silver Partners"
         },
+        "title": {
+          "de": "Wir arbeiten mit den besten Partnern zusammen",
+          "en": "We work with the best partners"
+        },
+        "description": {
+          "de": "Mit ihren Ressourcen und ihrem Wissen unterstützen uns diese Partner dabei, die Gründer von morgen auf ihrem Weg zu begleiten und ihnen den Zugang zu weltklasse Tools und Plattformen zu ermöglichen.",
+          "en": "With their resources and expertise, these partners help us support tomorrow's founders on their entrepreneurial journey and provide them access to world-class tools and platforms."
+        },
         "items": [
           {
             "name": "OpenAI",
@@ -958,6 +966,14 @@
         "name": {
           "de": "Bronze Partner",
           "en": "Bronze Partners"
+        },
+        "title": {
+          "de": "Wir führen praktische Workshops durch",
+          "en": "We conduct practical workshops"
+        },
+        "description": {
+          "de": "Diese Partner unterstützen uns mit praktischen Formaten und direktem Mentoring, um Wissenschaftler bei ihren ersten Schritten in Richtung Gründung zu begleiten.",
+          "en": "These partners support us with practical formats and direct mentoring to guide scientists through their first steps towards entrepreneurship."
         },
         "items": [
           {
