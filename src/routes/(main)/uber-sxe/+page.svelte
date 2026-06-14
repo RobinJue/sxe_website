@@ -194,6 +194,7 @@
 		line-height: 1;
 		letter-spacing: 0;
 		margin: 0;
+		white-space: pre-line;
 	}
 
 	.statement-text::after {
