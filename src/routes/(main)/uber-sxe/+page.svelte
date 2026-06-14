@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Linkedin } from "lucide-svelte";
+	import { Linkedin, BookOpen, Target } from "lucide-svelte";
 	import type { PageData } from "./$types";
 
 	let { data } = $props<{ data: PageData }>();
@@ -48,24 +48,27 @@
 	<h1 id="hero-statement-title" class="statement-text">{t(landing.about.heroStatement)}</h1>
 </section>
 
-<!-- Two Column Sections: Story & Mission -->
-<div class="content-sections-grid">
-	<!-- Die Geschichte (Story) -->
-	<section class="panel content-section story-section reveal" aria-labelledby="story-title">
-		<div class="section-header">
+<!-- Story Section -->
+<section class="panel content-section story-section reveal" aria-labelledby="story-title">
+	<div class="section-header">
+		<div class="section-icon-title">
+			<BookOpen size={24} strokeWidth={1.5} aria-hidden="true" />
 			<h2 id="story-title" class="section-title">{language === "de" ? "Die Geschichte" : "The story"}</h2>
 		</div>
-		<p class="story-text">{t(landing.about.story)}</p>
-	</section>
+	</div>
+	<p class="story-text">{t(landing.about.story)}</p>
+</section>
 
-	<!-- Was uns antreibt (Mission) -->
-	<section class="panel content-section mission-section reveal" aria-labelledby="mission-title">
-		<div class="section-header">
+<!-- Mission Section -->
+<section class="panel content-section mission-section reveal" aria-labelledby="mission-title">
+	<div class="section-header">
+		<div class="section-icon-title">
+			<Target size={24} strokeWidth={1.5} aria-hidden="true" />
 			<h2 id="mission-title" class="section-title">{language === "de" ? "Was uns antreibt" : "What drives us"}</h2>
 		</div>
-		<p class="mission-text">{t(landing.about.mission)}</p>
-	</section>
-</div>
+	</div>
+	<p class="mission-text">{t(landing.about.mission)}</p>
+</section>
 
 <!-- Team Section -->
 <section class="panel team-section reveal" aria-labelledby="team-title">
@@ -172,40 +175,23 @@
 		margin-right: auto;
 	}
 
-	/* Content Sections Grid */
-	.content-sections-grid {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		gap: clamp(1.5rem, 3vw, 2.5rem);
-		margin: 0 auto;
-		max-width: 1400px;
-		width: 100%;
-	}
-
 	/* Content Sections */
 	.content-section {
+		width: 100%;
 		padding: clamp(2rem, 5vw, 3.5rem) clamp(1.25rem, 4vw, 2rem);
+		max-width: 900px;
+		margin: 0 auto;
+	}
+
+	.section-icon-title {
 		display: flex;
-		flex-direction: column;
-		position: relative;
-		padding-left: clamp(3rem, 6vw, 4rem);
+		align-items: center;
+		gap: clamp(0.75rem, 2vw, 1.2rem);
 	}
 
-	/* Section Symbols */
-	.story-section::before {
-		content: "📖";
-		position: absolute;
-		left: clamp(0.75rem, 2vw, 1.25rem);
-		top: clamp(2rem, 5vw, 3.5rem);
-		font-size: clamp(1.5rem, 3vw, 2rem);
-	}
-
-	.mission-section::before {
-		content: "🚀";
-		position: absolute;
-		left: clamp(0.75rem, 2vw, 1.25rem);
-		top: clamp(2rem, 5vw, 3.5rem);
-		font-size: clamp(1.5rem, 3vw, 2rem);
+	.section-icon-title :global(svg) {
+		color: rgb(255 205 130);
+		flex-shrink: 0;
 	}
 
 	.section-header {
@@ -418,13 +404,6 @@
 		}
 	}
 
-	/* Responsive */
-	@media (max-width: 768px) {
-		.content-sections-grid {
-			grid-template-columns: 1fr;
-			gap: clamp(1.5rem, 3vw, 2rem);
-		}
-	}
 
 	/* Light mode */
 	:global(html:not(.dark)) .panel {
