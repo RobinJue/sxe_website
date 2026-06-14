@@ -1,11 +1,10 @@
 <script lang="ts">
-	import { ArrowLeft, ArrowRight, ExternalLink, Moon, Search, Sun } from "lucide-svelte";
+	import { ArrowLeft, ArrowRight, ExternalLink, Search } from "lucide-svelte";
 	import { onMount } from "svelte";
 	import type { LanguageCode, LocalizedString, PodcastEpisode } from "$lib/cms/types";
 	import type { PageData } from "./$types";
 
 	const LANGUAGE_STORAGE_KEY = "sxe-language";
-	const THEME_STORAGE_KEY = "sxe-theme";
 
 	type ThemeMode = "dark" | "light";
 
@@ -57,10 +56,6 @@
 		return value[language];
 	}
 
-	function setLanguage(nextLanguage: LanguageCode) {
-		language = nextLanguage;
-	}
-
 	function getStoredLanguage(): LanguageCode {
 		if (typeof window === "undefined") {
 			return "de";
@@ -73,32 +68,11 @@
 		}
 	}
 
-	function toggleTheme() {
-		applyThemeMode(themeMode === "dark" ? "light" : "dark");
-	}
-
 	function getCurrentThemeMode(): ThemeMode {
 		if (typeof document === "undefined") {
 			return "dark";
 		}
 		return document.documentElement.classList.contains("dark") ? "dark" : "light";
-	}
-
-	function applyThemeMode(mode: ThemeMode) {
-		if (typeof document === "undefined") {
-			return;
-		}
-
-		const root = document.documentElement;
-		root.classList.toggle("dark", mode === "dark");
-		root.style.colorScheme = mode;
-		themeMode = mode;
-
-		try {
-			window.localStorage.setItem(THEME_STORAGE_KEY, mode);
-		} catch {
-			// Ignore storage failures in restricted browser modes.
-		}
 	}
 
 	function formatEpisodeDate(value: string): string {
@@ -154,33 +128,6 @@
 
 <div class="podcast-shell">
 	<div class="ambient" aria-hidden="true"></div>
-
-	<header class="podcast-header">
-		<a class="brand" href="/">
-			<img src="/assets/SxE%20Logo.png" alt="Science x Entrepreneurship" />
-		</a>
-		<div class="header-actions">
-			<div class="language-toggle" aria-label={t(landing.languageToggleLabel)}>
-				<button type="button" class:active={language === "de"} onclick={() => setLanguage("de")}>
-					DE
-				</button>
-				<button type="button" class:active={language === "en"} onclick={() => setLanguage("en")}>
-					EN
-				</button>
-			</div>
-			<button
-				type="button"
-				class="theme-toggle"
-				class:light={themeMode === "light"}
-				aria-label={t(landing.themeToggleAriaLabel)}
-				onclick={toggleTheme}
-			>
-				<Sun size={15} />
-				<Moon size={15} />
-				<span></span>
-			</button>
-		</div>
-	</header>
 
 	<main class="podcast-main">
 		<a class="back-link" href="/"><ArrowLeft size={16} /> {t(podcast.backLinkLabel)}</a>
@@ -330,7 +277,6 @@
 		z-index: 0;
 	}
 
-	.podcast-header,
 	.podcast-main {
 		position: relative;
 		z-index: 1;
@@ -338,96 +284,11 @@
 		margin-inline: auto;
 	}
 
-	.podcast-header {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		padding: 1rem 0;
-	}
-
-	.brand,
 	.back-link,
 	.platform-list a,
 	.episode-card a {
 		color: inherit;
 		text-decoration: none;
-	}
-
-	.brand {
-		display: inline-flex;
-		align-items: center;
-		font-weight: 800;
-	}
-
-	.brand img {
-		width: auto;
-		height: clamp(3.2rem, 5.2vw, 4.6rem);
-		max-width: min(13rem, 44vw);
-		object-fit: contain;
-	}
-
-	.header-actions,
-	.language-toggle,
-	.theme-toggle {
-		display: inline-flex;
-		align-items: center;
-	}
-
-	.header-actions {
-		gap: 0.55rem;
-	}
-
-	.language-toggle,
-	.theme-toggle {
-		height: 2.25rem;
-		border: 1px solid rgb(var(--rgb-white) / 0.14);
-		border-radius: 999px;
-		background: rgb(var(--rgb-white) / 0.07);
-	}
-
-	.language-toggle {
-		padding: 0.18rem;
-	}
-
-	.language-toggle button {
-		height: 1.85rem;
-		padding: 0 0.65rem;
-		border: 0;
-		border-radius: 999px;
-		background: transparent;
-		color: rgb(181 192 214);
-		font-weight: 800;
-		cursor: pointer;
-	}
-
-	.language-toggle button.active {
-		background: rgb(var(--rgb-brand-blue));
-		color: rgb(16 32 58);
-	}
-
-	.theme-toggle {
-		position: relative;
-		gap: 0.35rem;
-		width: 4.1rem;
-		justify-content: space-around;
-		color: rgb(237 244 255);
-		cursor: pointer;
-	}
-
-	.theme-toggle span {
-		position: absolute;
-		z-index: -1;
-		left: 0.22rem;
-		width: 1.65rem;
-		height: 1.65rem;
-		border-radius: 999px;
-		background: rgb(var(--rgb-brand-blue));
-		transform: translateX(1.76rem);
-		transition: transform 0.2s ease;
-	}
-
-	.theme-toggle.light span {
-		transform: translateX(0);
 	}
 
 	.podcast-main {
@@ -730,8 +591,6 @@
 		color: rgb(18 37 63);
 	}
 
-	:global(html:not(.dark)) .language-toggle,
-	:global(html:not(.dark)) .theme-toggle,
 	:global(html:not(.dark)) .platform-list a,
 	:global(html:not(.dark)) .episode-card a,
 	:global(html:not(.dark)) .search-box div,
@@ -760,14 +619,8 @@
 	}
 
 	@media (max-width: 560px) {
-		.podcast-header,
 		.podcast-main {
 			width: calc(100% - 1.4rem);
-		}
-
-		.brand img {
-			height: 3.35rem;
-			max-width: 42vw;
 		}
 
 		.episode-card {
