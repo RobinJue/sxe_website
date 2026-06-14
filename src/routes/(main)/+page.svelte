@@ -326,6 +326,7 @@
 	/* Carousel Section */
 	.carousel-panel {
 		padding: clamp(2rem, 4vw, 3rem);
+		min-width: 0;
 	}
 
 	.carousel-title {
