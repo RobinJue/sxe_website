@@ -165,6 +165,13 @@
 		border-radius: 0.85rem;
 		background: var(--shell-2);
 		overflow: clip;
+		transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+	}
+
+	.faq-item:hover {
+		transform: translateY(-4px);
+		border-color: rgb(var(--rgb-brand-blue) / 0.45);
+		box-shadow: 0 16px 24px rgb(var(--rgb-black) / 0.22);
 	}
 
 	.faq-item h4 button {
