@@ -943,11 +943,13 @@
         "items": [
           {
             "name": "OpenAI",
-            "url": "https://openai.com"
+            "url": "https://openai.com",
+            "logo": "/assets/partners/openai.svg"
           },
           {
             "name": "TUM Venture Labs",
-            "url": "https://www.tumventurelabs.de"
+            "url": "https://www.tumventurelabs.de",
+            "logo": "/assets/partners/tumventure.webp"
           }
         ]
       },
@@ -960,15 +962,18 @@
         "items": [
           {
             "name": "Atlantic Labs",
-            "url": "https://atlantic-labs.de"
+            "url": "https://atlantic-labs.de",
+            "logo": "/assets/partners/atlanticlabs.png"
           },
           {
             "name": "Cherry Ventures",
-            "url": "https://cherry.vc"
+            "url": "https://cherry.vc",
+            "logo": "/assets/partners/cherryventures.png"
           },
           {
             "name": "UVC Partner",
-            "url": "https://uvcpartner.com"
+            "url": "https://uvcpartner.com",
+            "logo": "/assets/partners/uvcpartners.png"
           }
         ]
       }

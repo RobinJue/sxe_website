@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Heart, Mail } from "lucide-svelte";
+	import { Mail } from "lucide-svelte";
 	import type { PageData } from "./$types";
 
 	let { data } = $props<{ data: PageData }>();
@@ -27,14 +27,10 @@
 	const content = $derived(data.content);
 	const landing = $derived(content.landing);
 
-	function partnerLogoUrl(url: string): string {
-		try {
-			const hostname = new URL(url).hostname.replace(/^www\./, "");
-			return `https://www.google.com/s2/favicons?domain=${encodeURIComponent(hostname)}&sz=128`;
-		} catch {
-			return "/assets/SxE%20Logo.png";
-		}
-	}
+	// Flatten all partners from all tiers
+	const allPartners = $derived(
+		landing.partners.tiers.flatMap((tier) => tier.items)
+	);
 </script>
 
 <svelte:head>
@@ -42,42 +38,26 @@
 </svelte:head>
 
 <section class="panel section-panel reveal" aria-labelledby="partners-title">
-	<div class="section-head">
-		<p class="kicker"><Heart size={14} strokeWidth={2.2} /> {t(landing.partners.kicker)}</p>
+	<div class="partners-header">
 		<h2 id="partners-title">{t(landing.partners.title)}</h2>
-		<p class="lead">{t(landing.partners.intro)}</p>
+		<p class="intro-text">{t(landing.partners.intro)}</p>
 	</div>
 
-	<div class="partners-container">
-		{#each landing.partners.tiers as tier (t(tier.name))}
-			<section class="partners-tier" aria-labelledby={`tier-${tier.id}`}>
-				<h3 id={`tier-${tier.id}`}>{t(tier.name)}</h3>
-				{#if tier.items.length > 0}
-					<div class="partners-grid">
-						{#each tier.items as partner (partner.name)}
-							<a
-								class="partner-card"
-								href={partner.url}
-								target="_blank"
-								rel="noopener noreferrer"
-								aria-label={partner.name}
-							>
-								<span class="partner-logo">
-									<img
-										src={partnerLogoUrl(partner.url)}
-										alt={partner.name}
-										loading="lazy"
-										decoding="async"
-									/>
-								</span>
-								<span class="partner-name">{partner.name}</span>
-							</a>
-						{/each}
-					</div>
+	<div class="logos-grid">
+		{#each allPartners as partner (partner.name)}
+			<a
+				class="logo-link"
+				href={partner.url}
+				target="_blank"
+				rel="noopener noreferrer"
+				aria-label={`Visit ${partner.name}`}
+			>
+				{#if partner.logo}
+					<img src={partner.logo} alt={partner.name} loading="lazy" decoding="async" />
 				{:else}
-					<p class="no-partners">{t(landing.partners.comingSoon)}</p>
+					<span class="logo-placeholder">{partner.name}</span>
 				{/if}
-			</section>
+			</a>
 		{/each}
 	</div>
 
@@ -105,137 +85,99 @@
 
 	.section-panel {
 		display: grid;
-		gap: 1.15rem;
+		gap: 2.5rem;
 		padding: clamp(1.1rem, 3vw, 2rem);
 	}
 
-	.section-head {
+	.partners-header {
 		display: grid;
-		gap: 0.75rem;
-	}
-
-	.kicker {
-		display: inline-flex;
-		align-items: center;
-		gap: 0.42rem;
-		width: fit-content;
-		margin: 0;
-		color: rgb(255 205 130);
-		font-size: 0.78rem;
-		font-weight: 800;
-		text-transform: uppercase;
-	}
-
-	h2,
-	h3,
-	p {
-		margin: 0;
-	}
-
-	h2,
-	h3 {
-		font-family: "Space Grotesk", "Manrope", sans-serif;
-		color: rgb(var(--rgb-text-bright-dark));
+		gap: 1rem;
+		text-align: center;
+		max-width: 600px;
+		margin: 0 auto;
 	}
 
 	h2 {
+		font-family: "Space Grotesk", "Manrope", sans-serif;
+		color: rgb(var(--rgb-text-bright-dark));
 		font-size: clamp(1.65rem, 3vw, 2.75rem);
 		line-height: 1.05;
+		margin: 0;
 	}
 
-	.lead {
+	.intro-text {
 		color: var(--copy-muted);
-		font-size: clamp(1rem, 1.5vw, 1.15rem);
+		font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+		line-height: 1.5;
+		margin: 0;
 	}
 
-	.partners-container {
-		display: grid;
-		gap: 1.5rem;
-	}
-
-	.partners-tier {
-		display: grid;
-		gap: 0.75rem;
-	}
-
-	.partners-tier h3 {
-		font-size: 1rem;
-		color: rgb(255 205 130);
-	}
-
-	.partners-grid {
+	.logos-grid {
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-		gap: 1rem;
+		gap: 2rem;
+		align-items: center;
+		justify-items: center;
 	}
 
-	.partner-card {
-		display: grid;
-		place-items: center;
-		gap: 0.6rem;
-		padding: 1.2rem 0.8rem;
-		border: 1px solid rgb(var(--rgb-white) / 0.12);
-		border-radius: 0.85rem;
-		background: var(--shell-2);
-		text-decoration: none;
-		color: var(--copy-muted);
-		transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
-	}
-
-	.partner-card:hover {
-		transform: translateY(-4px);
-		border-color: rgb(var(--rgb-brand-blue) / 0.45);
-		box-shadow: 0 16px 24px rgb(var(--rgb-black) / 0.22);
-	}
-
-	.partner-logo {
-		display: grid;
-		width: 3.5rem;
-		height: 3.5rem;
-		place-items: center;
-		border-radius: 0.65rem;
-		background: rgb(var(--rgb-white) / 0.9);
-	}
-
-	.partner-logo img {
-		display: block;
-		width: 2.4rem;
-		height: 2.4rem;
-		object-fit: contain;
-	}
-
-	.partner-name {
-		font-size: 0.82rem;
-		font-weight: 600;
-		color: rgb(var(--rgb-text-bright-dark));
-		text-align: center;
-		word-break: break-word;
-	}
-
-	.no-partners {
-		color: var(--copy-muted);
-		font-size: 0.88rem;
-		font-style: italic;
+	.logo-link {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		height: 80px;
 		padding: 1rem;
+		border-radius: 0.65rem;
+		background: rgb(var(--rgb-white) / 0.05);
+		border: 1px solid rgb(var(--rgb-white) / 0.1);
+		transition: all 0.25s ease;
+		text-decoration: none;
+	}
+
+	.logo-link:hover {
+		background: rgb(var(--rgb-white) / 0.1);
+		border-color: rgb(var(--rgb-brand-blue) / 0.5);
+		transform: scale(1.05);
+	}
+
+	.logo-link img {
+		max-width: 100%;
+		max-height: 100%;
+		object-fit: contain;
+		width: auto;
+		height: auto;
+	}
+
+	.logo-placeholder {
+		color: var(--copy-muted);
+		font-size: 0.75rem;
+		font-weight: 600;
+		text-align: center;
 	}
 
 	.partners-cta {
 		display: grid;
-		gap: 0.6rem;
+		gap: 0.8rem;
 		margin-top: 1rem;
 		padding: 1.5rem;
 		border: 1px solid rgb(var(--rgb-white) / 0.12);
 		border-radius: 0.85rem;
 		background: var(--shell-2);
+		text-align: center;
 	}
 
 	.partners-cta h3 {
+		font-family: "Space Grotesk", "Manrope", sans-serif;
+		color: rgb(var(--rgb-text-bright-dark));
 		font-size: 1rem;
+		margin: 0;
 	}
 
 	.partners-cta p {
 		color: var(--copy-muted);
 		font-size: 0.88rem;
+		margin: 0;
+		line-height: 1.5;
 	}
 
 	.cta-button {
@@ -243,8 +185,8 @@
 		align-items: center;
 		gap: 0.4rem;
 		width: fit-content;
+		margin: 0 auto;
 		padding: 0.6rem 1rem;
-		margin-top: 0.5rem;
 		border-radius: 999px;
 		border: 1px solid rgb(var(--rgb-brand-blue) / 0.55);
 		background: rgb(var(--rgb-brand-blue));
@@ -284,50 +226,52 @@
 		color: rgb(18 37 63);
 	}
 
-	:global(html:not(.dark)) .partner-card,
+	:global(html:not(.dark)) .logo-link {
+		background: rgb(var(--rgb-white) / 0.7);
+		border-color: rgb(176 112 24 / 0.18);
+	}
+
+	:global(html:not(.dark)) .logo-link:hover {
+		background: rgb(var(--rgb-white) / 0.85);
+	}
+
 	:global(html:not(.dark)) .partners-cta {
 		border-color: rgb(176 112 24 / 0.18);
 		background: linear-gradient(150deg, rgb(var(--rgb-white) / 0.96), rgb(255 238 214 / 0.48));
-	}
-
-	:global(html:not(.dark)) .partner-logo {
-		background: rgb(var(--rgb-white) / 0.96);
-	}
-
-	:global(html:not(.dark)) .partner-name {
-		color: rgb(18 37 63);
 	}
 
 	:global(html:not(.dark)) .partners-cta p {
 		color: rgb(64 84 114);
 	}
 
+	@media (max-width: 900px) {
+		.logos-grid {
+			grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+			gap: 1.5rem;
+		}
+
+		.logo-link {
+			height: 70px;
+		}
+	}
+
 	@media (max-width: 640px) {
 		.section-panel {
 			padding: 1rem;
+			gap: 1.5rem;
 		}
 
-		.partners-grid {
+		.logos-grid {
 			grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-			gap: 0.75rem;
+			gap: 1rem;
 		}
 
-		.partner-card {
-			padding: 0.8rem 0.6rem;
+		.logo-link {
+			height: 60px;
 		}
 
-		.partner-logo {
-			width: 2.8rem;
-			height: 2.8rem;
-		}
-
-		.partner-logo img {
-			width: 1.8rem;
-			height: 1.8rem;
-		}
-
-		.partner-name {
-			font-size: 0.75rem;
+		.partners-header {
+			gap: 0.8rem;
 		}
 	}
 

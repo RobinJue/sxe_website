@@ -111,6 +111,7 @@ export type ResourceCategory = {
 export type PartnerItem = {
 	name: string;
 	url: string;
+	logo?: string;
 };
 
 export type PartnerTier = {
