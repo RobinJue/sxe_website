@@ -15,6 +15,7 @@
 		{ id: "uber-sxe", label: { de: "Über SxE", en: "About SxE" }, href: "/uber-sxe" },
 		{ id: "podcast", label: { de: "Podcast", en: "Podcast" }, href: "/podcast" },
 		{ id: "ressourcen", label: { de: "Ressourcen", en: "Resources" }, href: "/ressourcen" },
+		{ id: "partners", label: { de: "Partner", en: "Partners" }, href: "/partners" },
 		{ id: "kontakt", label: { de: "Kontakt", en: "Contact" }, href: "/kontakt" },
 		{ id: "faq", label: { de: "FAQ", en: "FAQ" }, href: "/faq" }
 	];
@@ -88,6 +89,7 @@
 		if (pathname === "/faq") return "faq";
 		if (pathname === "/podcast") return "podcast";
 		if (pathname === "/ressourcen") return "ressourcen";
+		if (pathname === "/partners") return "partners";
 		if (pathname === "/kontakt") return "kontakt";
 		return "";
 	}

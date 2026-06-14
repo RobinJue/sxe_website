@@ -108,6 +108,17 @@ export type ResourceCategory = {
 	items: ResourceItem[];
 };
 
+export type PartnerItem = {
+	name: string;
+	url: string;
+};
+
+export type PartnerTier = {
+	id: string;
+	name: LocalizedString;
+	items: PartnerItem[];
+};
+
 export type SocialLink = {
 	label: string;
 	url: string;
@@ -164,6 +175,16 @@ export type LandingContent = {
 		kicker: LocalizedString;
 		title: LocalizedString;
 		categories: ResourceCategory[];
+	};
+	partners: {
+		kicker: LocalizedString;
+		title: LocalizedString;
+		intro: LocalizedString;
+		tiers: PartnerTier[];
+		ctaTitle: LocalizedString;
+		ctaDescription: LocalizedString;
+		ctaButtonLabel: LocalizedString;
+		comingSoon: LocalizedString;
 	};
 	contact: {
 		kicker: LocalizedString;

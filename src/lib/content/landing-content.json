@@ -891,6 +891,84 @@
       }
     ]
   },
+  "partners": {
+    "kicker": {
+      "de": "Unterstützer",
+      "en": "Supporters"
+    },
+    "title": {
+      "de": "Unsere Partner und Unterstützer",
+      "en": "Our partners and supporters"
+    },
+    "intro": {
+      "de": "Diese Organisationen unterstützen SxE bei der Mission, Wissenschaftler beim Weg in die Gründung zu begleiten.",
+      "en": "These organizations support SxE in its mission to guide scientists on their entrepreneurial journey."
+    },
+    "tiers": [
+      {
+        "id": "gold",
+        "name": {
+          "de": "Gold Partner",
+          "en": "Gold Partners"
+        },
+        "items": []
+      },
+      {
+        "id": "silver",
+        "name": {
+          "de": "Silver Partner",
+          "en": "Silver Partners"
+        },
+        "items": [
+          {
+            "name": "OpenAI",
+            "url": "https://openai.com"
+          },
+          {
+            "name": "TUM Venture Labs",
+            "url": "https://www.tumventurelabs.de"
+          }
+        ]
+      },
+      {
+        "id": "bronze",
+        "name": {
+          "de": "Bronze Partner",
+          "en": "Bronze Partners"
+        },
+        "items": [
+          {
+            "name": "Atlantic Labs",
+            "url": "https://atlantic-labs.de"
+          },
+          {
+            "name": "Cherry Ventures",
+            "url": "https://cherry.vc"
+          },
+          {
+            "name": "UVC Partner",
+            "url": "https://uvcpartner.com"
+          }
+        ]
+      }
+    ],
+    "ctaTitle": {
+      "de": "Interesse an einer Partnerschaft?",
+      "en": "Interested in partnering with us?"
+    },
+    "ctaDescription": {
+      "de": "Kontaktieren Sie uns gerne, um mehr über Partnerschaften mit SxE zu erfahren und wie wir zusammen die nächste Generation von Deep-Tech-Gründern unterstützen können.",
+      "en": "Get in touch to learn more about partnering with SxE and how we can work together to support the next generation of deep-tech founders."
+    },
+    "ctaButtonLabel": {
+      "de": "Kontakt aufnehmen",
+      "en": "Get in touch"
+    },
+    "comingSoon": {
+      "de": "Weitere Partner folgen in Kürze.",
+      "en": "More partners coming soon."
+    }
+  },
   "contact": {
     "kicker": {
       "de": "Kontakt",

@@ -19,6 +19,8 @@ import type {
 	LandingNavItem,
 	LegalContent,
 	LocalizedString,
+	PartnerItem,
+	PartnerTier,
 	PodcastPageContent,
 	PodcastLink,
 	PodcastSettings,
@@ -176,6 +178,7 @@ function mapLandingContent(source: unknown): LandingContent {
 		podcast: mapPodcast(row.podcast),
 		faq,
 		resources: mapResources(row.resources),
+		partners: mapPartners(row.partners),
 		contact: mapContact(row.contact),
 		team: optionalRecord(row.team) ? mapTeam(row.team) : DEFAULT_TEAM,
 		footer: mapFooter(row.footer)
@@ -412,6 +415,39 @@ function mapResourceItem(row: UnknownRecord, context: string): ResourceItem {
 	return {
 		name: requiredString(row.name, `${context}.name`),
 		description: localizedString(row.description, `${context}.description`),
+		url: requiredString(row.url, `${context}.url`)
+	};
+}
+
+function mapPartners(value: unknown): LandingContent["partners"] {
+	const row = asRecord(value, "landing_content.partners");
+
+	return {
+		kicker: localizedString(row.kicker, "landing_content.partners.kicker"),
+		title: localizedString(row.title, "landing_content.partners.title"),
+		intro: localizedString(row.intro, "landing_content.partners.intro"),
+		tiers: list(row.tiers, "landing_content.partners.tiers").map(mapPartnerTier),
+		ctaTitle: localizedString(row.ctaTitle, "landing_content.partners.ctaTitle"),
+		ctaDescription: localizedString(row.ctaDescription, "landing_content.partners.ctaDescription"),
+		ctaButtonLabel: localizedString(row.ctaButtonLabel, "landing_content.partners.ctaButtonLabel"),
+		comingSoon: localizedString(row.comingSoon, "landing_content.partners.comingSoon")
+	};
+}
+
+function mapPartnerTier(row: UnknownRecord, index: number): PartnerTier {
+	return {
+		id: requiredString(row.id, `landing_content.partners.tiers[${index}].id`),
+		name: localizedString(row.name, `landing_content.partners.tiers[${index}].name`),
+		items: optionalList(row.items, `landing_content.partners.tiers[${index}].items`).map(
+			(item, itemIndex) =>
+				mapPartnerItem(item, `landing_content.partners.tiers[${index}].items[${itemIndex}]`)
+		)
+	};
+}
+
+function mapPartnerItem(row: UnknownRecord, context: string): PartnerItem {
+	return {
+		name: requiredString(row.name, `${context}.name`),
 		url: requiredString(row.url, `${context}.url`)
 	};
 }
