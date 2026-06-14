@@ -69,19 +69,19 @@
       "en": "The world needs scientists who dare to build."
     },
     "lead": {
-      "de": "Hunderttausende Forscher arbeiten unermüdlich daran, Wissenschaft voranzubringen. Doch zu viele Entdeckungen verlassen das Labor nie. Das wollen wir ändern.",
-      "en": "Hundreds of thousands of researchers are working tirelessly to advance science, but too many discoveries never leave the lab. We want to change that."
+      "de": "SxE ist die Community für Studienstiftungs-Stipendiaten, die Wissenschaft in Wirkung verwandeln wollen.",
+      "en": "SxE is the community for Studienstiftung scholarship holders who want to transform science into impact."
     },
     "primaryLabel": {
-      "de": "Entfache dein Potenzial",
-      "en": "Ignite your potential"
+      "de": "Mehr über SxE erfahren",
+      "en": "Learn more about SxE"
     },
-    "primaryHref": "#faq",
+    "primaryHref": "/ueber-sxe",
     "secondaryLabel": {
-      "de": "Mehr über SxE",
-      "en": "Learn about SxE"
+      "de": "FAQ",
+      "en": "FAQ"
     },
-    "secondaryHref": "#about",
+    "secondaryHref": "/faq",
     "stats": [
       {
         "value": "Science",
@@ -106,18 +106,48 @@
       }
     ]
   },
+  "socialProof": {
+    "number": "1.400",
+    "label": {
+      "de": "Stipendiaten. Wissenschaftler. Potenzielle Gründer.",
+      "en": "Scholarship holders. Scientists. Potential founders."
+    }
+  },
+  "testimonial": {
+    "quote": {
+      "de": "Die besten Wissenschaftler sollten nicht nur Papiere schreiben, sondern auch Unternehmen gründen. SxE zeigt ihnen, dass das möglich ist.",
+      "en": "The best scientists shouldn't just write papers—they should build companies. SxE shows them that's possible."
+    },
+    "author": "Nicholas Turley",
+    "title": {
+      "de": "Head of ChatGPT",
+      "en": "Head of ChatGPT"
+    },
+    "attribution": {
+      "de": "SxE Podcast Ep. 03",
+      "en": "SxE Podcast Ep. 03"
+    }
+  },
   "about": {
     "kicker": {
       "de": "Über SxE",
       "en": "About SxE"
     },
-    "title": {
-      "de": "Wissenschaft trifft unternehmerische Initiative.",
-      "en": "Science meets entrepreneurial initiative."
+    "heroStatement": {
+      "de": "SxE entstand aus der Überzeugung, dass Deutschland ein ungenutztes Potenzial an Wissenschaftler-Gründern verschwendet.",
+      "en": "SxE emerged from the conviction that Germany is wasting untapped potential in scientist founders."
     },
-    "body": {
-      "de": "Scientists x Entrepreneurship ist eine ehrenamtliche Initiative, die Wissenschaftler ermutigt, mehr Deep-Tech-Startups zu gründen. Wir glauben, dass Deutschland und Europa ein ungenutztes Potenzial an wissenschaftlichem Talent haben, um Innovation, Wettbewerbsfähigkeit und Wohlstand zu stärken. Viele von uns wurden durch ein Stipendium der Studienstiftung des deutschen Volkes unterstützt.\n\nSxE ist eine unabhängige ehrenamtliche Initiative.",
-      "en": "Scientists x Entrepreneurship is a volunteer-led initiative that encourages scientists to create more deep-tech startups. We believe Germany and Europe have untapped scientific talent that can strengthen innovation, competitiveness and prosperity. Many of us have been supported with a stipend by the Studienstiftung des deutschen Volkes.\n\nSxE is an independent volunteer initiative."
+    "story": {
+      "de": "SxE wurde Ende April 2025 von drei Stipendiaten der Studienstiftung des deutschen Volkes gegründet. Ausgangspunkt war die Frustration über die fehlende Gründungskultur in der Studienstiftung und an deutschen Universitäten insgesamt. Was als ehrenamtliches Projekt begann, ist heute eine Bewegung: In weniger als 14 Monaten sind wir auf knapp 1.400 Mitglieder angewachsen – ein starkes Signal für die Nachfrage.",
+      "en": "SxE was founded at the end of April 2025 by three scholars of the Studienstiftung des deutschen Volkes. The starting point was frustration about the lack of founding culture in the Studienstiftung and at German universities more broadly. What began as a volunteer project has become a movement: in less than 14 months, we have grown to almost 1,400 members – a strong signal of demand."
+    },
+    "mission": {
+      "de": "Wir sind Stipendiaten der Studienstiftung und haben selbst erlebt, wie wenig Gründungskultur in unseren Kreisen existiert. Deutschland und Europa verfügen über weltklasse-Talente in der Wissenschaft – doch zu viele dieser Entdeckungen verlassen das Labor nie. SxE existiert, um das zu ändern. Von innen heraus, aus der Community der Stipendiaten.",
+      "en": "We are Studienstiftung scholars ourselves and have experienced firsthand how little founding culture exists in our circles. Germany and Europe have world-class scientific talent – yet too many of these discoveries never leave the lab. SxE exists to change that. From within, from the community of scholars."
+    },
+    "teamLabel": {
+      "de": "Alle Mitglieder unseres Teams sind Stipendiaten der Studienstiftung des deutschen Volkes.",
+      "en": "All members of our team are scholars of the Studienstiftung des deutschen Volkes."
     },
     "features": [
       {
