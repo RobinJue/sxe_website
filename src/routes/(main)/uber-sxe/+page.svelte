@@ -52,7 +52,7 @@
 <section class="panel content-section story-section reveal" aria-labelledby="story-title">
 	<div class="section-content">
 		<div class="section-icon" aria-hidden="true">
-			<BookOpen size={28} strokeWidth={1.5} />
+			<BookOpen strokeWidth={1.5} />
 		</div>
 		<div class="section-body">
 			<div class="section-header">
@@ -67,7 +67,7 @@
 <section class="panel content-section mission-section reveal" aria-labelledby="mission-title">
 	<div class="section-content">
 		<div class="section-icon" aria-hidden="true">
-			<Target size={28} strokeWidth={1.5} />
+			<Target strokeWidth={1.5} />
 		</div>
 		<div class="section-body">
 			<div class="section-header">
@@ -192,7 +192,7 @@
 	.section-content {
 		display: flex;
 		gap: clamp(1.5rem, 3vw, 2.5rem);
-		align-items: flex-start;
+		align-items: center;
 	}
 
 	.section-icon {
@@ -201,7 +201,13 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		margin-top: clamp(0.25rem, 1vw, 0.5rem);
+		width: clamp(4rem, 8vw, 6rem);
+		height: clamp(4rem, 8vw, 6rem);
+	}
+
+	.section-icon :global(svg) {
+		width: 100%;
+		height: 100%;
 	}
 
 	.section-body {
