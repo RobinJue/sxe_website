@@ -27,9 +27,12 @@
 	const content = $derived(data.content);
 	const landing = $derived(content.landing);
 
-	// Flatten all partners from all tiers
-	const allPartners = $derived(
-		landing.partners.tiers.flatMap((tier) => tier.items)
+	// Get partners by tier
+	const silverPartners = $derived(
+		landing.partners.tiers.find((t) => t.id === "silver")?.items || []
+	);
+	const bronzePartners = $derived(
+		landing.partners.tiers.find((t) => t.id === "bronze")?.items || []
 	);
 </script>
 
@@ -37,29 +40,72 @@
 	<title>{t(landing.partners.title)}</title>
 </svelte:head>
 
-<section class="panel section-panel reveal" aria-labelledby="partners-title">
-	<div class="partners-header">
-		<h2 id="partners-title">{t(landing.partners.title)}</h2>
-		<p class="intro-text">{t(landing.partners.intro)}</p>
-	</div>
+<div class="partners-page">
+	{#if silverPartners.length > 0}
+		<section class="partner-block" aria-labelledby="silver-title">
+			<div class="block-content">
+				<div class="block-text">
+					<h2 id="silver-title">{t(landing.partners.title)}</h2>
+					<p class="block-description">{t(landing.partners.intro)}</p>
+				</div>
+				<div class="block-logos">
+					{#each silverPartners as partner (partner.name)}
+						<a
+							class="logo-item"
+							href={partner.url}
+							target="_blank"
+							rel="noopener noreferrer"
+							aria-label={`Visit ${partner.name}`}
+							title={partner.name}
+						>
+							{#if partner.logo}
+								<img src={partner.logo} alt={partner.name} loading="lazy" decoding="async" />
+							{:else}
+								<span class="logo-fallback">{partner.name}</span>
+							{/if}
+						</a>
+					{/each}
+				</div>
+			</div>
+		</section>
+	{/if}
 
-	<div class="logos-grid">
-		{#each allPartners as partner (partner.name)}
-			<a
-				class="logo-link"
-				href={partner.url}
-				target="_blank"
-				rel="noopener noreferrer"
-				aria-label={`Visit ${partner.name}`}
-			>
-				{#if partner.logo}
-					<img src={partner.logo} alt={partner.name} loading="lazy" decoding="async" />
-				{:else}
-					<span class="logo-placeholder">{partner.name}</span>
-				{/if}
-			</a>
-		{/each}
-	</div>
+	{#if bronzePartners.length > 0}
+		<section class="partner-block" aria-labelledby="bronze-title">
+			<div class="block-content">
+				<div class="block-text">
+					<h2 id="bronze-title">
+						{language === "de"
+							? "Wir führen Workshops durch"
+							: "We conduct workshops"}
+					</h2>
+					<p class="block-description">
+						{language === "de"
+							? "Mit praktischen Formaten unterstützen wir Wissenschaftler bei ihren ersten Schritten in Richtung Gründung."
+							: "Through practical formats, we support scientists in their first steps towards entrepreneurship."}
+					</p>
+				</div>
+				<div class="block-logos">
+					{#each bronzePartners as partner (partner.name)}
+						<a
+							class="logo-item"
+							href={partner.url}
+							target="_blank"
+							rel="noopener noreferrer"
+							aria-label={`Visit ${partner.name}`}
+							title={partner.name}
+						>
+							{#if partner.logo}
+								<img src={partner.logo} alt={partner.name} loading="lazy" decoding="async" />
+							{:else}
+								<span class="logo-fallback">{partner.name}</span>
+							{/if}
+						</a>
+					{/each}
+				</div>
+			</div>
+		</section>
+	{/if}
 
 	<section class="partners-cta" aria-labelledby="partnership-cta">
 		<h3 id="partnership-cta">{t(landing.partners.ctaTitle)}</h3>
@@ -68,10 +114,15 @@
 			<Mail size={14} /> {t(landing.partners.ctaButtonLabel)}
 		</a>
 	</section>
-</section>
+</div>
 
 <style>
-	.panel {
+	.partners-page {
+		display: grid;
+		gap: 2rem;
+	}
+
+	.partner-block {
 		width: 100%;
 		border: 1px solid var(--line-soft);
 		border-radius: 0.9rem;
@@ -81,103 +132,104 @@
 		box-shadow:
 			0 24px 50px rgb(var(--rgb-black) / 0.24),
 			inset 0 1px 0 rgb(var(--rgb-white) / 0.1);
+		padding: clamp(1.5rem, 3vw, 2.5rem);
 	}
 
-	.section-panel {
+	.block-content {
 		display: grid;
-		gap: 2.5rem;
-		padding: clamp(1.1rem, 3vw, 2rem);
+		grid-template-columns: 1fr 1fr;
+		gap: clamp(2rem, 5vw, 4rem);
+		align-items: center;
 	}
 
-	.partners-header {
+	.block-text {
 		display: grid;
 		gap: 1rem;
-		text-align: center;
-		max-width: 600px;
-		margin: 0 auto;
 	}
 
 	h2 {
 		font-family: "Space Grotesk", "Manrope", sans-serif;
 		color: rgb(var(--rgb-text-bright-dark));
-		font-size: clamp(1.65rem, 3vw, 2.75rem);
-		line-height: 1.05;
+		font-size: clamp(1.5rem, 2.5vw, 2rem);
+		line-height: 1.1;
 		margin: 0;
 	}
 
-	.intro-text {
+	.block-description {
 		color: var(--copy-muted);
-		font-size: clamp(0.95rem, 1.5vw, 1.1rem);
-		line-height: 1.5;
+		font-size: clamp(0.95rem, 1.2vw, 1.05rem);
+		line-height: 1.6;
 		margin: 0;
 	}
 
-	.logos-grid {
+	.block-logos {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-		gap: 2rem;
+		grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+		gap: 1.5rem;
 		align-items: center;
 		justify-items: center;
 	}
 
-	.logo-link {
+	.logo-item {
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		width: 100%;
-		height: 80px;
-		padding: 1rem;
+		aspect-ratio: 1;
+		padding: 0.8rem;
 		border-radius: 0.65rem;
 		background: rgb(var(--rgb-white) / 0.05);
 		border: 1px solid rgb(var(--rgb-white) / 0.1);
 		transition: all 0.25s ease;
 		text-decoration: none;
+		cursor: pointer;
 	}
 
-	.logo-link:hover {
-		background: rgb(var(--rgb-white) / 0.1);
-		border-color: rgb(var(--rgb-brand-blue) / 0.5);
-		transform: scale(1.05);
+	.logo-item:hover {
+		background: rgb(var(--rgb-white) / 0.12);
+		border-color: rgb(var(--rgb-brand-blue) / 0.6);
+		transform: scale(1.08);
 	}
 
-	.logo-link img {
-		max-width: 100%;
-		max-height: 100%;
+	.logo-item img {
+		max-width: 90%;
+		max-height: 90%;
 		object-fit: contain;
 		width: auto;
 		height: auto;
 	}
 
-	.logo-placeholder {
+	.logo-fallback {
 		color: var(--copy-muted);
-		font-size: 0.75rem;
+		font-size: 0.7rem;
 		font-weight: 600;
 		text-align: center;
+		word-break: break-word;
 	}
 
 	.partners-cta {
-		display: grid;
-		gap: 0.8rem;
-		margin-top: 1rem;
-		padding: 1.5rem;
+		width: 100%;
 		border: 1px solid rgb(var(--rgb-white) / 0.12);
 		border-radius: 0.85rem;
 		background: var(--shell-2);
+		padding: 2rem;
+		display: grid;
+		gap: 1rem;
 		text-align: center;
 	}
 
 	.partners-cta h3 {
 		font-family: "Space Grotesk", "Manrope", sans-serif;
 		color: rgb(var(--rgb-text-bright-dark));
-		font-size: 1rem;
+		font-size: 1.2rem;
 		margin: 0;
 	}
 
 	.partners-cta p {
 		color: var(--copy-muted);
-		font-size: 0.88rem;
+		font-size: 0.9rem;
 		margin: 0;
-		line-height: 1.5;
+		line-height: 1.6;
 	}
 
 	.cta-button {
@@ -186,7 +238,7 @@
 		gap: 0.4rem;
 		width: fit-content;
 		margin: 0 auto;
-		padding: 0.6rem 1rem;
+		padding: 0.7rem 1.2rem;
 		border-radius: 999px;
 		border: 1px solid rgb(var(--rgb-brand-blue) / 0.55);
 		background: rgb(var(--rgb-brand-blue));
@@ -199,40 +251,31 @@
 	}
 
 	.cta-button:hover {
-		transform: translateY(-1px);
+		transform: translateY(-2px);
 	}
 
-	.reveal {
-		opacity: 0;
-		transform: translateY(18px);
-		animation: reveal-up 640ms cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
-	}
-
-	@keyframes reveal-up {
-		to {
-			opacity: 1;
-			transform: translateY(0);
-		}
-	}
-
-	:global(html:not(.dark)) .panel {
+	:global(html:not(.dark)) .partner-block {
 		background:
 			linear-gradient(150deg, rgb(var(--rgb-white) / 0.97), rgb(238 246 255 / 0.5)),
 			rgb(var(--rgb-white));
 	}
 
-	:global(html:not(.dark)) h2,
-	:global(html:not(.dark)) h3 {
+	:global(html:not(.dark)) h2 {
 		color: rgb(18 37 63);
 	}
 
-	:global(html:not(.dark)) .logo-link {
-		background: rgb(var(--rgb-white) / 0.7);
+	:global(html:not(.dark)) .block-description {
+		color: rgb(64 84 114);
+	}
+
+	:global(html:not(.dark)) .logo-item {
+		background: rgb(var(--rgb-white) / 0.8);
 		border-color: rgb(176 112 24 / 0.18);
 	}
 
-	:global(html:not(.dark)) .logo-link:hover {
-		background: rgb(var(--rgb-white) / 0.85);
+	:global(html:not(.dark)) .logo-item:hover {
+		background: rgb(var(--rgb-white) / 0.95);
+		border-color: rgb(var(--rgb-brand-blue) / 0.5);
 	}
 
 	:global(html:not(.dark)) .partners-cta {
@@ -240,38 +283,39 @@
 		background: linear-gradient(150deg, rgb(var(--rgb-white) / 0.96), rgb(255 238 214 / 0.48));
 	}
 
+	:global(html:not(.dark)) .partners-cta h3,
 	:global(html:not(.dark)) .partners-cta p {
-		color: rgb(64 84 114);
+		color: rgb(18 37 63);
 	}
 
 	@media (max-width: 900px) {
-		.logos-grid {
-			grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+		.block-content {
+			grid-template-columns: 1fr;
 			gap: 1.5rem;
 		}
 
-		.logo-link {
-			height: 70px;
+		.block-logos {
+			grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+			gap: 1rem;
 		}
 	}
 
 	@media (max-width: 640px) {
-		.section-panel {
-			padding: 1rem;
-			gap: 1.5rem;
+		.partner-block {
+			padding: 1.2rem;
 		}
 
-		.logos-grid {
-			grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-			gap: 1rem;
+		h2 {
+			font-size: 1.3rem;
 		}
 
-		.logo-link {
-			height: 60px;
-		}
-
-		.partners-header {
+		.block-logos {
+			grid-template-columns: repeat(3, 1fr);
 			gap: 0.8rem;
+		}
+
+		.logo-item {
+			padding: 0.5rem;
 		}
 	}
 

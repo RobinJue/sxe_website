@@ -513,7 +513,8 @@ function mapTeamMember(row: UnknownRecord, context: string): TeamMember {
 		id: requiredString(row.id, `${context}.id`),
 		name: requiredString(row.name, `${context}.name`),
 		role: localizedString(row.role, `${context}.role`),
-		linkedinUrl: requiredString(row.linkedinUrl, `${context}.linkedinUrl`)
+		linkedinUrl: requiredString(row.linkedinUrl, `${context}.linkedinUrl`),
+		photo: optionalString(row.photo)
 	};
 }
 
