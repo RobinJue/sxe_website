@@ -113,12 +113,7 @@
 <section class="panel section-panel reveal" aria-labelledby="about-title">
 	<div class="section-head">
 		<p class="kicker"><Users size={14} strokeWidth={2.2} /> {t(landing.about.kicker)}</p>
-		<h2 id="about-title">{t(landing.about.title)}</h2>
-		<div class="lead rich-text">
-			{#each t(landing.about.body).split("\n\n") as paragraph}
-				<p>{paragraph}</p>
-			{/each}
-		</div>
+		<h2 id="about-title">{t(landing.about.heroStatement)}</h2>
 	</div>
 	<div class="card-grid three">
 		{#each landing.about.features as feature (t(feature.title))}
@@ -238,11 +233,6 @@
 	.lead {
 		max-width: 66ch;
 		font-size: clamp(1rem, 1.5vw, 1.15rem);
-	}
-
-	.rich-text {
-		display: grid;
-		gap: 0.7rem;
 	}
 
 	.hero-actions {

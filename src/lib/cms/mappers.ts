@@ -194,8 +194,8 @@ function mapLandingContent(source: unknown): LandingContent {
 		),
 		nav: nav.length > 0 ? nav.map(mapNavItem) : DEFAULT_NAV,
 		hero: mapHero(row.hero),
-		...(optionalRecord(row.socialProof) && { socialProof: mapSocialProof(row.socialProof) }),
-		...(optionalRecord(row.testimonial) && { testimonial: mapTestimonial(row.testimonial) }),
+		...(optionalRecord(row.socialProof) ? { socialProof: mapSocialProof(row.socialProof) } : {}),
+		...(optionalRecord(row.testimonial) ? { testimonial: mapTestimonial(row.testimonial) } : {}),
 		about: mapAbout(row.about),
 		infographics: mapInfographics(row.infographics),
 		podcast: mapPodcast(row.podcast),
@@ -276,11 +276,11 @@ function mapAbout(value: unknown): LandingContent["about"] {
 		story: localizedString(row.story, "landing_content.about.story"),
 		mission: localizedString(row.mission, "landing_content.about.mission"),
 		teamLabel: localizedString(row.teamLabel, "landing_content.about.teamLabel"),
-		...(row.title && { title: localizedString(row.title, "landing_content.about.title") }),
-		...(row.body && { body: localizedString(row.body, "landing_content.about.body") }),
-		...(row.features && { features: list(row.features, "landing_content.about.features").map((feature, index) =>
+		...(row.title ? { title: localizedString(row.title, "landing_content.about.title") } : {}),
+		...(row.body ? { body: localizedString(row.body, "landing_content.about.body") } : {}),
+		...(row.features ? { features: list(row.features, "landing_content.about.features").map((feature, index) =>
 			mapFeature(feature, `landing_content.about.features[${index}]`)
-		) })
+		) } : {})
 	};
 }
 
