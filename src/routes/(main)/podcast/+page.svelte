@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { ArrowLeft, ArrowRight, ExternalLink, Search } from "lucide-svelte";
+	import { ArrowRight, ExternalLink, Search } from "lucide-svelte";
 	import { onMount } from "svelte";
 	import type { LanguageCode, LocalizedString, PodcastEpisode } from "$lib/cms/types";
 	import type { PageData } from "./$types";
@@ -130,8 +130,6 @@
 	<div class="ambient" aria-hidden="true"></div>
 
 	<main class="podcast-main">
-		<a class="back-link" href="/"><ArrowLeft size={16} /> {t(podcast.backLinkLabel)}</a>
-
 		<section class="hero-panel">
 			<div class="hero-copy">
 				<p class="kicker">{t(podcast.kicker)}</p>
@@ -284,7 +282,6 @@
 		margin-inline: auto;
 	}
 
-	.back-link,
 	.platform-list a,
 	.episode-card a {
 		color: inherit;
@@ -295,15 +292,6 @@
 		display: grid;
 		gap: 1rem;
 		padding: 0.5rem 0 2rem;
-	}
-
-	.back-link {
-		display: inline-flex;
-		align-items: center;
-		gap: 0.45rem;
-		width: fit-content;
-		color: rgb(197 211 234);
-		font-weight: 800;
 	}
 
 	.hero-panel,
@@ -568,7 +556,6 @@
 			radial-gradient(circle at 86% 14%, rgb(88 105 128 / 0.06), transparent 34%);
 	}
 
-	:global(html:not(.dark)) .back-link,
 	:global(html:not(.dark)) p,
 	:global(html:not(.dark)) .search-box,
 	:global(html:not(.dark)) .newsletter-panel label {
