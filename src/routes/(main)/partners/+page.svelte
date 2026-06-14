@@ -100,7 +100,10 @@
 	<section class="partners-cta" aria-labelledby="partnership-cta">
 		<h3 id="partnership-cta">{t(landing.partners.ctaTitle)}</h3>
 		<p>{t(landing.partners.ctaDescription)}</p>
-		<a href="/kontakt" class="cta-button">
+		<a
+			href="mailto:robin.juengerich@icloud.com?subject=SxE%20Partnership%20request"
+			class="cta-button"
+		>
 			<Mail size={14} /> {t(landing.partners.ctaButtonLabel)}
 		</a>
 	</section>

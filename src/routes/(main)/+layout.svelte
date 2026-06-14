@@ -223,24 +223,6 @@
 			<div class="footer-links">
 				<a href="/impressum">{language === "de" ? "Impressum" : "Imprint"}</a>
 				<a href="/impressum#datenschutz">{language === "de" ? "Datenschutz" : "Privacy"}</a>
-				<div class="language-toggle footer-language" aria-label="Language">
-					<button
-						type="button"
-						class:active={language === "de"}
-						onclick={() => setLanguage("de")}
-						aria-pressed={language === "de"}
-					>
-						DE
-					</button>
-					<button
-						type="button"
-						class:active={language === "en"}
-						onclick={() => setLanguage("en")}
-						aria-pressed={language === "en"}
-					>
-						EN
-					</button>
-				</div>
 			</div>
 		</div>
 		<p class="footer-end">© {new Date().getFullYear()} Science x Entrepreneurship</p>
