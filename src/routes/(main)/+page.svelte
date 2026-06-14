@@ -89,7 +89,7 @@
 		</h2>
 		<div class="carousel-container">
 			<div class="carousel-scroll">
-				{#each [...allPartners, ...allPartners, ...allPartners] as partner, idx (partner.name + "_" + idx)}
+				{#each allPartners as partner (partner.name)}
 					<a
 						class="carousel-item"
 						href={partner.url}
@@ -377,7 +377,7 @@
 			transform: translateX(0);
 		}
 		100% {
-			transform: translateX(calc(-200% - 4rem));
+			transform: translateX(calc(-100% - 2rem));
 		}
 	}
 
@@ -388,6 +388,8 @@
 		gap: 2.5rem;
 		align-items: center;
 		padding: clamp(2.5rem, 5vw, 4rem);
+		max-width: 100%;
+		overflow: hidden;
 	}
 
 	.testimonial-content {
@@ -430,7 +432,7 @@
 	}
 	.testimonial-image {
 		width: 100%;
-		max-width: 350px;
+		max-width: 100%;
 		height: auto;
 		border-radius: 0.9rem;
 		object-fit: cover;
