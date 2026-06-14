@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { BookOpen } from "lucide-svelte";
+	import { BookOpen, Linkedin } from "lucide-svelte";
 	import type { PageData } from "./$types";
 
 	let { data } = $props<{ data: PageData }>();
@@ -95,6 +95,31 @@
 	</div>
 </section>
 
+
+	<section class="panel section-panel reveal" aria-labelledby="team-title">
+		<div class="section-head">
+			<p class="kicker"><BookOpen size={14} strokeWidth={2.2} /> {t(landing.team.kicker)}</p>
+			<h2 id="team-title">{t(landing.team.title)}</h2>
+			<p class="lead">{t(landing.team.lead)}</p>
+		</div>
+		<div class="team-grid">
+			{#each landing.team.members as member (member.id)}
+				<div class="team-card">
+					<div class="member-avatar">
+						{member.name
+							.split(" ")
+							.map((n) => n[0])
+							.join("")}
+					</div>
+					<h3 class="member-name">{member.name}</h3>
+					<p class="member-role">{t(member.role)}</p>
+					<a class="member-linkedin" href={member.linkedinUrl} target="_blank" rel="noopener noreferrer" aria-label={`${member.name} on LinkedIn`}>
+						<Linkedin size={18} />
+					</a>
+				</div>
+			{/each}
+		</div>
+	</section>
 <style>
 	.panel {
 		width: 100%;
@@ -363,6 +388,99 @@
 			animation: none !important;
 			transition: none !important;
 			scroll-behavior: auto !important;
+		}
+	}
+
+	.team-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+		gap: 1.5rem;
+		margin-top: 1rem;
+	}
+
+	.team-card {
+		display: grid;
+		place-items: center;
+		gap: 0.8rem;
+		padding: 1.5rem 1rem;
+		border: 1px solid rgb(var(--rgb-white) / 0.12);
+		border-radius: 0.85rem;
+		background: var(--shell-2);
+		text-align: center;
+		transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+	}
+
+	.team-card:hover {
+		transform: translateY(-4px);
+		border-color: rgb(var(--rgb-brand-blue) / 0.45);
+		box-shadow: 0 16px 24px rgb(var(--rgb-black) / 0.22);
+	}
+
+	.member-avatar {
+		display: grid;
+		place-items: center;
+		width: 4.5rem;
+		height: 4.5rem;
+		border-radius: 50%;
+		background: linear-gradient(135deg, rgb(var(--rgb-brand-blue) / 0.9), rgb(255 205 130 / 0.7));
+		color: rgb(22 22 18);
+		font-weight: 800;
+		font-size: 1.4rem;
+	}
+
+	.member-name {
+		font-size: 1rem;
+		font-weight: 700;
+		color: rgb(var(--rgb-text-bright-dark));
+		margin: 0;
+	}
+
+	.member-role {
+		font-size: 0.82rem;
+		color: var(--copy-muted);
+		margin: 0;
+		line-height: 1.3;
+	}
+
+	.member-linkedin {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 2.2rem;
+		height: 2.2rem;
+		border-radius: 50%;
+		background: rgb(0 119 181 / 0.15);
+		color: rgb(0 119 181);
+		transition: background 0.25s ease, transform 0.25s ease;
+		text-decoration: none;
+	}
+
+	.member-linkedin:hover {
+		background: rgb(0 119 181 / 0.25);
+		transform: scale(1.1);
+	}
+
+	:global(html:not(.dark)) .team-card {
+		border-color: rgb(176 112 24 / 0.18);
+		background: linear-gradient(150deg, rgb(var(--rgb-white) / 0.96), rgb(255 238 214 / 0.48));
+	}
+
+	:global(html:not(.dark)) .member-avatar {
+		background: linear-gradient(135deg, rgb(var(--rgb-brand-blue) / 0.8), rgb(255 205 130 / 0.6));
+		color: rgb(18 37 63);
+	}
+
+	:global(html:not(.dark)) .member-name {
+		color: rgb(18 37 63);
+	}
+
+	:global(html:not(.dark)) .member-role {
+		color: rgb(64 84 114);
+	}
+
+	@media (max-width: 900px) {
+		.team-grid {
+			grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
 		}
 	}
 </style>

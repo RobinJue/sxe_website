@@ -119,6 +119,13 @@ export type PartnerTier = {
 	items: PartnerItem[];
 };
 
+export type TeamMember = {
+	id: string;
+	name: string;
+	role: LocalizedString;
+	linkedinUrl: string;
+};
+
 export type SocialLink = {
 	label: string;
 	url: string;
@@ -208,7 +215,7 @@ export type LandingContent = {
 		kicker: LocalizedString;
 		title: LocalizedString;
 		lead: LocalizedString;
-		items: LandingFeature[];
+		members: TeamMember[];
 	};
 	footer: {
 		description: LocalizedString;

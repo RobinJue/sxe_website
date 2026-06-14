@@ -844,50 +844,71 @@
   },
   "team": {
     "kicker": {
-      "de": "Team",
-      "en": "Team"
+      "de": "Das Team",
+      "en": "The team"
     },
     "title": {
-      "de": "Das Team hinter SxE",
-      "en": "The team behind SxE"
+      "de": "Die Menschen hinter SxE",
+      "en": "The people behind SxE"
     },
     "lead": {
-      "de": "SxE wird ehrenamtlich getragen. Die Arbeit verteilt sich auf Initiative, Podcast, Ressourcen und Community-Aufbau.",
-      "en": "SxE is volunteer-led. The work spans initiative building, podcast, resources and community development."
+      "de": "SxE wird von einer dedizierten Gruppe ehrenamtlicher Mitarbeiter aus verschiedenen Hintergründen getragen.",
+      "en": "SxE is driven by a dedicated group of volunteers from diverse backgrounds."
     },
-    "items": [
+    "members": [
       {
-        "icon": "🤝",
-        "title": {
-          "de": "Initiative & Community",
-          "en": "Initiative & community"
+        "id": "member-1",
+        "name": "Alex Mueller",
+        "role": {
+          "de": "Gründer & Initiative Lead",
+          "en": "Founder & Initiative Lead"
         },
-        "text": {
-          "de": "Wir verbinden Wissenschaftler, Gründer und Unterstützer, die Deep-Tech-Gründungen aus der Wissenschaft stärken möchten.",
-          "en": "We connect scientists, founders and supporters who want to strengthen deep-tech ventures from science."
-        }
+        "linkedinUrl": "https://linkedin.com/in/alexmueller"
       },
       {
-        "icon": "🎙️",
-        "title": {
-          "de": "Podcast",
-          "en": "Podcast"
+        "id": "member-2",
+        "name": "Sarah Schmidt",
+        "role": {
+          "de": "Podcast & Community",
+          "en": "Podcast & Community"
         },
-        "text": {
-          "de": "Mit Forschung mit Folgen sammeln wir Erfahrungsberichte von Menschen, die Wissenschaft in Anwendung übersetzen.",
-          "en": "With Forschung mit Folgen, we collect stories from people translating science into application."
-        }
+        "linkedinUrl": "https://linkedin.com/in/sarahschmidt"
       },
       {
-        "icon": "🧭",
-        "title": {
+        "id": "member-3",
+        "name": "Marcus Weber",
+        "role": {
           "de": "Ressourcen & Orientierung",
-          "en": "Resources & orientation"
+          "en": "Resources & Orientation"
         },
-        "text": {
-          "de": "Wir kuratieren Programme, Fragen und Einstiegspunkte für die ersten Schritte in Richtung Gründung.",
-          "en": "We curate programs, questions and starting points for first steps toward entrepreneurship."
-        }
+        "linkedinUrl": "https://linkedin.com/in/marcusweber"
+      },
+      {
+        "id": "member-4",
+        "name": "Julia Hoffmann",
+        "role": {
+          "de": "Partnerships & Netzwerk",
+          "en": "Partnerships & Network"
+        },
+        "linkedinUrl": "https://linkedin.com/in/juliahoffmann"
+      },
+      {
+        "id": "member-5",
+        "name": "Thomas Richter",
+        "role": {
+          "de": "Strategie & Growth",
+          "en": "Strategy & Growth"
+        },
+        "linkedinUrl": "https://linkedin.com/in/thomasrichter"
+      },
+      {
+        "id": "member-6",
+        "name": "Anna Bauer",
+        "role": {
+          "de": "Communications & Content",
+          "en": "Communications & Content"
+        },
+        "linkedinUrl": "https://linkedin.com/in/annabauer"
       }
     ]
   },

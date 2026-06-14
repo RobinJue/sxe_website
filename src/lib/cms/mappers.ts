@@ -26,7 +26,8 @@ import type {
 	PodcastSettings,
 	ResourceCategory,
 	ResourceItem,
-	SocialLink
+	SocialLink,
+	TeamMember
 } from "./types";
 
 const MIN_FAQ_GROUP_SIZE = 4;
@@ -45,10 +46,10 @@ const DEFAULT_NAV: LandingNavItem[] = [
 	{ id: "contact", label: { de: "Kontakt", en: "Contact" } }
 ];
 const DEFAULT_TEAM: LandingContent["team"] = {
-	kicker: { de: "Team", en: "Team" },
-	title: { de: "Das Team hinter SxE", en: "The team behind SxE" },
+	kicker: { de: "Das Team", en: "The team" },
+	title: { de: "Die Menschen hinter SxE", en: "The people behind SxE" },
 	lead: { de: "", en: "" },
-	items: []
+	members: []
 };
 
 export function mapHomeContent(source: {
@@ -500,9 +501,18 @@ function mapTeam(value: unknown): LandingContent["team"] {
 		kicker: localizedString(row.kicker, "landing_content.team.kicker"),
 		title: localizedString(row.title, "landing_content.team.title"),
 		lead: localizedString(row.lead, "landing_content.team.lead"),
-		items: list(row.items, "landing_content.team.items").map((item, index) =>
-			mapFeature(item, `landing_content.team.items[${index}]`)
+		members: list(row.members, "landing_content.team.members").map((member, index) =>
+			mapTeamMember(member, `landing_content.team.members[${index}]`)
 		)
+	};
+}
+
+function mapTeamMember(row: UnknownRecord, context: string): TeamMember {
+	return {
+		id: requiredString(row.id, `${context}.id`),
+		name: requiredString(row.name, `${context}.name`),
+		role: localizedString(row.role, `${context}.role`),
+		linkedinUrl: requiredString(row.linkedinUrl, `${context}.linkedinUrl`)
 	};
 }
 
