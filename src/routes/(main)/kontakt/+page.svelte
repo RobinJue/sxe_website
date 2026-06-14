@@ -49,7 +49,7 @@
 		<p class="kicker"><Mail size={14} strokeWidth={2.2} /> {t(landing.contact.kicker)}</p>
 		<h2 id="contact-title">{t(landing.contact.title)}</h2>
 		<p class="lead">{t(landing.contact.lead)}</p>
-		<a href={landing.contact.emailHref}} class="email-link">{landing.contact.emailLabelText}</a>
+		<a href={landing.contact.emailHref} class="email-link">{landing.contact.emailLabelText}</a>
 	</div>
 
 	<div class="contact-content">

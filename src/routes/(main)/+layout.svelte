@@ -498,10 +498,6 @@
 		align-items: center;
 	}
 
-	.footer-language {
-		margin-inline: 0.2rem;
-	}
-
 	.footer-end {
 		width: min(1140px, calc(100% - 2.5rem));
 		margin: 1rem auto 0;
