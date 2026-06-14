@@ -1,9 +1,11 @@
 <script lang="ts">
+	import { Linkedin } from "lucide-svelte";
 	import type { PageData } from "./$types";
 
 	let { data } = $props<{ data: PageData }>();
 
 	let language = $state<"de" | "en">("de");
+	let flipped = $state<Record<string, boolean>>({});
 
 	function t(value: { de: string; en: string }): string {
 		return value[language];
@@ -19,6 +21,10 @@
 		} catch {
 			return "de";
 		}
+	}
+
+	function toggleFlip(memberId: string) {
+		flipped[memberId] = !flipped[memberId];
 	}
 
 	$effect(() => {
@@ -66,29 +72,47 @@
 	</div>
 	<div class="team-grid">
 		{#each landing.team.members as member (member.id)}
-			<article class="team-card">
-				<div class="card-image">
-					{#if member.photo}
-						<img src={member.photo} alt={member.name} decoding="async" loading="lazy" />
-					{:else}
-						<div class="photo-placeholder">
-							{member.name
-								.split(" ")
-								.map((n) => n[0])
-								.join("")}
+			<div class="team-card-wrapper">
+				<div class={`team-card ${flipped[member.id] ? 'flipped' : ''}`}>
+					<!-- Front side -->
+					<div class="card-front" onclick={() => toggleFlip(member.id)}>
+						<div class="card-image">
+							{#if member.photo}
+								<img src={member.photo} alt={member.name} decoding="async" loading="lazy" />
+							{:else}
+								<div class="photo-placeholder">
+									{member.name
+										.split(" ")
+										.map((n) => n[0])
+										.join("")}
+								</div>
+							{/if}
+							<div class="card-overlay">
+								<h3 class="member-name">{member.name}</h3>
+							</div>
 						</div>
-					{/if}
-					<div class="card-overlay">
-						<h3 class="member-name">{member.name}</h3>
+						<button class="member-about-button" onclick={(e) => { e.stopPropagation(); toggleFlip(member.id); }}>
+							→ {language === "de" ? "ÜBER" : "ABOUT"}
+						</button>
+					</div>
+
+					<!-- Back side -->
+					<div class="card-back" onclick={() => toggleFlip(member.id)}>
+						<div class="back-content">
+							{#if member.motivation}
+								<p class="motivation-text">{t(member.motivation)}</p>
+							{/if}
+							<a href={member.linkedinUrl} target="_blank" rel="noopener noreferrer" class="linkedin-link" onclick={(e) => e.stopPropagation()}>
+								<Linkedin size={24} />
+							</a>
+						</div>
 					</div>
 				</div>
-				<a class="member-about" href={member.linkedinUrl} target="_blank" rel="noopener noreferrer">
-					→ {language === "de" ? "ÜBER" : "ABOUT"} {member.name.split(" ")[0].toUpperCase()}
-				</a>
-			</article>
+			</div>
 		{/each}
 	</div>
 </section>
+
 <style>
 	h1,
 	h2,
@@ -178,10 +202,86 @@
 		margin-top: 2rem;
 	}
 
+	.team-card-wrapper {
+		perspective: 1000px;
+		height: 100%;
+	}
+
 	.team-card {
+		position: relative;
+		width: 100%;
+		height: 100%;
+		transition: transform 0.6s ease;
+		transform-style: preserve-3d;
+		cursor: pointer;
+	}
+
+	.team-card.flipped {
+		transform: rotateY(180deg);
+	}
+
+	.card-front,
+	.card-back {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		backface-visibility: hidden;
+		-webkit-backface-visibility: hidden;
+	}
+
+	.card-front {
+		transform: rotateY(0deg);
 		display: flex;
 		flex-direction: column;
 		gap: 0.8rem;
+	}
+
+	.card-back {
+		transform: rotateY(180deg);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background: linear-gradient(135deg, rgb(var(--rgb-white) / 0.09), rgb(var(--rgb-white) / 0.035));
+		border: 1px solid var(--line-soft);
+		border-radius: 0.5rem;
+		padding: 1.5rem;
+	}
+
+	.back-content {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 1.2rem;
+		text-align: center;
+		height: 100%;
+		justify-content: space-between;
+	}
+
+	.motivation-text {
+		font-size: 0.85rem;
+		line-height: 1.6;
+		color: rgb(var(--rgb-text-bright-dark));
+		font-family: "Manrope", sans-serif;
+	}
+
+	.linkedin-link {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 2.5rem;
+		height: 2.5rem;
+		border-radius: 50%;
+		background: rgb(var(--rgb-white) / 0.1);
+		border: 1px solid var(--line-soft);
+		color: rgb(var(--rgb-brand-blue));
+		transition: all 0.2s ease;
+		text-decoration: none;
+	}
+
+	.linkedin-link:hover {
+		background: rgb(var(--rgb-brand-blue));
+		color: rgb(var(--rgb-white));
+		transform: scale(1.1);
 	}
 
 	.card-image {
@@ -235,7 +335,7 @@
 		letter-spacing: 0.5px;
 	}
 
-	.member-about {
+	.member-about-button {
 		font-family: "Space Grotesk", "Manrope", sans-serif;
 		font-size: 0.7rem;
 		font-weight: 700;
@@ -244,9 +344,13 @@
 		letter-spacing: 0.3px;
 		transition: color 0.2s ease;
 		display: inline-block;
+		border: none;
+		background: none;
+		padding: 0;
+		cursor: pointer;
 	}
 
-	.member-about:hover {
+	.member-about-button:hover {
 		color: rgb(var(--rgb-brand-blue));
 	}
 
@@ -284,12 +388,30 @@
 		background: linear-gradient(180deg, transparent, rgb(0 0 0 / 0.5));
 	}
 
-	:global(html:not(.dark)) .member-about {
+	:global(html:not(.dark)) .member-about-button {
 		color: rgb(18 37 63);
 	}
 
-	:global(html:not(.dark)) .member-about:hover {
+	:global(html:not(.dark)) .member-about-button:hover {
 		color: rgb(var(--rgb-brand-blue));
+	}
+
+	:global(html:not(.dark)) .card-back {
+		background: linear-gradient(135deg, rgb(var(--rgb-white) / 0.97), rgb(238 246 255 / 0.5));
+		border-color: rgb(176 112 24 / 0.18);
+	}
+
+	:global(html:not(.dark)) .motivation-text {
+		color: rgb(18 37 63);
+	}
+
+	:global(html:not(.dark)) .linkedin-link {
+		background: rgb(var(--rgb-white) / 0.8);
+		border-color: rgb(176 112 24 / 0.18);
+	}
+
+	:global(html:not(.dark)) .linkedin-link:hover {
+		background: rgb(var(--rgb-brand-blue));
 	}
 
 	/* Responsive */
