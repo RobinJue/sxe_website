@@ -152,36 +152,36 @@
     },
     "features": [
       {
-        "icon": "🔬",
+        "icon": "Compass",
         "title": {
-          "de": "Wissenschaft trifft Unternehmertum",
-          "en": "Science meets entrepreneurship"
+          "de": "Ehrenamtliche Gründerberatung",
+          "en": "Free founder coaching"
         },
         "text": {
-          "de": "Wir helfen dabei, Forschung nicht nur als Publikation oder Patent zu denken, sondern als mögliche Grundlage für Anwendung und Wirkung.",
-          "en": "We help scientists think beyond publications and patents toward possible applications and impact."
+          "de": "Erfahrene Gründer:innen und Mentor:innen begleiten Wissenschaftler ehrenamtlich von der ersten Idee bis zur Gründung.",
+          "en": "Experienced founders and mentors support scientists pro bono – from the first idea all the way to founding."
         }
       },
       {
-        "icon": "🤝",
+        "icon": "Users",
         "title": {
-          "de": "Community von Stipendiaten",
-          "en": "Community of scholarship holders"
+          "de": "Community & Netzwerk",
+          "en": "Community & network"
         },
         "text": {
-          "de": "SxE verbindet Menschen aus Wissenschaft, Gründung und Förderung, darunter Stipendiaten der Studienstiftung des deutschen Volkes.",
-          "en": "SxE connects people across science, entrepreneurship and support networks, including scholarship holders of the Studienstiftung des deutschen Volkes."
+          "de": "Eine wachsende Community aus Wissenschaft, Gründung und Förderung – darunter Stipendiaten der Studienstiftung des deutschen Volkes.",
+          "en": "A growing community across science, entrepreneurship and funding – including scholars of the Studienstiftung des deutschen Volkes."
         }
       },
       {
-        "icon": "🚀",
+        "icon": "BookOpen",
         "title": {
-          "de": "Workshops, Netzwerk & Ressourcen",
-          "en": "Workshops, network & resources"
+          "de": "Workshops & Ressourcen",
+          "en": "Workshops & resources"
         },
         "text": {
-          "de": "Wir sammeln Orientierung, Formate und Anlaufstellen für Wissenschaftler, die ihre Gründungsideen prüfen möchten.",
-          "en": "We collect orientation, formats and support points for scientists who want to explore entrepreneurial ideas."
+          "de": "Praxisnahe Workshops und kuratierte Ressourcen helfen dabei, Gründungsideen zu prüfen und voranzubringen.",
+          "en": "Hands-on workshops and curated resources help scientists validate and advance their founding ideas."
         }
       }
     ]

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { ArrowRight, Sparkles, Users } from "lucide-svelte";
+	import { ArrowRight, Sparkles, Users, Compass, BookOpen } from "lucide-svelte";
 	import type { PageData } from "./$types";
 
 	let { data } = $props<{ data: PageData }>();
@@ -37,6 +37,8 @@
 	const allPartners = $derived(
 		landing.partners.tiers.flatMap(tier => tier.items)
 	);
+
+	const featureIcons = { Compass, Users, BookOpen };
 
 
 </script>
@@ -129,15 +131,15 @@
 {/if}
 
 <!-- About Section (Angebote) -->
-<section class="panel section-panel reveal" aria-labelledby="about-title">
-	<div class="section-head">
-		<p class="kicker"><Users size={14} strokeWidth={2.2} /> {t(landing.about.kicker)}</p>
-		<h2 id="about-title">{t(landing.about.heroStatement)}</h2>
-	</div>
+<section
+	class="panel section-panel reveal"
+	aria-label={language === "de" ? "Unsere Angebote" : "What we offer"}
+>
 	<div class="card-grid three">
 		{#each landing.about.features as feature (t(feature.title))}
+			{@const Icon = featureIcons[feature.icon]}
 			<article class="content-card">
-				<span class="card-icon" aria-hidden="true">{feature.icon}</span>
+				<span class="card-icon" aria-hidden="true"><Icon size={28} strokeWidth={1.75} /></span>
 				<h3>{t(feature.title)}</h3>
 				<p>{t(feature.text)}</p>
 			</article>
@@ -490,7 +492,9 @@
 	}
 
 	.card-icon {
-		font-size: 1.55rem;
+		display: flex;
+		align-items: center;
+		color: rgb(255 205 130);
 	}
 
 	.reveal {
