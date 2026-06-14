@@ -1,10 +1,9 @@
 <script lang="ts">
-	import { Mail, ArrowRight } from "lucide-svelte";
+	import { Mail } from "lucide-svelte";
 	import type { PageData } from "./$types";
 
 	let { data } = $props<{ data: PageData }>();
 	let language = $state<"de" | "en">("de");
-	let contactSubmitted = $state(false);
 
 	function t(value: { de: string; en: string }): string {
 		return value[language];
@@ -27,11 +26,6 @@
 
 	const content = $derived(data.content);
 	const landing = $derived(content.landing);
-
-	function handleContactSubmit(event: SubmitEvent) {
-		event.preventDefault();
-		contactSubmitted = true;
-	}
 </script>
 
 <svelte:head>
@@ -62,21 +56,16 @@
 		</form>
 	</div>
 
-	<form class="contact-form" onsubmit={handleContactSubmit}>
-		<label for="contact-name">{t(landing.contact.nameLabel)}</label>
-		<input id="contact-name" name="name" autocomplete="name" required />
-
-		<label for="contact-email">{t(landing.contact.emailLabel)}</label>
-		<input id="contact-email" name="email" type="email" autocomplete="email" required />
-
-		<label for="contact-message">{t(landing.contact.messageLabel)}</label>
-		<textarea id="contact-message" name="message" rows="5" required></textarea>
-
-		<button type="submit">{t(landing.contact.submitLabel)} <ArrowRight size={14} /></button>
-		{#if contactSubmitted}
-			<p class="form-note" role="status">{t(landing.contact.successMessage)}</p>
-		{/if}
-	</form>
+	<div class="contact-form-embed">
+		<iframe
+			src="https://tarry-skiff-3b7.notion.site/ebd//37da031add738021959cf7d54b86ebbc"
+			width="100%"
+			height="600"
+			frameborder="0"
+			allowfullscreen
+			title="Contact Form"
+		></iframe>
+	</div>
 </section>
 
 <style>
@@ -205,8 +194,7 @@
 		resize: vertical;
 	}
 
-	.newsletter-form button,
-	.contact-form button {
+	.newsletter-form button {
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
@@ -223,9 +211,20 @@
 		transition: transform 0.2s ease;
 	}
 
-	.newsletter-form button:hover,
-	.contact-form button:hover {
+	.newsletter-form button:hover {
 		transform: translateY(-1px);
+	}
+
+	.contact-form-embed {
+		border: 1px solid rgb(var(--rgb-white) / 0.12);
+		border-radius: 0.85rem;
+		background: var(--shell-2);
+		padding: 1rem;
+		overflow: hidden;
+	}
+
+	.contact-form-embed iframe {
+		border-radius: 0.6rem;
 	}
 
 	.form-note {
