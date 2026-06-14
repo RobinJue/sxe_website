@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { ArrowRight, ExternalLink, Search, Sparkles } from "lucide-svelte";
+	import { ArrowRight, ExternalLink, Search, Headphones } from "lucide-svelte";
 	import { onMount } from "svelte";
 	import type { LanguageCode, LocalizedString, PodcastEpisode } from "$lib/cms/types";
 	import type { PageData } from "./$types";
@@ -129,7 +129,7 @@
 <main class="podcast-main">
 		<section class="hero-panel">
 			<div class="hero-copy">
-				<p class="kicker"><Sparkles size={14} strokeWidth={2.2} /> {t(podcast.kicker)}</p>
+				<p class="kicker"><Headphones size={14} strokeWidth={2.2} /> {t(podcast.kicker)}</p>
 				<h1>{t(podcast.title)}</h1>
 				<p>{t(podcast.intro)}</p>
 				<div class="platform-list" aria-label={t(podcast.listenLabel)}>
@@ -326,11 +326,15 @@
 	h3 {
 		margin: 0;
 		font-family: "Space Grotesk", "Manrope", sans-serif;
+		color: rgb(var(--rgb-text-bright-dark));
+		letter-spacing: 0;
 		line-height: 1.08;
 	}
 
 	h1 {
-		font-size: clamp(2.3rem, 8vw, 5.2rem);
+		max-width: 20ch;
+		font-size: clamp(2rem, 5.8vw, 4.3rem);
+		line-height: 1;
 	}
 
 	h2 {

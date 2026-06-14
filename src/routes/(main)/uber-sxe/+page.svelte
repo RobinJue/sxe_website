@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Linkedin, BookOpen, Target, Sparkles } from "lucide-svelte";
+	import { Linkedin, BookOpen, Target, Info } from "lucide-svelte";
 	import type { PageData } from "./$types";
 
 	let { data } = $props<{ data: PageData }>();
@@ -45,7 +45,7 @@
 
 <!-- Hero Statement -->
 <section class="panel hero-statement reveal" aria-labelledby="hero-statement-title">
-	<p class="kicker"><Sparkles size={14} strokeWidth={2.2} /> {t(landing.about.kicker)}</p>
+	<p class="kicker"><Info size={14} strokeWidth={2.2} /> {t(landing.about.kicker)}</p>
 	<h1 id="hero-statement-title" class="statement-text">{t(landing.about.heroStatement)}</h1>
 </section>
 
@@ -163,7 +163,7 @@
 		align-items: center;
 		gap: 0.42rem;
 		width: fit-content;
-		margin: 0 auto;
+		margin: 0;
 		border-radius: 999px;
 		color: rgb(255 205 130);
 		font-size: 0.78rem;
@@ -176,17 +176,17 @@
 	.hero-statement {
 		width: 100%;
 		padding: clamp(2rem, 5vw, 3.5rem) clamp(1.1rem, 3vw, 2rem);
-		text-align: center;
+		text-align: left;
 		display: grid;
 		gap: clamp(1rem, 3vw, 2rem);
 	}
 
 	.statement-text {
-		font-size: clamp(2rem, 5vw, 3.5rem);
-		line-height: 1.1;
-		letter-spacing: -0.02em;
-		max-width: 900px;
-		margin: 0 auto;
+		max-width: 20ch;
+		font-size: clamp(2rem, 5.8vw, 4.3rem);
+		line-height: 1;
+		letter-spacing: 0;
+		margin: 0;
 	}
 
 	.statement-text::after {
@@ -197,8 +197,6 @@
 		background: rgb(255 205 130);
 		border-radius: 2px;
 		margin-top: 1.5rem;
-		margin-left: auto;
-		margin-right: auto;
 	}
 
 	/* Content Sections */

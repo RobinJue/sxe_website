@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Sparkles, ChevronDown } from "lucide-svelte";
+	import { HelpCircle, ChevronDown } from "lucide-svelte";
 	import type { PageData } from "./$types";
 
 	let { data } = $props<{ data: PageData }>();
@@ -50,7 +50,7 @@
 
 <section class="panel section-panel reveal" aria-labelledby="faq-title">
 	<div class="section-head">
-		<p class="kicker"><Sparkles size={14} strokeWidth={2.2} /> {t(landing.faq.kicker)}</p>
+		<p class="kicker"><HelpCircle size={14} strokeWidth={2.2} /> {t(landing.faq.kicker)}</p>
 		<h2 id="faq-title">{t(landing.faq.title)}</h2>
 		<p class="lead">{t(landing.faq.intro)}</p>
 	</div>
@@ -133,11 +133,13 @@
 	h4 {
 		font-family: "Space Grotesk", "Manrope", sans-serif;
 		color: rgb(var(--rgb-text-bright-dark));
+		letter-spacing: 0;
 	}
 
 	h2 {
-		font-size: clamp(1.65rem, 3vw, 2.75rem);
-		line-height: 1.05;
+		max-width: 20ch;
+		font-size: clamp(2rem, 5.8vw, 4.3rem);
+		line-height: 1;
 	}
 
 	.lead {
