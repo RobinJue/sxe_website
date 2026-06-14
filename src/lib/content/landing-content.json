@@ -888,57 +888,143 @@
     "members": [
       {
         "id": "member-1",
-        "name": "Alex Mueller",
+        "name": "Robin Juengerich",
         "role": {
           "de": "Gründer & Initiative Lead",
           "en": "Founder & Initiative Lead"
         },
-        "linkedinUrl": "https://linkedin.com/in/alexmueller"
+        "linkedinUrl": "https://linkedin.com/in/robinjuengerich",
+        "photo": "/assets/team/Robin_Juengerich.png"
       },
       {
         "id": "member-2",
-        "name": "Sarah Schmidt",
+        "name": "Christoph Soppe",
+        "role": {
+          "de": "Co-Gründer & Operations",
+          "en": "Co-Founder & Operations"
+        },
+        "linkedinUrl": "https://linkedin.com/in/christophsoppe",
+        "photo": "/assets/team/Christoph_Soppe.png"
+      },
+      {
+        "id": "member-3",
+        "name": "Oliver Beste",
+        "role": {
+          "de": "Co-Gründer & Growth",
+          "en": "Co-Founder & Growth"
+        },
+        "linkedinUrl": "https://linkedin.com/in/oliverbeste",
+        "photo": "/assets/team/Oliver_Beste.png"
+      },
+      {
+        "id": "member-4",
+        "name": "Julia Heckmann",
         "role": {
           "de": "Podcast & Community",
           "en": "Podcast & Community"
         },
-        "linkedinUrl": "https://linkedin.com/in/sarahschmidt"
-      },
-      {
-        "id": "member-3",
-        "name": "Marcus Weber",
-        "role": {
-          "de": "Ressourcen & Orientierung",
-          "en": "Resources & Orientation"
-        },
-        "linkedinUrl": "https://linkedin.com/in/marcusweber"
-      },
-      {
-        "id": "member-4",
-        "name": "Julia Hoffmann",
-        "role": {
-          "de": "Partnerships & Netzwerk",
-          "en": "Partnerships & Network"
-        },
-        "linkedinUrl": "https://linkedin.com/in/juliahoffmann"
+        "linkedinUrl": "https://linkedin.com/in/juliaheckmann",
+        "photo": "/assets/team/Julia_Heckmann.png"
       },
       {
         "id": "member-5",
-        "name": "Thomas Richter",
+        "name": "Jakob Meyer",
         "role": {
-          "de": "Strategie & Growth",
-          "en": "Strategy & Growth"
+          "de": "Workshops & Partnerships",
+          "en": "Workshops & Partnerships"
         },
-        "linkedinUrl": "https://linkedin.com/in/thomasrichter"
+        "linkedinUrl": "https://linkedin.com/in/jakobmeyer",
+        "photo": "/assets/team/Jakob_Meyer.png"
       },
       {
         "id": "member-6",
-        "name": "Anna Bauer",
+        "name": "Kai Kronewitter",
         "role": {
-          "de": "Communications & Content",
-          "en": "Communications & Content"
+          "de": "Resources & Network",
+          "en": "Resources & Network"
         },
-        "linkedinUrl": "https://linkedin.com/in/annabauer"
+        "linkedinUrl": "https://linkedin.com/in/kaiskronewitter",
+        "photo": "/assets/team/Kai_Kronewitter.png"
+      },
+      {
+        "id": "member-7",
+        "name": "Christian Kapteyn",
+        "role": {
+          "de": "Strategy & Partnerships",
+          "en": "Strategy & Partnerships"
+        },
+        "linkedinUrl": "https://linkedin.com/in/christiankapteyn",
+        "photo": "/assets/team/Christian_Kapteyn.png"
+      },
+      {
+        "id": "member-8",
+        "name": "Colin Matsinhe",
+        "role": {
+          "de": "Growth & Marketing",
+          "en": "Growth & Marketing"
+        },
+        "linkedinUrl": "https://linkedin.com/in/colinmatsinhe",
+        "photo": "/assets/team/Colin_Matsinhe.png"
+      },
+      {
+        "id": "member-9",
+        "name": "Isabelle Kranabetter",
+        "role": {
+          "de": "Community & Events",
+          "en": "Community & Events"
+        },
+        "linkedinUrl": "https://linkedin.com/in/isabellekranabetter",
+        "photo": "/assets/team/Isabelle_Kranabetter.png"
+      },
+      {
+        "id": "member-10",
+        "name": "Jools Luft",
+        "role": {
+          "de": "Communications",
+          "en": "Communications"
+        },
+        "linkedinUrl": "https://linkedin.com/in/joolsluft",
+        "photo": "/assets/team/Jools_Luft.png"
+      },
+      {
+        "id": "member-11",
+        "name": "Leon Schumacher",
+        "role": {
+          "de": "Outreach",
+          "en": "Outreach"
+        },
+        "linkedinUrl": "https://linkedin.com/in/leonschumacher",
+        "photo": "/assets/team/Leon_Schumacher.png"
+      },
+      {
+        "id": "member-12",
+        "name": "Nepomuk Biehl",
+        "role": {
+          "de": "Strategy",
+          "en": "Strategy"
+        },
+        "linkedinUrl": "https://linkedin.com/in/nepomukbiehl",
+        "photo": "/assets/team/Nepomuk_Biehl.png"
+      },
+      {
+        "id": "member-13",
+        "name": "Nicolas Hecker",
+        "role": {
+          "de": "Partnerships",
+          "en": "Partnerships"
+        },
+        "linkedinUrl": "https://linkedin.com/in/nicolashecker",
+        "photo": "/assets/team/Nicolas_Hecker.png"
+      },
+      {
+        "id": "member-14",
+        "name": "Tobias Schnell",
+        "role": {
+          "de": "Growth",
+          "en": "Growth"
+        },
+        "linkedinUrl": "https://linkedin.com/in/tobiasschnell",
+        "photo": "/assets/team/Tobias_Schnell.png"
       }
     ]
   },
