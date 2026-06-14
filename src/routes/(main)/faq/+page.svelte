@@ -139,6 +139,7 @@
 	h4 {
 		font-family: "Space Grotesk", "Manrope", sans-serif;
 		color: rgb(var(--rgb-text-bright-dark));
+		font-weight: 600;
 		letter-spacing: 0;
 	}
 

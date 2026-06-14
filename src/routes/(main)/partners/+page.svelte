@@ -150,6 +150,7 @@
 		font-family: "Space Grotesk", "Manrope", sans-serif;
 		color: rgb(var(--rgb-text-bright-dark));
 		font-size: clamp(1.5rem, 2.5vw, 2rem);
+		font-weight: 600;
 		line-height: 1.1;
 		margin: 0;
 	}
@@ -228,6 +229,7 @@
 		font-family: "Space Grotesk", "Manrope", sans-serif;
 		color: rgb(var(--rgb-text-bright-dark));
 		font-size: 1.2rem;
+		font-weight: 600;
 		margin: 0;
 	}
 
