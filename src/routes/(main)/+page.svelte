@@ -32,8 +32,11 @@
 
 	const content = $derived(data.content);
 	const landing = $derived(content.landing);
-	const podcastSettings = $derived(content.podcastSettings);
-	const latestEpisode = $derived(content.podcastFeed.episodes[0]);
+
+	// Get all partners flattened for carousel
+	const allPartners = $derived(
+		landing.partners.tiers.flatMap(tier => tier.items)
+	);
 </script>
 
 <svelte:head>
@@ -66,19 +69,47 @@
 			>
 		</div>
 	</div>
-
-	<aside class="hero-visual" aria-label="SxE">
-		<img
-			class="hero-cover"
-			src={podcastSettings.fallbackCover}
-			alt={t(podcastSettings.title)}
-			decoding="async"
-			fetchpriority="high"
-		/>
-	</aside>
 </section>
 
-<!-- About Section -->
+<!-- Social Proof Section -->
+{#if landing.socialProof}
+	<section class="panel social-proof-panel reveal" aria-labelledby="social-proof-label">
+		<div class="social-proof-content">
+			<span class="proof-number">{landing.socialProof.number}</span>
+			<p id="social-proof-label" class="proof-label">{t(landing.socialProof.label)}</p>
+		</div>
+	</section>
+{/if}
+
+<!-- Partner Carousel Section -->
+{#if allPartners.length > 0}
+	<section class="panel carousel-panel reveal" aria-labelledby="partners-carousel-title">
+		<h2 id="partners-carousel-title" class="carousel-title">
+			{language === "de" ? "Unterstützt von & in Zusammenarbeit mit" : "Supported by & in collaboration with"}
+		</h2>
+		<div class="carousel-container">
+			<div class="carousel-scroll">
+				{#each allPartners as partner (partner.name)}
+					<a
+						class="carousel-item"
+						href={partner.url}
+						target="_blank"
+						rel="noopener noreferrer"
+						title={partner.name}
+					>
+						{#if partner.logo}
+							<img src={partner.logo} alt={partner.name} loading="lazy" decoding="async" />
+						{:else}
+							<span class="logo-fallback">{partner.name}</span>
+						{/if}
+					</a>
+				{/each}
+			</div>
+		</div>
+	</section>
+{/if}
+
+<!-- About Section (Angebote) -->
 <section class="panel section-panel reveal" aria-labelledby="about-title">
 	<div class="section-head">
 		<p class="kicker"><Users size={14} strokeWidth={2.2} /> {t(landing.about.kicker)}</p>
@@ -99,6 +130,22 @@
 		{/each}
 	</div>
 </section>
+
+<!-- Testimonial Section -->
+{#if landing.testimonial}
+	<section class="panel testimonial-panel reveal" aria-labelledby="testimonial-quote">
+		<blockquote class="testimonial-content">
+			<p id="testimonial-quote" class="testimonial-quote">{t(landing.testimonial.quote)}</p>
+			<footer class="testimonial-footer">
+				<div class="testimonial-author">
+					<strong>{landing.testimonial.author}</strong>
+					<span class="testimonial-title">{t(landing.testimonial.title)}</span>
+				</div>
+				<p class="testimonial-attribution">{t(landing.testimonial.attribution)}</p>
+			</footer>
+		</blockquote>
+	</section>
+{/if}
 
 <style>
 	.panel {
@@ -121,7 +168,7 @@
 	}
 
 	.hero-panel {
-		grid-template-columns: minmax(0, 1.12fr) minmax(280px, 0.88fr);
+		grid-template-columns: 1fr;
 		gap: clamp(1rem, 3vw, 2rem);
 		align-items: center;
 	}
@@ -235,19 +282,160 @@
 		color: rgb(var(--rgb-text-bright-dark));
 	}
 
-	.hero-visual {
-		display: grid;
+	/* Social Proof Section */
+	.social-proof-panel {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: clamp(2rem, 4vw, 3.5rem);
+		text-align: center;
 	}
 
-	.hero-cover {
-		display: block;
-		width: min(100%, 28rem);
-		justify-self: center;
-		aspect-ratio: 1;
-		border-radius: 0.85rem;
-		border: 1px solid var(--line-soft);
-		object-fit: cover;
-		box-shadow: 0 24px 38px rgb(var(--rgb-black) / 0.24);
+	.social-proof-content {
+		display: grid;
+		gap: 0.5rem;
+	}
+
+	.proof-number {
+		font-family: "Space Grotesk", "Manrope", sans-serif;
+		font-size: clamp(2.5rem, 6vw, 4rem);
+		font-weight: 800;
+		color: rgb(var(--rgb-text-bright-dark));
+		line-height: 1;
+	}
+
+	.proof-label {
+		color: var(--copy-muted);
+		font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+		line-height: 1.6;
+	}
+
+	/* Carousel Section */
+	.carousel-panel {
+		padding: clamp(2rem, 4vw, 3rem);
+	}
+
+	.carousel-title {
+		text-align: center;
+		margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+		font-size: clamp(1.2rem, 2vw, 1.65rem);
+	}
+
+	.carousel-container {
+		overflow: hidden;
+	}
+
+	.carousel-scroll {
+		display: flex;
+		gap: clamp(1rem, 3vw, 2rem);
+		overflow-x: auto;
+		scroll-behavior: smooth;
+		padding: 0.5rem 0;
+		align-items: center;
+
+		/* Smooth scrolling animation */
+		animation: carousel-scroll 60s linear infinite;
+	}
+
+	.carousel-scroll:hover {
+		animation-play-state: paused;
+	}
+
+	.carousel-item {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		min-width: clamp(100px, 15vw, 160px);
+		height: clamp(60px, 8vw, 100px);
+		padding: 0.8rem;
+		border-radius: 0.65rem;
+		background: rgb(var(--rgb-white) / 0.05);
+		border: 1px solid rgb(var(--rgb-white) / 0.1);
+		transition: all 0.25s ease;
+		text-decoration: none;
+		cursor: pointer;
+		flex-shrink: 0;
+	}
+
+	.carousel-item:hover {
+		background: rgb(var(--rgb-white) / 0.12);
+		border-color: rgb(var(--rgb-brand-blue) / 0.6);
+		transform: scale(1.08);
+	}
+
+	.carousel-item img {
+		max-width: 90%;
+		max-height: 90%;
+		object-fit: contain;
+		width: auto;
+		height: auto;
+	}
+
+	.logo-fallback {
+		color: var(--copy-muted);
+		font-size: 0.7rem;
+		font-weight: 600;
+		text-align: center;
+		word-break: break-word;
+	}
+
+	@keyframes carousel-scroll {
+		0% {
+			transform: translateX(0);
+		}
+		100% {
+			transform: translateX(calc(-100% - 2rem));
+		}
+	}
+
+	/* Testimonial Section */
+	.testimonial-panel {
+		padding: clamp(2.5rem, 5vw, 4rem);
+	}
+
+	.testimonial-content {
+		max-width: 800px;
+		margin: 0 auto;
+		display: grid;
+		gap: 2rem;
+	}
+
+	.testimonial-quote {
+		font-family: "Space Grotesk", "Manrope", sans-serif;
+		font-size: clamp(1.5rem, 3vw, 2.25rem);
+		line-height: 1.4;
+		font-weight: 600;
+		color: rgb(var(--rgb-text-bright-dark));
+		font-style: italic;
+	}
+
+	.testimonial-footer {
+		display: grid;
+		gap: 0.75rem;
+	}
+
+	.testimonial-author {
+		display: grid;
+		gap: 0.25rem;
+	}
+
+	.testimonial-author strong {
+		font-size: 1rem;
+		font-weight: 800;
+		color: rgb(var(--rgb-text-bright-dark));
+	}
+
+	.testimonial-title {
+		font-size: 0.85rem;
+		color: rgb(255 205 130);
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+	}
+
+	.testimonial-attribution {
+		font-size: 0.85rem;
+		color: var(--copy-muted);
 	}
 
 	.card-grid {
@@ -322,6 +510,22 @@
 		background: linear-gradient(150deg, rgb(var(--rgb-white) / 0.96), rgb(255 238 214 / 0.48));
 	}
 
+	:global(html:not(.dark)) .proof-number,
+	:global(html:not(.dark)) .testimonial-quote,
+	:global(html:not(.dark)) .testimonial-author strong {
+		color: rgb(18 37 63);
+	}
+
+	:global(html:not(.dark)) .carousel-item {
+		background: rgb(var(--rgb-white) / 0.8);
+		border-color: rgb(176 112 24 / 0.18);
+	}
+
+	:global(html:not(.dark)) .carousel-item:hover {
+		background: rgb(var(--rgb-white) / 0.95);
+		border-color: rgb(var(--rgb-brand-blue) / 0.5);
+	}
+
 	@media (max-width: 900px) {
 		.hero-panel,
 		.section-panel {
@@ -331,12 +535,35 @@
 		.card-grid.three {
 			grid-template-columns: 1fr;
 		}
+
+		.carousel-scroll {
+			padding-bottom: 0.5rem;
+		}
 	}
 
 	@media (max-width: 640px) {
 		.hero-panel,
 		.section-panel {
 			padding: 1rem;
+		}
+
+		.social-proof-panel,
+		.carousel-panel,
+		.testimonial-panel {
+			padding: 1.5rem 1rem;
+		}
+
+		.carousel-scroll {
+			gap: 0.75rem;
+		}
+
+		.carousel-item {
+			min-width: 80px;
+			height: 60px;
+		}
+
+		.testimonial-quote {
+			font-size: 1.2rem;
 		}
 	}
 

@@ -135,6 +135,18 @@ export type SocialLink = {
 	url: string;
 };
 
+export type SocialProof = {
+	number: string;
+	label: LocalizedString;
+};
+
+export type Testimonial = {
+	quote: LocalizedString;
+	author: string;
+	title: LocalizedString;
+	attribution: LocalizedString;
+};
+
 export type LandingContent = {
 	meta: {
 		title: LocalizedString;
@@ -157,6 +169,8 @@ export type LandingContent = {
 		secondaryHref: string;
 		stats: LandingHeroStat[];
 	};
+	socialProof?: SocialProof;
+	testimonial?: Testimonial;
 	about: {
 		kicker: LocalizedString;
 		title: LocalizedString;
