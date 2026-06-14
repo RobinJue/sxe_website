@@ -188,7 +188,7 @@
 		grid-template-columns: 1fr;
 		gap: clamp(1rem, 3vw, 2rem);
 		align-items: center;
-		padding-top: clamp(2rem, 5vw, 3.5rem);
+		padding: clamp(2rem, 5vw, 3.5rem) clamp(1.1rem, 3vw, 2rem);
 	}
 
 	.hero-copy,
@@ -356,7 +356,7 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		min-width: clamp(100px, 15vw, 160px);
+		width: clamp(100px, 15vw, 160px);
 		height: clamp(60px, 8vw, 100px);
 		margin-right: clamp(1rem, 3vw, 2rem);
 		padding: 0.8rem;
@@ -585,7 +585,7 @@
 		}
 
 		.carousel-item {
-			min-width: 80px;
+			width: 80px;
 			height: 60px;
 			margin-right: 0.75rem;
 		}

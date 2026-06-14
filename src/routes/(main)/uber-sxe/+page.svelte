@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Linkedin, BookOpen, Target } from "lucide-svelte";
+	import { Linkedin, BookOpen, Target, Sparkles } from "lucide-svelte";
 	import type { PageData } from "./$types";
 
 	let { data } = $props<{ data: PageData }>();
@@ -45,6 +45,7 @@
 
 <!-- Hero Statement -->
 <section class="panel hero-statement reveal" aria-labelledby="hero-statement-title">
+	<p class="kicker"><Sparkles size={14} strokeWidth={2.2} /> {t(landing.about.kicker)}</p>
 	<h1 id="hero-statement-title" class="statement-text">{t(landing.about.heroStatement)}</h1>
 </section>
 
@@ -156,11 +157,28 @@
 			inset 0 1px 0 rgb(var(--rgb-white) / 0.1);
 	}
 
+	/* Kicker */
+	.kicker {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.42rem;
+		width: fit-content;
+		margin: 0 auto;
+		border-radius: 999px;
+		color: rgb(255 205 130);
+		font-size: 0.78rem;
+		font-weight: 800;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+	}
+
 	/* Hero Statement */
 	.hero-statement {
 		width: 100%;
-		padding: clamp(2.5rem, 6vw, 4.5rem) clamp(1.25rem, 4vw, 2rem);
+		padding: clamp(2rem, 5vw, 3.5rem) clamp(1.1rem, 3vw, 2rem);
 		text-align: center;
+		display: grid;
+		gap: clamp(1rem, 3vw, 2rem);
 	}
 
 	.statement-text {

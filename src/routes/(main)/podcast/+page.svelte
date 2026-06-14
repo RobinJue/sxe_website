@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { ArrowRight, ExternalLink, Search } from "lucide-svelte";
+	import { ArrowRight, ExternalLink, Search, Sparkles } from "lucide-svelte";
 	import { onMount } from "svelte";
 	import type { LanguageCode, LocalizedString, PodcastEpisode } from "$lib/cms/types";
 	import type { PageData } from "./$types";
@@ -129,7 +129,7 @@
 <main class="podcast-main">
 		<section class="hero-panel">
 			<div class="hero-copy">
-				<p class="kicker">{t(podcast.kicker)}</p>
+				<p class="kicker"><Sparkles size={14} strokeWidth={2.2} /> {t(podcast.kicker)}</p>
 				<h1>{t(podcast.title)}</h1>
 				<p>{t(podcast.intro)}</p>
 				<div class="platform-list" aria-label={t(podcast.listenLabel)}>
@@ -299,7 +299,19 @@
 		gap: 0.9rem;
 	}
 
-	.kicker,
+	.kicker {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.42rem;
+		width: fit-content;
+		margin: 0;
+		color: rgb(255 205 130);
+		font-size: 0.78rem;
+		font-weight: 800;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+	}
+
 	.episode-date {
 		margin: 0;
 		color: rgb(255 205 130);

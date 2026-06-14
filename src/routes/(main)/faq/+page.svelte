@@ -117,6 +117,7 @@
 		color: rgb(255 205 130);
 		font-size: 0.78rem;
 		font-weight: 800;
+		letter-spacing: 0.08em;
 		text-transform: uppercase;
 	}
 
