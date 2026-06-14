@@ -26,6 +26,18 @@
 
 	const content = $derived(data.content);
 	const landing = $derived(content.landing);
+
+	function handleContactSubmit(e: SubmitEvent) {
+		e.preventDefault();
+		// Newsletter form submission handler
+		const form = e.target as HTMLFormElement;
+		const email = new FormData(form).get("newsletter-email");
+
+		// Here you could add logic to submit to a service
+		// For now, just show a success message
+		console.log("Newsletter signup:", email);
+		form.reset();
+	}
 </script>
 
 <svelte:head>
