@@ -4,11 +4,15 @@ import adapter from '@sveltejs/adapter-static';
 const config = {
 	kit: {
 		adapter: adapter({
-			// default options are used
 			pages: 'build',
 			assets: 'build',
-			fallback: 'index.html'
-		})
+			fallback: 'index.html',
+			precompress: false
+		}),
+		prerender: {
+			crawl: true,
+			entries: ['*', '/sitemap.xml', '/rss.xml']
+		}
 	}
 };
 
