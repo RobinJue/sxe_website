@@ -267,15 +267,26 @@
 		}
 	}
 
-	:global(html:not(.dark)) .panel {
+	:global(html:not(.dark)) .panel,
+	:global(html:not(.dark)) .contact-section {
 		background:
 			linear-gradient(150deg, rgb(var(--rgb-white) / 0.97), rgb(238 246 255 / 0.5)),
 			rgb(var(--rgb-white));
+		border-color: rgb(176 112 24 / 0.12);
+		box-shadow: 0 4px 12px rgb(0 0 0 / 0.08), inset 0 1px 0 rgb(var(--rgb-white) / 0.6);
 	}
 
 	:global(html:not(.dark)) h2,
 	:global(html:not(.dark)) h3 {
 		color: rgb(18 37 63);
+	}
+
+	:global(html:not(.dark)) .lead {
+		color: rgb(64 84 114);
+	}
+
+	:global(html:not(.dark)) .email-link {
+		color: rgb(176 112 24);
 	}
 
 	:global(html:not(.dark)) .newsletter-form,

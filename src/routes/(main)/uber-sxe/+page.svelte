@@ -204,7 +204,8 @@
 
 	.team-card-wrapper {
 		perspective: 1000px;
-		height: 100%;
+		aspect-ratio: 1 / 1.15;
+		min-height: 100%;
 	}
 
 	.team-card {
@@ -214,6 +215,8 @@
 		transition: transform 0.6s ease;
 		transform-style: preserve-3d;
 		cursor: pointer;
+		display: flex;
+		flex-direction: column;
 	}
 
 	.team-card.flipped {
@@ -223,6 +226,8 @@
 	.card-front,
 	.card-back {
 		position: absolute;
+		top: 0;
+		left: 0;
 		width: 100%;
 		height: 100%;
 		backface-visibility: hidden;
@@ -234,6 +239,7 @@
 		display: flex;
 		flex-direction: column;
 		gap: 0.8rem;
+		z-index: 2;
 	}
 
 	.card-back {
