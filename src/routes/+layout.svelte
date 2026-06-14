@@ -7,6 +7,7 @@
 
 <svelte:head>
 	<link rel="icon" href={favicon} />
+	<!-- Cookiebot disabled for now - can be re-enabled later if needed
 	<script
 		id="Cookiebot"
 		src="https://consent.cookiebot.com/uc.js"
@@ -14,6 +15,7 @@
 		data-blockingmode="auto"
 		type="text/javascript"
 	></script>
+	-->
 	<script>
 		(() => {
 			const storageKey = "sxe-theme";
