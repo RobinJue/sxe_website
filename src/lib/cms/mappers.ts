@@ -449,7 +449,8 @@ function mapPartnerTier(row: UnknownRecord, index: number): PartnerTier {
 function mapPartnerItem(row: UnknownRecord, context: string): PartnerItem {
 	return {
 		name: requiredString(row.name, `${context}.name`),
-		url: requiredString(row.url, `${context}.url`)
+		url: requiredString(row.url, `${context}.url`),
+		logo: optionalString(row.logo)
 	};
 }
 
