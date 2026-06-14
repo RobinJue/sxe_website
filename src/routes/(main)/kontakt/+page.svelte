@@ -44,12 +44,15 @@
 	<title>{t(landing.contact.title)}</title>
 </svelte:head>
 
-<section class="panel contact-panel reveal" aria-labelledby="contact-title">
-	<div class="contact-copy">
+<section class="contact-section reveal" aria-labelledby="contact-title">
+	<div class="contact-header">
 		<p class="kicker"><Mail size={14} strokeWidth={2.2} /> {t(landing.contact.kicker)}</p>
 		<h2 id="contact-title">{t(landing.contact.title)}</h2>
 		<p class="lead">{t(landing.contact.lead)}</p>
-		<a href={landing.contact.emailHref}>{landing.contact.emailLabelText}</a>
+		<a href={landing.contact.emailHref}} class="email-link">{landing.contact.emailLabelText}</a>
+	</div>
+
+	<div class="contact-content">
 		<form class="newsletter-form" onsubmit={handleContactSubmit}>
 			<h3>{t(landing.contact.newsletterTitle)}</h3>
 			<p>{t(landing.contact.newsletterLead)}</p>
@@ -66,22 +69,22 @@
 				<button type="submit">{t(landing.contact.newsletterSubmitLabel)}</button>
 			</div>
 		</form>
-	</div>
 
-	<div class="contact-form-embed">
-		<iframe
-			src="https://tarry-skiff-3b7.notion.site/ebd//37da031add738021959cf7d54b86ebbc"
-			width="100%"
-			height="600"
-			frameborder="0"
-			allowfullscreen
-			title="Contact Form"
-		></iframe>
+		<div class="contact-form-embed">
+			<iframe
+				src="https://tarry-skiff-3b7.notion.site/ebd//37da031add738021959cf7d54b86ebbc"
+				width="100%"
+				height="600"
+				frameborder="0"
+				allowfullscreen
+				title="Contact Form"
+			></iframe>
+		</div>
 	</div>
 </section>
 
 <style>
-	.panel {
+	.contact-section {
 		width: 100%;
 		border: 1px solid var(--line-soft);
 		border-radius: 0.9rem;
@@ -91,19 +94,21 @@
 		box-shadow:
 			0 24px 50px rgb(var(--rgb-black) / 0.24),
 			inset 0 1px 0 rgb(var(--rgb-white) / 0.1);
-	}
-
-	.contact-panel {
-		display: grid;
-		grid-template-columns: minmax(0, 1.12fr) minmax(280px, 0.88fr);
-		gap: clamp(1rem, 3vw, 2rem);
-		align-items: center;
 		padding: clamp(1.15rem, 4vw, 3rem);
+		display: grid;
+		gap: clamp(1.5rem, 4vw, 2.5rem);
 	}
 
-	.contact-copy {
+	.contact-header {
 		display: grid;
 		gap: 0.75rem;
+	}
+
+	.contact-content {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) minmax(280px, 1.2fr);
+		gap: clamp(1rem, 3vw, 2rem);
+		align-items: flex-start;
 	}
 
 	.kicker {
@@ -145,7 +150,7 @@
 		font-size: clamp(1rem, 1.5vw, 1.15rem);
 	}
 
-	.contact-copy a {
+	.email-link {
 		display: inline-flex;
 		align-items: center;
 		gap: 0.35rem;
@@ -153,6 +158,11 @@
 		color: rgb(255 205 130);
 		font-weight: 800;
 		text-decoration: none;
+		font-size: 0.95rem;
+	}
+
+	.email-link:hover {
+		text-decoration: underline;
 	}
 
 	.newsletter-form,
@@ -283,13 +293,13 @@
 	}
 
 	@media (max-width: 900px) {
-		.contact-panel {
+		.contact-content {
 			grid-template-columns: 1fr;
 		}
 	}
 
 	@media (max-width: 640px) {
-		.contact-panel {
+		.contact-section {
 			padding: 1rem;
 		}
 
