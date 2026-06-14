@@ -394,6 +394,10 @@
 		background: linear-gradient(180deg, transparent, rgb(0 0 0 / 0.5));
 	}
 
+	:global(html:not(.dark)) .member-name {
+		color: rgb(var(--rgb-white));
+	}
+
 	:global(html:not(.dark)) .member-about-button {
 		color: rgb(18 37 63);
 	}
