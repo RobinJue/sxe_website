@@ -27,7 +27,9 @@ import type {
 	ResourceCategory,
 	ResourceItem,
 	SocialLink,
-	TeamMember
+	SocialProof,
+	TeamMember,
+	Testimonial
 } from "./types";
 
 const MIN_FAQ_GROUP_SIZE = 4;
@@ -147,6 +149,24 @@ export function mapLegalContent(source: unknown): LegalContent {
 	};
 }
 
+function mapSocialProof(value: unknown): SocialProof {
+	const row = asRecord(value, "landing_content.socialProof");
+	return {
+		number: requiredString(row.number, "landing_content.socialProof.number"),
+		label: localizedString(row.label, "landing_content.socialProof.label")
+	};
+}
+
+function mapTestimonial(value: unknown): Testimonial {
+	const row = asRecord(value, "landing_content.testimonial");
+	return {
+		quote: localizedString(row.quote, "landing_content.testimonial.quote"),
+		author: requiredString(row.author, "landing_content.testimonial.author"),
+		title: localizedString(row.title, "landing_content.testimonial.title"),
+		attribution: localizedString(row.attribution, "landing_content.testimonial.attribution")
+	};
+}
+
 function mapLandingContent(source: unknown): LandingContent {
 	const row = asRecord(source, "landing_content");
 	const header = optionalRecord(row.header);
@@ -174,6 +194,8 @@ function mapLandingContent(source: unknown): LandingContent {
 		),
 		nav: nav.length > 0 ? nav.map(mapNavItem) : DEFAULT_NAV,
 		hero: mapHero(row.hero),
+		...(optionalRecord(row.socialProof) && { socialProof: mapSocialProof(row.socialProof) }),
+		...(optionalRecord(row.testimonial) && { testimonial: mapTestimonial(row.testimonial) }),
 		about: mapAbout(row.about),
 		infographics: mapInfographics(row.infographics),
 		podcast: mapPodcast(row.podcast),
