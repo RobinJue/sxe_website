@@ -128,6 +128,7 @@ export type TeamMember = {
 	role: LocalizedString;
 	linkedinUrl: string;
 	photo?: string;
+	motivation?: LocalizedString;
 };
 
 export type SocialLink = {

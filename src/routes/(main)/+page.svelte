@@ -89,7 +89,7 @@
 		</h2>
 		<div class="carousel-container">
 			<div class="carousel-scroll">
-				{#each allPartners as partner (partner.name)}
+				{#each [...allPartners, ...allPartners, ...allPartners] as partner, idx (partner.name + "_" + idx)}
 					<a
 						class="carousel-item"
 						href={partner.url}
@@ -129,8 +129,11 @@
 <!-- Testimonial Section -->
 {#if landing.testimonial}
 	<section class="panel testimonial-panel reveal" aria-labelledby="testimonial-quote">
+		{#if landing.testimonial.photo}
+			<img src={landing.testimonial.photo} alt={landing.testimonial.author} class="testimonial-image" />
+		{/if}
 		<blockquote class="testimonial-content">
-			<p id="testimonial-quote" class="testimonial-quote">{t(landing.testimonial.quote)}</p>
+			<p id="testimonial-quote" class="testimonial-quote">"<em>{t(landing.testimonial.quote)}</em>"</p>
 			<footer class="testimonial-footer">
 				<div class="testimonial-author">
 					<strong>{landing.testimonial.author}</strong>
@@ -374,12 +377,16 @@
 			transform: translateX(0);
 		}
 		100% {
-			transform: translateX(calc(-100% - 2rem));
+			transform: translateX(calc(-200% - 4rem));
 		}
 	}
 
 	/* Testimonial Section */
 	.testimonial-panel {
+		display: grid;
+		grid-template-columns: 1fr 2fr;
+		gap: 2.5rem;
+		align-items: center;
 		padding: clamp(2.5rem, 5vw, 4rem);
 	}
 
@@ -393,10 +400,9 @@
 	.testimonial-quote {
 		font-family: "Space Grotesk", "Manrope", sans-serif;
 		font-size: clamp(1.5rem, 3vw, 2.25rem);
-		line-height: 1.4;
+		line-height: 1.25;
 		font-weight: 600;
 		color: rgb(var(--rgb-text-bright-dark));
-		font-style: italic;
 	}
 
 	.testimonial-footer {
@@ -421,6 +427,14 @@
 		font-weight: 600;
 		text-transform: uppercase;
 		letter-spacing: 0.05em;
+	}
+	.testimonial-image {
+		width: 100%;
+		max-width: 350px;
+		height: auto;
+		border-radius: 0.9rem;
+		object-fit: cover;
+		aspect-ratio: 1;
 	}
 
 	.testimonial-attribution {
@@ -531,6 +545,12 @@
 		}
 	}
 
+	
+	@media (max-width: 768px) {
+		.testimonial-panel {
+			grid-template-columns: 1fr;
+		}
+	}
 	@media (max-width: 640px) {
 		.hero-panel,
 		.section-panel {
