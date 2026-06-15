@@ -127,27 +127,20 @@
 </svelte:head>
 
 <main class="podcast-main">
-		<section class="hero-panel">
+		<section class="panel hero-panel">
 			<div class="hero-copy">
 				<p class="kicker"><Headphones size={14} strokeWidth={2.2} /> {t(podcast.kicker)}</p>
 				<h1>{t(podcast.title)}</h1>
-				<p>{t(podcast.intro)}</p>
-				<div class="platform-list" aria-label={t(podcast.listenLabel)}>
+				<p class="lead">{t(podcast.intro)}</p>
+				<div class="hero-actions" aria-label={t(podcast.listenLabel)}>
 					{#each podcast.platformLinks as link (link.label)}
-						<a href={link.url} target="_blank" rel="noopener noreferrer">
+						<a href={link.url} target="_blank" rel="noopener noreferrer" class="button button-primary">
 							{link.label}
-							<ExternalLink size={13} />
+							<ExternalLink size={16} />
 						</a>
 					{/each}
 				</div>
 			</div>
-			<img
-				class="hero-cover"
-				src={latestEpisode?.image || podcast.fallbackCover}
-				alt={latestEpisode?.title || t(podcast.title)}
-				loading="eager"
-				decoding="async"
-			/>
 		</section>
 
 		{#if feed.status !== "ok"}
@@ -283,7 +276,12 @@
 		box-shadow: 0 20px 30px rgb(var(--rgb-black) / 0.22);
 	}
 
-	.hero-panel,
+	.hero-panel {
+		display: grid;
+		align-items: center;
+		padding: clamp(2rem, 5vw, 3.5rem) clamp(1.1rem, 3vw, 2rem);
+	}
+
 	.latest-panel,
 	.newsletter-panel {
 		display: grid;
@@ -295,7 +293,48 @@
 
 	.hero-copy {
 		display: grid;
-		gap: 0.9rem;
+		gap: 0.75rem;
+	}
+
+	.hero-panel h1 {
+		max-width: 20ch;
+		font-size: clamp(2rem, 5.8vw, 4.3rem);
+		line-height: 1;
+	}
+
+	.hero-panel .lead {
+		color: var(--copy-muted);
+		max-width: 66ch;
+		font-size: clamp(1rem, 1.5vw, 1.15rem);
+	}
+
+	.hero-actions {
+		display: flex;
+		gap: 0.7rem;
+		margin-top: 0.25rem;
+	}
+
+	.button {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.4rem;
+		padding: 0.7rem 1.2rem;
+		border-radius: 999px;
+		font-weight: 800;
+		font-size: 0.85rem;
+		text-decoration: none;
+		cursor: pointer;
+		transition: transform 0.2s ease;
+	}
+
+	.button-primary {
+		border: 1px solid rgb(var(--rgb-brand-blue) / 0.55);
+		background: rgb(var(--rgb-brand-blue));
+		color: rgb(22 22 18);
+	}
+
+	.button-primary:hover {
+		transform: translateY(-2px);
 	}
 
 	.kicker {
@@ -366,14 +405,12 @@
 		aspect-ratio: 1;
 	}
 
-	.platform-list,
 	.episode-meta {
 		display: flex;
 		flex-wrap: wrap;
 		gap: 0.5rem;
 	}
 
-	.platform-list a,
 	.button-primary,
 	.episode-card a {
 		display: inline-flex;
@@ -571,7 +608,6 @@
 		color: rgb(255 205 130);
 	}
 
-	:global(html:not(.dark)) .platform-list a,
 	:global(html:not(.dark)) .episode-card a,
 	:global(html:not(.dark)) .search-box div,
 	:global(html:not(.dark)) .newsletter-row input {
