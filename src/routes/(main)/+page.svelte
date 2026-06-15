@@ -44,7 +44,7 @@
 </script>
 
 <svelte:head>
-	<title>{t(landing.meta.title)}</title>
+	<title>{language === "de" ? "SxE: Home" : "SxE: Home"}</title>
 	<meta name="description" content={t(landing.meta.description)} />
 	<meta property="og:title" content={t(landing.meta.title)} />
 	<meta property="og:description" content={t(landing.meta.description)} />
@@ -62,7 +62,7 @@
 <section class="panel hero-panel reveal" aria-labelledby="hero-title">
 	<div class="hero-copy">
 		<p class="kicker"><Sparkles size={14} strokeWidth={2.2} /> {t(landing.hero.kicker)}</p>
-		<h1 id="hero-title" class:de-title={language === "de"}>{t(landing.hero.title)}</h1>
+		<h1 id="hero-title">{t(landing.hero.title)}</h1>
 		<p class="lead">{t(landing.hero.lead)}</p>
 		<div class="hero-actions">
 			<a href={landing.hero.primaryHref} class="button button-primary"
@@ -230,12 +230,6 @@
 	}
 
 	h1 {
-		max-width: 12ch;
-		font-size: clamp(2.35rem, 7vw, 5.25rem);
-		line-height: 0.96;
-	}
-
-	h1.de-title {
 		max-width: 20ch;
 		font-size: clamp(2rem, 5.8vw, 4.3rem);
 		line-height: 1;

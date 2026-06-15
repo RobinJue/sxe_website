@@ -41,7 +41,7 @@
 </script>
 
 <svelte:head>
-	<title>{t(landing.contact.title)}</title>
+	<title>{language === "de" ? "SxE: Kontakt" : "SxE: Contact"}</title>
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
 	<link
@@ -146,6 +146,12 @@
 	h2 {
 		font-size: clamp(1.65rem, 3vw, 2.75rem);
 		line-height: 1.05;
+	}
+
+	#contact-title {
+		max-width: 20ch;
+		font-size: clamp(2rem, 5.8vw, 4.3rem);
+		line-height: 1;
 	}
 
 	h3 {

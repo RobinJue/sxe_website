@@ -176,6 +176,7 @@ export type LandingContent = {
 	about: {
 		kicker: LocalizedString;
 		heroStatement: LocalizedString;
+		lead?: LocalizedString;
 		story: LocalizedString;
 		mission: LocalizedString;
 		teamLabel: LocalizedString;
@@ -205,12 +206,16 @@ export type LandingContent = {
 	resources: {
 		kicker: LocalizedString;
 		title: LocalizedString;
+		lead?: LocalizedString;
 		categories: ResourceCategory[];
 	};
 	partners: {
 		kicker: LocalizedString;
 		title: LocalizedString;
 		intro: LocalizedString;
+		heroTitle?: LocalizedString;
+		heroLead?: LocalizedString;
+		heroCtaLabel?: LocalizedString;
 		tiers: PartnerTier[];
 		ctaTitle: LocalizedString;
 		ctaDescription: LocalizedString;

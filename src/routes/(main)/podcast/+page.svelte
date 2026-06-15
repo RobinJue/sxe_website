@@ -112,7 +112,7 @@
 </script>
 
 <svelte:head>
-	<title>{t(podcast.metaTitle)}</title>
+	<title>{language === "de" ? "SxE: Podcast" : "SxE: Podcast"}</title>
 	<meta name="description" content={t(podcast.metaDescription)} />
 	<meta property="og:title" content={t(podcast.metaTitle)} />
 	<meta property="og:description" content={t(podcast.metaDescription)} />

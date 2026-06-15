@@ -218,7 +218,6 @@
 					loading="lazy"
 					decoding="async"
 				/>
-				<p>{language === "de" ? "Beschreibung der SxE Webseite" : "Description of SxE website"}</p>
 			</div>
 			<div class="footer-links">
 				<a href="/impressum">{language === "de" ? "Impressum" : "Imprint"}</a>

@@ -40,7 +40,7 @@
 </script>
 
 <svelte:head>
-	<title>{t(landing.about.kicker)}</title>
+	<title>{language === "de" ? "SxE: Über" : "SxE: About"}</title>
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
 	<link
@@ -53,6 +53,7 @@
 <section class="panel hero-statement reveal" aria-labelledby="hero-statement-title">
 	<p class="kicker"><Info size={14} strokeWidth={2.2} /> {t(landing.about.kicker)}</p>
 	<h1 id="hero-statement-title" class="statement-text">{t(landing.about.heroStatement)}</h1>
+	<p class="lead">{t(landing.about.lead)}</p>
 </section>
 
 <!-- Story Section -->
@@ -189,12 +190,18 @@
 	}
 
 	.statement-text {
-		max-width: 21ch;
+		max-width: 20ch;
 		font-size: clamp(2rem, 5.8vw, 4.3rem);
 		line-height: 1;
 		letter-spacing: 0;
 		margin: 0;
 		white-space: pre-line;
+	}
+
+	.lead {
+		color: var(--copy-muted);
+		max-width: 66ch;
+		font-size: clamp(1rem, 1.5vw, 1.15rem);
 	}
 
 	/* Content Sections */

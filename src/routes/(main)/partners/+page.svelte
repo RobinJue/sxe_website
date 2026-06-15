@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Mail } from "lucide-svelte";
+	import { Mail, Handshake, ArrowRight } from "lucide-svelte";
 	import type { PageData } from "./$types";
 
 	let { data } = $props<{ data: PageData }>();
@@ -35,7 +35,7 @@
 </script>
 
 <svelte:head>
-	<title>{t(landing.partners.title)}</title>
+	<title>{language === "de" ? "SxE: Partner" : "SxE: Partners"}</title>
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
 	<link
@@ -45,6 +45,17 @@
 </svelte:head>
 
 <div class="partners-page">
+	<section class="panel partners-hero" aria-labelledby="partners-hero-title">
+		<div class="hero-copy">
+			<p class="kicker"><Handshake size={14} strokeWidth={2.2} /> {t(landing.partners.kicker)}</p>
+			<h1 id="partners-hero-title">{t(landing.partners.heroTitle)}</h1>
+			<p class="lead">{t(landing.partners.heroLead)}</p>
+			<div class="hero-actions">
+				<a href="/kontakt" class="button button-primary">{t(landing.partners.heroCtaLabel)} <ArrowRight size={16} /></a>
+			</div>
+		</div>
+	</section>
+
 	{#if silverPartners.length > 0}
 		<section class="partner-block" aria-labelledby="silver-title">
 			<div class="block-content">
@@ -260,6 +271,106 @@
 
 	.cta-button:hover {
 		transform: translateY(-2px);
+	}
+
+	/* Hero Section */
+	.panel {
+		width: 100%;
+		border: 1px solid var(--line-soft);
+		border-radius: 0.9rem;
+		background:
+			linear-gradient(150deg, rgb(var(--rgb-white) / 0.09), rgb(var(--rgb-white) / 0.035)),
+			var(--shell-1);
+		box-shadow:
+			0 24px 50px rgb(var(--rgb-black) / 0.24),
+			inset 0 1px 0 rgb(var(--rgb-white) / 0.1);
+	}
+
+	.partners-hero {
+		width: 100%;
+		padding: clamp(2rem, 5vw, 3.5rem) clamp(1.1rem, 3vw, 2rem);
+		display: grid;
+		align-items: center;
+	}
+
+	.hero-copy {
+		display: grid;
+		gap: 0.75rem;
+	}
+
+	.kicker {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.42rem;
+		width: fit-content;
+		margin: 0;
+		border-radius: 999px;
+		color: rgb(255 205 130);
+		font-size: 0.78rem;
+		font-weight: 800;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+	}
+
+	h1 {
+		font-family: "Space Grotesk", "Manrope", sans-serif;
+		color: rgb(var(--rgb-text-bright-dark));
+		font-weight: 600;
+		letter-spacing: 0;
+		margin: 0;
+		max-width: 20ch;
+		font-size: clamp(2rem, 5.8vw, 4.3rem);
+		line-height: 1;
+	}
+
+	.lead {
+		color: var(--copy-muted);
+		max-width: 66ch;
+		font-size: clamp(1rem, 1.5vw, 1.15rem);
+		margin: 0;
+	}
+
+	.hero-actions {
+		display: flex;
+		gap: 0.7rem;
+		margin-top: 0.25rem;
+	}
+
+	.button {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.4rem;
+		padding: 0.7rem 1.2rem;
+		border-radius: 999px;
+		font-weight: 800;
+		font-size: 0.85rem;
+		text-decoration: none;
+		cursor: pointer;
+		transition: transform 0.2s ease;
+	}
+
+	.button-primary {
+		border: 1px solid rgb(var(--rgb-brand-blue) / 0.55);
+		background: rgb(var(--rgb-brand-blue));
+		color: rgb(22 22 18);
+	}
+
+	.button-primary:hover {
+		transform: translateY(-2px);
+	}
+
+	:global(html:not(.dark)) .panel {
+		background:
+			linear-gradient(150deg, rgb(var(--rgb-white) / 0.97), rgb(238 246 255 / 0.5)),
+			rgb(var(--rgb-white));
+		box-shadow:
+			0 20px 32px rgb(var(--rgb-slate-900) / 0.08),
+			inset 0 1px 0 rgb(var(--rgb-white) / 0.8);
+	}
+
+	:global(html:not(.dark)) h1,
+	:global(html:not(.dark)) h2 {
+		color: rgb(18 37 63);
 	}
 
 	:global(html:not(.dark)) .partner-block {

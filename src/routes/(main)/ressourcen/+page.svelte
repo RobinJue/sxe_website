@@ -38,7 +38,7 @@
 </script>
 
 <svelte:head>
-	<title>{t(landing.resources.title)}</title>
+	<title>{language === "de" ? "SxE: Ressourcen" : "SxE: Resources"}</title>
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
 	<link
@@ -51,6 +51,7 @@
 	<div class="section-head">
 		<p class="kicker"><Rocket size={14} strokeWidth={2.2} /> {t(landing.resources.kicker)}</p>
 		<h2 id="resources-title">{t(landing.resources.title)}</h2>
+		<p class="lead">{t(landing.resources.lead)}</p>
 	</div>
 	<div class="resource-category-grid">
 		{#each landing.resources.categories as category (t(category.title))}
@@ -129,6 +130,18 @@
 	h2 {
 		font-size: clamp(1.65rem, 3vw, 2.75rem);
 		line-height: 1.05;
+	}
+
+	#resources-title {
+		max-width: 20ch;
+		font-size: clamp(2rem, 5.8vw, 4.3rem);
+		line-height: 1;
+	}
+
+	.lead {
+		color: var(--copy-muted);
+		max-width: 66ch;
+		font-size: clamp(1rem, 1.5vw, 1.15rem);
 	}
 
 	.resource-category-grid {

@@ -45,7 +45,7 @@
 </script>
 
 <svelte:head>
-	<title>{t(landing.faq.title)}</title>
+	<title>{language === "de" ? "SxE: FAQ" : "SxE: FAQ"}</title>
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
 	<link

@@ -138,6 +138,10 @@
       "de": "Wir verwandeln\nSpitzen-Wissenschaftler in\nSpitzen-Gründer.",
       "en": "We turn top scientists into top founders."
     },
+    "lead": {
+      "de": "Lerne das Team hinter SxE und die Initiative kennen.",
+      "en": "Get to know the team behind SxE and the initiative."
+    },
     "story": {
       "de": "Aus einer kleinen Idee ist eine aktive Community mit knapp 1.400 Mitgliedern gewachsen. Heute besteht unser Team aus 14 leidenschaftlichen Stipendiaten, die daran arbeiten, dass die nächste Generation von Wissenschaftlern den Weg in die Gründung findet.",
       "en": "From a small idea, an active community of nearly 1,400 members has grown. Today, our team consists of 14 passionate scholars working to help the next generation of scientists find their path to entrepreneurship."
@@ -710,6 +714,10 @@
       "de": "Formate, Programme und erste Anlaufstellen",
       "en": "Formats, programs and first support points"
     },
+    "lead": {
+      "de": "Hier findest du öffentliche Ressourcen, die dich bei deiner Gründung begleiten.",
+      "en": "Here you'll find public resources to support you on your founding journey."
+    },
     "categories": [
       {
         "title": {
@@ -1086,6 +1094,18 @@
     ]
   },
   "partners": {
+    "heroTitle": {
+      "de": "Wissenschaft braucht Partner.",
+      "en": "Science needs partners."
+    },
+    "heroLead": {
+      "de": "Lerne unsere Partner kennen, die SxE unterstützen.",
+      "en": "Meet our partners who support SxE."
+    },
+    "heroCtaLabel": {
+      "de": "Kontakt",
+      "en": "Contact"
+    },
     "kicker": {
       "de": "Unterstützer",
       "en": "Supporters"
