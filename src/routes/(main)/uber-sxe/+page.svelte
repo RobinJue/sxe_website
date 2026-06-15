@@ -53,7 +53,9 @@
 <section class="panel hero-statement reveal" aria-labelledby="hero-statement-title">
 	<p class="kicker"><Info size={14} strokeWidth={2.2} /> {t(landing.about.kicker)}</p>
 	<h1 id="hero-statement-title" class="statement-text">{t(landing.about.heroStatement)}</h1>
-	<p class="lead">{t(landing.about.lead)}</p>
+	{#if landing.about.lead}
+		<p class="lead">{t(landing.about.lead)}</p>
+	{/if}
 </section>
 
 <!-- Story Section -->

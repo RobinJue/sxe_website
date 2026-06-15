@@ -45,16 +45,18 @@
 </svelte:head>
 
 <div class="partners-page">
-	<section class="panel partners-hero" aria-labelledby="partners-hero-title">
-		<div class="hero-copy">
-			<p class="kicker"><Handshake size={14} strokeWidth={2.2} /> {t(landing.partners.kicker)}</p>
-			<h1 id="partners-hero-title">{t(landing.partners.heroTitle)}</h1>
-			<p class="lead">{t(landing.partners.heroLead)}</p>
-			<div class="hero-actions">
-				<a href="/kontakt" class="button button-primary">{t(landing.partners.heroCtaLabel)} <ArrowRight size={16} /></a>
+	{#if landing.partners.heroTitle && landing.partners.heroLead && landing.partners.heroCtaLabel}
+		<section class="panel partners-hero" aria-labelledby="partners-hero-title">
+			<div class="hero-copy">
+				<p class="kicker"><Handshake size={14} strokeWidth={2.2} /> {t(landing.partners.kicker)}</p>
+				<h1 id="partners-hero-title">{t(landing.partners.heroTitle)}</h1>
+				<p class="lead">{t(landing.partners.heroLead)}</p>
+				<div class="hero-actions">
+					<a href="/kontakt" class="button button-primary">{t(landing.partners.heroCtaLabel)} <ArrowRight size={16} /></a>
+				</div>
 			</div>
-		</div>
-	</section>
+		</section>
+	{/if}
 
 	{#if silverPartners.length > 0}
 		<section class="partner-block" aria-labelledby="silver-title">

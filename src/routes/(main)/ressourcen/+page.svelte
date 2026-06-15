@@ -51,7 +51,9 @@
 	<div class="section-head">
 		<p class="kicker"><Rocket size={14} strokeWidth={2.2} /> {t(landing.resources.kicker)}</p>
 		<h2 id="resources-title">{t(landing.resources.title)}</h2>
-		<p class="lead">{t(landing.resources.lead)}</p>
+		{#if landing.resources.lead}
+			<p class="lead">{t(landing.resources.lead)}</p>
+		{/if}
 	</div>
 	<div class="resource-category-grid">
 		{#each landing.resources.categories as category (t(category.title))}
