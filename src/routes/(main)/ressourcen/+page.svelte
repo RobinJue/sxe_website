@@ -138,6 +138,7 @@
 		max-width: 20ch;
 		font-size: clamp(2rem, 5.8vw, 4.3rem);
 		line-height: 1;
+		white-space: pre-line;
 	}
 
 	.lead {

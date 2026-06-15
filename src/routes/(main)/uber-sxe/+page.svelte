@@ -56,11 +56,13 @@
 	{#if landing.about.lead}
 		<p class="lead">{t(landing.about.lead)}</p>
 	{/if}
-	<div class="hero-actions">
-		<a href={landing.about.primaryHref} class="button button-primary"
-			>{t(landing.about.primaryLabel)} <ArrowRight size={16} /></a
-		>
-	</div>
+	{#if landing.about.primaryLabel && landing.about.primaryHref}
+		<div class="hero-actions">
+			<a href={landing.about.primaryHref} class="button button-primary"
+				>{t(landing.about.primaryLabel)} <ArrowRight size={16} /></a
+			>
+		</div>
+	{/if}
 </section>
 
 <!-- Story Section -->

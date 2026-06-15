@@ -277,11 +277,14 @@ function mapAbout(value: unknown): LandingContent["about"] {
 		story: localizedString(row.story, "landing_content.about.story"),
 		mission: localizedString(row.mission, "landing_content.about.mission"),
 		teamLabel: localizedString(row.teamLabel, "landing_content.about.teamLabel"),
+		...(row.lead ? { lead: localizedString(row.lead, "landing_content.about.lead") } : {}),
 		...(row.title ? { title: localizedString(row.title, "landing_content.about.title") } : {}),
 		...(row.body ? { body: localizedString(row.body, "landing_content.about.body") } : {}),
 		...(row.features ? { features: list(row.features, "landing_content.about.features").map((feature, index) =>
 			mapFeature(feature, `landing_content.about.features[${index}]`)
-		) } : {})
+		) } : {}),
+		...(row.primaryLabel ? { primaryLabel: localizedString(row.primaryLabel, "landing_content.about.primaryLabel") } : {}),
+		...(row.primaryHref ? { primaryHref: requiredString(row.primaryHref, "landing_content.about.primaryHref") } : {})
 	};
 }
 

@@ -183,6 +183,8 @@ export type LandingContent = {
 		title?: LocalizedString;
 		body?: LocalizedString;
 		features?: LandingFeature[];
+		primaryLabel?: LocalizedString;
+		primaryHref?: string;
 	};
 	infographics: {
 		kicker: LocalizedString;
