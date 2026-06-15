@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Linkedin, BookOpen, Target, Info } from "lucide-svelte";
+	import { Linkedin, BookOpen, Target, Info, ArrowRight } from "lucide-svelte";
 	import type { PageData } from "./$types";
 
 	let { data } = $props<{ data: PageData }>();
@@ -56,6 +56,11 @@
 	{#if landing.about.lead}
 		<p class="lead">{t(landing.about.lead)}</p>
 	{/if}
+	<div class="hero-actions">
+		<a href={landing.about.primaryHref} class="button button-primary"
+			>{t(landing.about.primaryLabel)} <ArrowRight size={16} /></a
+		>
+	</div>
 </section>
 
 <!-- Story Section -->
@@ -192,7 +197,7 @@
 	}
 
 	.statement-text {
-		max-width: 20ch;
+		max-width: 21ch;
 		font-size: clamp(2rem, 5.8vw, 4.3rem);
 		line-height: 1;
 		letter-spacing: 0;
@@ -204,6 +209,37 @@
 		color: var(--copy-muted);
 		max-width: 66ch;
 		font-size: clamp(1rem, 1.5vw, 1.15rem);
+	}
+
+	.hero-actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.7rem;
+		margin-top: 0.25rem;
+	}
+
+	.button {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		gap: 0.45rem;
+		min-height: 2.75rem;
+		padding: 0.7rem 1rem;
+		border-radius: 999px;
+		font-weight: 800;
+		text-decoration: none;
+		cursor: pointer;
+		transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+	}
+
+	.button:hover {
+		transform: translateY(-1px);
+	}
+
+	.button-primary {
+		border: 1px solid rgb(var(--rgb-brand-blue) / 0.55);
+		background: rgb(var(--rgb-brand-blue));
+		color: rgb(22 22 18);
 	}
 
 	/* Content Sections */
