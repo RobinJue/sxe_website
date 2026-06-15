@@ -413,7 +413,7 @@
 		gap: 0.5rem;
 	}
 
-	.button-primary,
+	.button-primary:not(.button),
 	.episode-card a {
 		display: inline-flex;
 		align-items: center;
@@ -432,7 +432,7 @@
 		color: rgb(255 205 130);
 	}
 
-	.button-primary {
+	.button-primary:not(.button) {
 		margin-top: 0.4rem;
 		padding: 0 0.9rem;
 		background: rgb(var(--rgb-brand-blue));
