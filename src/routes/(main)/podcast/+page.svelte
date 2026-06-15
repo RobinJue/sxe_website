@@ -297,7 +297,7 @@
 	}
 
 	.hero-panel h1 {
-		max-width: 20ch;
+		max-width: 6ch;
 		font-size: clamp(2rem, 5.8vw, 4.3rem);
 		line-height: 1;
 	}
