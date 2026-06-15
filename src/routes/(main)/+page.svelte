@@ -75,6 +75,25 @@
 	</div>
 </section>
 
+<!-- Testimonial Section -->
+{#if landing.testimonial}
+	<section class="panel testimonial-panel reveal" aria-labelledby="testimonial-quote">
+		{#if landing.testimonial.photo}
+			<img src={landing.testimonial.photo} alt={landing.testimonial.author} class="testimonial-image" />
+		{/if}
+		<blockquote class="testimonial-content">
+			<p id="testimonial-quote" class="testimonial-quote">"<em>{t(landing.testimonial.quote)}</em>"</p>
+			<footer class="testimonial-footer">
+				<div class="testimonial-author">
+					<strong>{landing.testimonial.author}</strong>
+					<span class="testimonial-title">{t(landing.testimonial.title)}</span>
+				</div>
+				<p class="testimonial-attribution">{t(landing.testimonial.attribution)}</p>
+			</footer>
+		</blockquote>
+	</section>
+{/if}
+
 <!-- Social Proof Section -->
 {#if landing.socialProof}
 	<section class="panel social-proof-panel reveal" aria-labelledby="social-proof-label">
@@ -146,25 +165,6 @@
 		{/each}
 	</div>
 </section>
-
-<!-- Testimonial Section -->
-{#if landing.testimonial}
-	<section class="panel testimonial-panel reveal" aria-labelledby="testimonial-quote">
-		{#if landing.testimonial.photo}
-			<img src={landing.testimonial.photo} alt={landing.testimonial.author} class="testimonial-image" />
-		{/if}
-		<blockquote class="testimonial-content">
-			<p id="testimonial-quote" class="testimonial-quote">"<em>{t(landing.testimonial.quote)}</em>"</p>
-			<footer class="testimonial-footer">
-				<div class="testimonial-author">
-					<strong>{landing.testimonial.author}</strong>
-					<span class="testimonial-title">{t(landing.testimonial.title)}</span>
-				</div>
-				<p class="testimonial-attribution">{t(landing.testimonial.attribution)}</p>
-			</footer>
-		</blockquote>
-	</section>
-{/if}
 
 <style>
 	.panel {
