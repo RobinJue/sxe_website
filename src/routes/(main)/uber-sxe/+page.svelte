@@ -188,7 +188,7 @@
 		padding: clamp(2rem, 5vw, 3.5rem) clamp(1.1rem, 3vw, 2rem);
 		text-align: left;
 		display: grid;
-		gap: clamp(1rem, 3vw, 2rem);
+		gap: 0.75rem;
 	}
 
 	.statement-text {
