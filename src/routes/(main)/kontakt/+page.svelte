@@ -4,6 +4,7 @@
 
 	let { data } = $props<{ data: PageData }>();
 	let language = $state<"de" | "en">("de");
+	let isMobile = $state(false);
 
 	function t(value: { de: string; en: string }): string {
 		return value[language];
@@ -22,6 +23,7 @@
 		if (typeof window === "undefined") return;
 		language = getStoredLanguage();
 		document.documentElement.lang = language;
+		isMobile = window.innerWidth < 900;
 	});
 
 	const content = $derived(data.content);
@@ -77,14 +79,25 @@
 		</form>
 
 		<div class="contact-form-embed">
-			<iframe
-				src="https://tarry-skiff-3b7.notion.site/ebd//37da031add738021959cf7d54b86ebbc"
-				width="100%"
-				height="600"
-				frameborder="0"
-				allowfullscreen
-				title="Contact Form"
-			></iframe>
+			{#if !isMobile}
+				<iframe
+					src="https://tarry-skiff-3b7.notion.site/ebd//37da031add738021959cf7d54b86ebbc"
+					width="100%"
+					height="600"
+					frameborder="0"
+					loading="lazy"
+					title="Contact Form"
+				></iframe>
+			{:else}
+				<a
+					href="https://tarry-skiff-3b7.notion.site/ebd//37da031add738021959cf7d54b86ebbc"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="form-open-button"
+				>
+					{language === "de" ? "Kontaktformular öffnen" : "Open contact form"} →
+				</a>
+			{/if}
 		</div>
 	</div>
 </section>
@@ -260,6 +273,27 @@
 
 	.contact-form-embed iframe {
 		border-radius: 0.6rem;
+	}
+
+	.form-open-button {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		min-height: 2.75rem;
+		padding: 0.7rem 1rem;
+		border-radius: 999px;
+		border: 1px solid rgb(var(--rgb-brand-blue) / 0.55);
+		background: rgb(var(--rgb-brand-blue));
+		color: rgb(22 22 18);
+		font-weight: 800;
+		text-decoration: none;
+		cursor: pointer;
+		transition: transform 0.2s ease;
+	}
+
+	.form-open-button:hover {
+		transform: translateY(-1px);
 	}
 
 	.form-note {
