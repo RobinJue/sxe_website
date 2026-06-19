@@ -317,7 +317,7 @@
 	h1 {
 		font-family: "Space Grotesk", "Manrope", sans-serif;
 		color: rgb(var(--rgb-text-bright-dark));
-		font-weight: 600;
+		font-weight: 800;
 		letter-spacing: 0;
 		margin: 0;
 		max-width: 20ch;
@@ -334,6 +334,7 @@
 
 	.hero-actions {
 		display: flex;
+		flex-wrap: wrap;
 		gap: 0.7rem;
 		margin-top: 0.25rem;
 	}
@@ -341,24 +342,25 @@
 	.button {
 		display: inline-flex;
 		align-items: center;
-		gap: 0.4rem;
-		padding: 0.7rem 1.2rem;
+		justify-content: center;
+		gap: 0.45rem;
+		min-height: 2.75rem;
+		padding: 0.7rem 1rem;
 		border-radius: 999px;
 		font-weight: 800;
-		font-size: 0.85rem;
 		text-decoration: none;
 		cursor: pointer;
-		transition: transform 0.2s ease;
+		transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+	}
+
+	.button:hover {
+		transform: translateY(-1px);
 	}
 
 	.button-primary {
 		border: 1px solid rgb(var(--rgb-brand-blue) / 0.55);
 		background: rgb(var(--rgb-brand-blue));
 		color: rgb(22 22 18);
-	}
-
-	.button-primary:hover {
-		transform: translateY(-2px);
 	}
 
 	:global(html:not(.dark)) .panel {
