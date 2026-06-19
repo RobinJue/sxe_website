@@ -610,6 +610,12 @@
 		color: rgb(255 205 130);
 	}
 
+	:global(html:not(.dark)) .button-primary {
+		border: 1px solid rgb(var(--rgb-brand-blue) / 0.55);
+		background: rgb(var(--rgb-brand-blue));
+		color: rgb(22 22 18);
+	}
+
 	:global(html:not(.dark)) .episode-card a,
 	:global(html:not(.dark)) .search-box div,
 	:global(html:not(.dark)) .newsletter-row input {
