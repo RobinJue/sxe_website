@@ -265,7 +265,21 @@
 		padding: 0.5rem 0 2rem;
 	}
 
-	.hero-panel,
+	.hero-panel {
+		width: 100%;
+		border: 1px solid var(--line-soft);
+		border-radius: 0.9rem;
+		background:
+			linear-gradient(150deg, rgb(var(--rgb-white) / 0.09), rgb(var(--rgb-white) / 0.035)),
+			var(--shell-1);
+		box-shadow:
+			0 24px 50px rgb(var(--rgb-black) / 0.24),
+			inset 0 1px 0 rgb(var(--rgb-white) / 0.1);
+		display: grid;
+		align-items: center;
+		padding: clamp(2rem, 5vw, 3.5rem) clamp(1.1rem, 3vw, 2rem);
+	}
+
 	.latest-panel,
 	.episodes-panel,
 	.newsletter-panel,
@@ -274,12 +288,6 @@
 		border-radius: 0.95rem;
 		background: linear-gradient(160deg, rgb(21 30 50 / 0.88), rgb(10 14 23 / 0.92));
 		box-shadow: 0 20px 30px rgb(var(--rgb-black) / 0.22);
-	}
-
-	.hero-panel {
-		display: grid;
-		align-items: center;
-		padding: clamp(2rem, 5vw, 3.5rem) clamp(1.1rem, 3vw, 2rem);
 	}
 
 	.latest-panel,
