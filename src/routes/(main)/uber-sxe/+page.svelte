@@ -1,46 +1,22 @@
 <script lang="ts">
 	import { Linkedin, BookOpen, Target, Info, ArrowRight } from "lucide-svelte";
 	import type { PageData } from "./$types";
+	import { lang } from "$lib/language.svelte.ts";
 
 	let { data } = $props<{ data: PageData }>();
 
-	let language = $state<"de" | "en">("de");
 	let flipped = $state<Record<string, boolean>>({});
-
-	function t(value: { de: string; en: string }): string {
-		return value[language];
-	}
-
-	function getStoredLanguage(): "de" | "en" {
-		if (typeof window === "undefined") {
-			return "de";
-		}
-
-		try {
-			return window.localStorage.getItem("sxe-language") === "en" ? "en" : "de";
-		} catch {
-			return "de";
-		}
-	}
 
 	function toggleFlip(memberId: string) {
 		flipped[memberId] = !flipped[memberId];
 	}
-
-	$effect(() => {
-		if (typeof window === "undefined") {
-			return;
-		}
-		language = getStoredLanguage();
-		document.documentElement.lang = language;
-	});
 
 	const content = $derived(data.content);
 	const landing = $derived(content.landing);
 </script>
 
 <svelte:head>
-	<title>{language === "de" ? "SxE: Über" : "SxE: About"}</title>
+	<title>{lang.current === "de" ? "SxE: Über" : "SxE: About"}</title>
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
 	<link
@@ -51,15 +27,15 @@
 
 <!-- Hero Statement -->
 <section class="panel hero-statement reveal" aria-labelledby="hero-statement-title">
-	<p class="kicker"><Info size={14} strokeWidth={2.2} /> {t(landing.about.kicker)}</p>
-	<h1 id="hero-statement-title" class="statement-text">{t(landing.about.heroStatement)}</h1>
+	<p class="kicker"><Info size={14} strokeWidth={2.2} /> {lang.t(landing.about.kicker)}</p>
+	<h1 id="hero-statement-title" class="statement-text">{lang.t(landing.about.heroStatement)}</h1>
 	{#if landing.about.lead}
-		<p class="lead">{t(landing.about.lead)}</p>
+		<p class="lead">{lang.t(landing.about.lead)}</p>
 	{/if}
 	{#if landing.about.primaryLabel && landing.about.primaryHref}
 		<div class="hero-actions">
 			<a href={landing.about.primaryHref} class="button button-primary"
-				>{t(landing.about.primaryLabel)} <ArrowRight size={16} /></a
+				>{lang.t(landing.about.primaryLabel)} <ArrowRight size={16} /></a
 			>
 		</div>
 	{/if}
@@ -73,9 +49,9 @@
 		</div>
 		<div class="section-body">
 			<div class="section-header">
-				<h2 id="story-title" class="section-title">{language === "de" ? "Die Geschichte" : "The story"}</h2>
+				<h2 id="story-title" class="section-title">{lang.current === "de" ? "Die Geschichte" : "The story"}</h2>
 			</div>
-			<p class="story-text">{t(landing.about.story)}</p>
+			<p class="story-text">{lang.t(landing.about.story)}</p>
 		</div>
 	</div>
 </section>
@@ -88,9 +64,9 @@
 		</div>
 		<div class="section-body">
 			<div class="section-header">
-				<h2 id="mission-title" class="section-title">{language === "de" ? "Was uns antreibt" : "What drives us"}</h2>
+				<h2 id="mission-title" class="section-title">{lang.current === "de" ? "Was uns antreibt" : "What drives us"}</h2>
 			</div>
-			<p class="mission-text">{t(landing.about.mission)}</p>
+			<p class="mission-text">{lang.t(landing.about.mission)}</p>
 		</div>
 	</div>
 </section>
@@ -98,8 +74,8 @@
 <!-- Team Section -->
 <section class="panel team-section reveal" aria-labelledby="team-title">
 	<div class="section-header">
-		<h2 id="team-title" class="section-title">{t(landing.team.title)}</h2>
-		<p class="team-label">{t(landing.about.teamLabel)}</p>
+		<h2 id="team-title" class="section-title">{lang.t(landing.team.title)}</h2>
+		<p class="team-label">{lang.t(landing.about.teamLabel)}</p>
 	</div>
 	<div class="team-grid">
 		{#each landing.team.members as member (member.id)}
@@ -123,7 +99,7 @@
 							</div>
 						</div>
 						<button class="member-about-button" onclick={(e) => { e.stopPropagation(); toggleFlip(member.id); }}>
-							→ {language === "de" ? "ÜBER" : "ABOUT"}
+							→ {lang.current === "de" ? "ÜBER" : "ABOUT"}
 						</button>
 					</div>
 
@@ -131,7 +107,7 @@
 					<div class="card-back" onclick={() => toggleFlip(member.id)}>
 						<div class="back-content">
 							{#if member.motivation}
-								<p class="motivation-text">{t(member.motivation)}</p>
+								<p class="motivation-text">{lang.t(member.motivation)}</p>
 							{/if}
 							<a href={member.linkedinUrl} target="_blank" rel="noopener noreferrer" class="linkedin-link" onclick={(e) => e.stopPropagation()}>
 								<Linkedin size={24} />

@@ -1,28 +1,9 @@
 <script lang="ts">
 	import { Mail, Handshake, ArrowRight } from "lucide-svelte";
 	import type { PageData } from "./$types";
+	import { lang } from "$lib/language.svelte.ts";
 
 	let { data } = $props<{ data: PageData }>();
-	let language = $state<"de" | "en">("de");
-
-	function t(value: { de: string; en: string }): string {
-		return value[language];
-	}
-
-	function getStoredLanguage(): "de" | "en" {
-		if (typeof window === "undefined") return "de";
-		try {
-			return window.localStorage.getItem("sxe-language") === "en" ? "en" : "de";
-		} catch {
-			return "de";
-		}
-	}
-
-	$effect(() => {
-		if (typeof window === "undefined") return;
-		language = getStoredLanguage();
-		document.documentElement.lang = language;
-	});
 
 	const content = $derived(data.content);
 	const landing = $derived(content.landing);
@@ -35,7 +16,7 @@
 </script>
 
 <svelte:head>
-	<title>{language === "de" ? "SxE: Partner" : "SxE: Partners"}</title>
+	<title>{lang.current === "de" ? "SxE: Partner" : "SxE: Partners"}</title>
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
 	<link
@@ -48,11 +29,11 @@
 	{#if landing.partners.heroTitle && landing.partners.heroLead && landing.partners.heroCtaLabel}
 		<section class="panel partners-hero" aria-labelledby="partners-hero-title">
 			<div class="hero-copy">
-				<p class="kicker"><Handshake size={14} strokeWidth={2.2} /> {t(landing.partners.kicker)}</p>
-				<h1 id="partners-hero-title">{t(landing.partners.heroTitle)}</h1>
-				<p class="lead">{t(landing.partners.heroLead)}</p>
+				<p class="kicker"><Handshake size={14} strokeWidth={2.2} /> {lang.t(landing.partners.kicker)}</p>
+				<h1 id="partners-hero-title">{lang.t(landing.partners.heroTitle)}</h1>
+				<p class="lead">{lang.t(landing.partners.heroLead)}</p>
 				<div class="hero-actions">
-					<a href="mailto:robin.juengerich@icloud.com?subject=SxE%20Partnership%20inquiry" class="button button-primary">{t(landing.partners.heroCtaLabel)} <ArrowRight size={16} /></a>
+					<a href="mailto:robin.juengerich@icloud.com?subject=SxE%20Partnership%20inquiry" class="button button-primary">{lang.t(landing.partners.heroCtaLabel)} <ArrowRight size={16} /></a>
 				</div>
 			</div>
 		</section>
@@ -62,8 +43,8 @@
 		<section class="partner-block" aria-labelledby="silver-title">
 			<div class="block-content">
 				<div class="block-text">
-					<h2 id="silver-title">{silverTier.title ? t(silverTier.title) : t(landing.partners.title)}</h2>
-					<p class="block-description">{silverTier.description ? t(silverTier.description) : t(landing.partners.intro)}</p>
+					<h2 id="silver-title">{silverTier.title ? lang.t(silverTier.title) : lang.t(landing.partners.title)}</h2>
+					<p class="block-description">{silverTier.description ? lang.t(silverTier.description) : lang.t(landing.partners.intro)}</p>
 				</div>
 				<div class="block-logos">
 					{#each silverPartners as partner (partner.name)}
@@ -91,8 +72,8 @@
 		<section class="partner-block" aria-labelledby="bronze-title">
 			<div class="block-content">
 				<div class="block-text">
-					<h2 id="bronze-title">{bronzeTier.title ? t(bronzeTier.title) : (language === "de" ? "Wir führen Workshops durch" : "We conduct workshops")}</h2>
-					<p class="block-description">{bronzeTier.description ? t(bronzeTier.description) : (language === "de" ? "Mit praktischen Formaten unterstützen wir Wissenschaftler bei ihren ersten Schritten in Richtung Gründung." : "Through practical formats, we support scientists in their first steps towards entrepreneurship.")}</p>
+					<h2 id="bronze-title">{bronzeTier.title ? lang.t(bronzeTier.title) : (lang.current === "de" ? "Wir führen Workshops durch" : "We conduct workshops")}</h2>
+					<p class="block-description">{bronzeTier.description ? lang.t(bronzeTier.description) : (lang.current === "de" ? "Mit praktischen Formaten unterstützen wir Wissenschaftler bei ihren ersten Schritten in Richtung Gründung." : "Through practical formats, we support scientists in their first steps towards entrepreneurship.")}</p>
 				</div>
 				<div class="block-logos">
 					{#each bronzePartners as partner (partner.name)}
@@ -117,13 +98,13 @@
 	{/if}
 
 	<section class="partners-cta" aria-labelledby="partnership-cta">
-		<h3 id="partnership-cta">{t(landing.partners.ctaTitle)}</h3>
-		<p>{t(landing.partners.ctaDescription)}</p>
+		<h3 id="partnership-cta">{lang.t(landing.partners.ctaTitle)}</h3>
+		<p>{lang.t(landing.partners.ctaDescription)}</p>
 		<a
 			href="mailto:robin.juengerich@icloud.com?subject=SxE%20Partnership%20request"
 			class="cta-button"
 		>
-			<Mail size={14} /> {t(landing.partners.ctaButtonLabel)}
+			<Mail size={14} /> {lang.t(landing.partners.ctaButtonLabel)}
 		</a>
 	</section>
 </div>

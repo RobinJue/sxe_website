@@ -1,29 +1,10 @@
 <script lang="ts">
 	import { HelpCircle, ChevronDown } from "lucide-svelte";
 	import type { PageData } from "./$types";
+	import { lang } from "$lib/language.svelte.ts";
 
 	let { data } = $props<{ data: PageData }>();
-	let language = $state<"de" | "en">("de");
 	let openFaqId = $state<string | null>(null);
-
-	function t(value: { de: string; en: string }): string {
-		return value[language];
-	}
-
-	function getStoredLanguage(): "de" | "en" {
-		if (typeof window === "undefined") return "de";
-		try {
-			return window.localStorage.getItem("sxe-language") === "en" ? "en" : "de";
-		} catch {
-			return "de";
-		}
-	}
-
-	$effect(() => {
-		if (typeof window === "undefined") return;
-		language = getStoredLanguage();
-		document.documentElement.lang = language;
-	});
 
 	const content = $derived(data.content);
 	const landing = $derived(content.landing);
@@ -45,7 +26,7 @@
 </script>
 
 <svelte:head>
-	<title>{language === "de" ? "SxE: FAQ" : "SxE: FAQ"}</title>
+	<title>{lang.current === "de" ? "SxE: FAQ" : "SxE: FAQ"}</title>
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
 	<link
@@ -56,14 +37,14 @@
 
 <section class="panel section-panel reveal" aria-labelledby="faq-title">
 	<div class="section-head">
-		<p class="kicker"><HelpCircle size={14} strokeWidth={2.2} /> {t(landing.faq.kicker)}</p>
-		<h2 id="faq-title">{t(landing.faq.title)}</h2>
-		<p class="lead">{t(landing.faq.intro)}</p>
+		<p class="kicker"><HelpCircle size={14} strokeWidth={2.2} /> {lang.t(landing.faq.kicker)}</p>
+		<h2 id="faq-title">{lang.t(landing.faq.title)}</h2>
+		<p class="lead">{lang.t(landing.faq.intro)}</p>
 	</div>
 	<div class="faq-list">
-		{#each landing.faq.groups as group (t(group.title))}
+		{#each landing.faq.groups as group (lang.t(group.title))}
 			<section class="faq-group" aria-labelledby={`faq-group-${group.itemIds[0]}`}>
-				<h3 id={`faq-group-${group.itemIds[0]}`} class="faq-group-title">{t(group.title)}</h3>
+				<h3 id={`faq-group-${group.itemIds[0]}`} class="faq-group-title">{lang.t(group.title)}</h3>
 				{#each faqItemsForGroup(group.itemIds) as item (item.id)}
 					<article class="faq-item" class:open={openFaqId === item.id}>
 						<h4>
@@ -74,14 +55,14 @@
 								onclick={() => toggleFaq(item.id)}
 							>
 								<span>{faqItemNumber(item.id)}</span>
-								{t(item.question)}
+								{lang.t(item.question)}
 								<span class="faq-chevron" aria-hidden="true">
 									<ChevronDown size={18} />
 								</span>
 							</button>
 						</h4>
 						<div id={`faq-panel-${item.id}`} class="faq-answer" hidden={openFaqId !== item.id}>
-							<p>{t(item.answer)}</p>
+							<p>{lang.t(item.answer)}</p>
 						</div>
 					</article>
 				{/each}

@@ -1,34 +1,9 @@
 <script lang="ts">
 	import { ArrowRight, Sparkles, Users, Compass, BookOpen } from "lucide-svelte";
 	import type { PageData } from "./$types";
+	import { lang } from "$lib/language.svelte.ts";
 
 	let { data } = $props<{ data: PageData }>();
-
-	let language = $state<"de" | "en">("de");
-
-	function t(value: { de: string; en: string }): string {
-		return value[language];
-	}
-
-	function getStoredLanguage(): "de" | "en" {
-		if (typeof window === "undefined") {
-			return "de";
-		}
-
-		try {
-			return window.localStorage.getItem("sxe-language") === "en" ? "en" : "de";
-		} catch {
-			return "de";
-		}
-	}
-
-	$effect(() => {
-		if (typeof window === "undefined") {
-			return;
-		}
-		language = getStoredLanguage();
-		document.documentElement.lang = language;
-	});
 
 	const content = $derived(data.content);
 	const landing = $derived(content.landing);
@@ -44,10 +19,10 @@
 </script>
 
 <svelte:head>
-	<title>{language === "de" ? "SxE: Home" : "SxE: Home"}</title>
-	<meta name="description" content={t(landing.meta.description)} />
-	<meta property="og:title" content={t(landing.meta.title)} />
-	<meta property="og:description" content={t(landing.meta.description)} />
+	<title>{lang.current === "de" ? "SxE: Home" : "SxE: Home"}</title>
+	<meta name="description" content={lang.t(landing.meta.description)} />
+	<meta property="og:title" content={lang.t(landing.meta.title)} />
+	<meta property="og:description" content={lang.t(landing.meta.description)} />
 	<meta property="og:type" content="website" />
 	<meta property="og:image" content={landing.meta.ogImage} />
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -61,15 +36,15 @@
 <!-- Hero Section -->
 <section class="panel hero-panel reveal" aria-labelledby="hero-title">
 	<div class="hero-copy">
-		<p class="kicker"><Sparkles size={14} strokeWidth={2.2} /> {t(landing.hero.kicker)}</p>
-		<h1 id="hero-title">{t(landing.hero.title)}</h1>
-		<p class="lead">{t(landing.hero.lead)}</p>
+		<p class="kicker"><Sparkles size={14} strokeWidth={2.2} /> {lang.t(landing.hero.kicker)}</p>
+		<h1 id="hero-title">{lang.t(landing.hero.title)}</h1>
+		<p class="lead">{lang.t(landing.hero.lead)}</p>
 		<div class="hero-actions">
 			<a href={landing.hero.primaryHref} class="button button-primary"
-				>{t(landing.hero.primaryLabel)} <ArrowRight size={16} /></a
+				>{lang.t(landing.hero.primaryLabel)} <ArrowRight size={16} /></a
 			>
 			<a href={landing.hero.secondaryHref} class="button button-ghost"
-				>{t(landing.hero.secondaryLabel)}</a
+				>{lang.t(landing.hero.secondaryLabel)}</a
 			>
 		</div>
 	</div>
@@ -82,13 +57,13 @@
 			<img src={landing.testimonial.photo} alt={landing.testimonial.author} class="testimonial-image" />
 		{/if}
 		<blockquote class="testimonial-content">
-			<p id="testimonial-quote" class="testimonial-quote">"<em>{t(landing.testimonial.quote)}</em>"</p>
+			<p id="testimonial-quote" class="testimonial-quote">"<em>{lang.t(landing.testimonial.quote)}</em>"</p>
 			<footer class="testimonial-footer">
 				<div class="testimonial-author">
 					<strong>{landing.testimonial.author}</strong>
-					<span class="testimonial-title">{t(landing.testimonial.title)}</span>
+					<span class="testimonial-title">{lang.t(landing.testimonial.title)}</span>
 				</div>
-				<p class="testimonial-attribution">{t(landing.testimonial.attribution)}</p>
+				<p class="testimonial-attribution">{lang.t(landing.testimonial.attribution)}</p>
 			</footer>
 		</blockquote>
 	</section>
@@ -99,7 +74,7 @@
 	<section class="panel social-proof-panel reveal" aria-labelledby="social-proof-label">
 		<div class="social-proof-content">
 			<span class="proof-number">{landing.socialProof.number}</span>
-			<p id="social-proof-label" class="proof-label">{t(landing.socialProof.label)}</p>
+			<p id="social-proof-label" class="proof-label">{lang.t(landing.socialProof.label)}</p>
 		</div>
 	</section>
 {/if}
@@ -108,7 +83,7 @@
 {#if allPartners.length > 0}
 	<section class="panel carousel-panel reveal" aria-labelledby="partners-carousel-title">
 		<h2 id="partners-carousel-title" class="carousel-title">
-			{language === "de" ? "Unterstützt von & in Zusammenarbeit mit" : "Supported by & in collaboration with"}
+			{lang.current === "de" ? "Unterstützt von & in Zusammenarbeit mit" : "Supported by & in collaboration with"}
 		</h2>
 		<div class="carousel-container">
 			<div class="carousel-scroll">
@@ -152,15 +127,15 @@
 <!-- About Section (Angebote) -->
 <section
 	class="panel section-panel reveal"
-	aria-label={language === "de" ? "Unsere Angebote" : "What we offer"}
+	aria-label={lang.current === "de" ? "Unsere Angebote" : "What we offer"}
 >
 	<div class="card-grid three">
-		{#each landing.about.features as feature (t(feature.title))}
+		{#each landing.about.features as feature (lang.t(feature.title))}
 			{@const Icon = featureIcons[feature.icon]}
 			<article class="content-card">
 				<span class="card-icon" aria-hidden="true"><Icon size={28} strokeWidth={1.75} /></span>
-				<h3>{t(feature.title)}</h3>
-				<p>{t(feature.text)}</p>
+				<h3>{lang.t(feature.title)}</h3>
+				<p>{lang.t(feature.text)}</p>
 			</article>
 		{/each}
 	</div>

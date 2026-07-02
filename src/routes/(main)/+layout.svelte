@@ -3,10 +3,10 @@
 	import { onMount } from "svelte";
 	import { Linkedin, Menu, Moon, Sun, X } from "lucide-svelte";
 	import type { LayoutData } from "./$types";
+	import { lang } from "$lib/language.svelte.ts";
 
 	let { data, children }: { data: LayoutData; children: any } = $props();
 
-	let language = $state<"de" | "en">("de");
 	let themeMode = $state<"dark" | "light">("dark");
 	let isMobileMenuOpen = $state(false);
 
@@ -20,30 +20,9 @@
 		{ id: "uber-sxe", label: { de: "Über SxE", en: "About SxE" }, href: "/uber-sxe" }
 	];
 
-	function t(value: { de: string; en: string }): string {
-		return value[language];
-	}
-
-	function getStoredLanguage(): "de" | "en" {
-		if (typeof window === "undefined") {
-			return "de";
-		}
-
-		try {
-			return window.localStorage.getItem("sxe-language") === "en" ? "en" : "de";
-		} catch {
-			return "de";
-		}
-	}
-
 	function setLanguage(nextLanguage: "de" | "en") {
-		language = nextLanguage;
+		lang.set(nextLanguage);
 		closeMenu();
-		try {
-			window.localStorage.setItem("sxe-language", nextLanguage);
-		} catch {
-			// Ignore storage failures in restricted browser modes.
-		}
 	}
 
 	function toggleMenu() {
@@ -95,9 +74,8 @@
 	}
 
 	onMount(() => {
-		language = getStoredLanguage();
+		lang.init();
 		themeMode = getCurrentThemeMode();
-		document.documentElement.lang = language;
 	});
 </script>
 
@@ -158,24 +136,24 @@
 						onclick={closeMenu}
 						aria-current={getActiveNavItem() === item.id ? "page" : undefined}
 					>
-						{t(item.label)}
+						{lang.t(item.label)}
 					</a>
 				{/each}
 				<div class="header-controls">
 					<div class="language-toggle" aria-label="Language">
 						<button
 							type="button"
-							class:active={language === "de"}
+							class:active={lang.current === "de"}
 							onclick={() => setLanguage("de")}
-							aria-pressed={language === "de"}
+							aria-pressed={lang.current === "de"}
 						>
 							DE
 						</button>
 						<button
 							type="button"
-							class:active={language === "en"}
+							class:active={lang.current === "en"}
 							onclick={() => setLanguage("en")}
-							aria-pressed={language === "en"}
+							aria-pressed={lang.current === "en"}
 						>
 							EN
 						</button>
@@ -219,7 +197,7 @@
 					decoding="async"
 				/>
 				<p class="footer-description">
-					{language === "de"
+					{lang.current === "de"
 						? "SxE ist eine ehrenamtliche Initiative für Wissenschaftler, die Anwendung, Deep Tech und Gründung als mögliche Wege zu Wirkung erkunden möchten."
 						: "SxE is a volunteer-led initiative for scientists who want to explore application, deep tech and entrepreneurship as possible paths to impact."}
 				</p>
@@ -231,8 +209,8 @@
 					rel="noopener noreferrer"
 					aria-label="LinkedIn"
 				><Linkedin size={15} /></a>
-				<a href="/impressum">{language === "de" ? "Impressum" : "Imprint"}</a>
-				<a href="/impressum#datenschutz">{language === "de" ? "Datenschutz" : "Privacy"}</a>
+				<a href="/impressum">{lang.current === "de" ? "Impressum" : "Imprint"}</a>
+				<a href="/impressum#datenschutz">{lang.current === "de" ? "Datenschutz" : "Privacy"}</a>
 			</div>
 		</div>
 		<p class="footer-end">© {new Date().getFullYear()} Science x Entrepreneurship</p>

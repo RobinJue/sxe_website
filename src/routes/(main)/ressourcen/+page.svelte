@@ -1,28 +1,9 @@
 <script lang="ts">
 	import { Rocket, ExternalLink } from "lucide-svelte";
 	import type { PageData } from "./$types";
+	import { lang } from "$lib/language.svelte.ts";
 
 	let { data } = $props<{ data: PageData }>();
-	let language = $state<"de" | "en">("de");
-
-	function t(value: { de: string; en: string }): string {
-		return value[language];
-	}
-
-	function getStoredLanguage(): "de" | "en" {
-		if (typeof window === "undefined") return "de";
-		try {
-			return window.localStorage.getItem("sxe-language") === "en" ? "en" : "de";
-		} catch {
-			return "de";
-		}
-	}
-
-	$effect(() => {
-		if (typeof window === "undefined") return;
-		language = getStoredLanguage();
-		document.documentElement.lang = language;
-	});
 
 	const content = $derived(data.content);
 	const landing = $derived(content.landing);
@@ -38,7 +19,7 @@
 </script>
 
 <svelte:head>
-	<title>{language === "de" ? "SxE: Ressourcen" : "SxE: Resources"}</title>
+	<title>{lang.current === "de" ? "SxE: Ressourcen" : "SxE: Resources"}</title>
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
 	<link
@@ -49,16 +30,16 @@
 
 <section class="panel section-panel reveal" aria-labelledby="resources-title">
 	<div class="section-head">
-		<p class="kicker"><Rocket size={14} strokeWidth={2.2} /> {t(landing.resources.kicker)}</p>
-		<h2 id="resources-title">{t(landing.resources.title)}</h2>
+		<p class="kicker"><Rocket size={14} strokeWidth={2.2} /> {lang.t(landing.resources.kicker)}</p>
+		<h2 id="resources-title">{lang.t(landing.resources.title)}</h2>
 		{#if landing.resources.lead}
-			<p class="lead">{t(landing.resources.lead)}</p>
+			<p class="lead">{lang.t(landing.resources.lead)}</p>
 		{/if}
 	</div>
 	<div class="resource-category-grid">
-		{#each landing.resources.categories as category (t(category.title))}
-			<section class="resource-category" aria-labelledby={`resource-${t(category.title)}`}>
-				<h3 id={`resource-${t(category.title)}`}>{t(category.title)}</h3>
+		{#each landing.resources.categories as category (lang.t(category.title))}
+			<section class="resource-category" aria-labelledby={`resource-${lang.t(category.title)}`}>
+				<h3 id={`resource-${lang.t(category.title)}`}>{lang.t(category.title)}</h3>
 				<div class="resource-grid">
 					{#each category.items as item (item.name)}
 						<a class="resource-card" href={item.url} target="_blank" rel="noopener noreferrer">
@@ -68,7 +49,7 @@
 								</span>
 								<strong>{item.name}</strong>
 							</span>
-							<span>{t(item.description)}</span>
+							<span>{lang.t(item.description)}</span>
 							<span class="resource-external" aria-hidden="true">
 								<ExternalLink size={14} />
 							</span>

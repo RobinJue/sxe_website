@@ -1,16 +1,14 @@
 <script lang="ts">
 	import { ArrowRight, ExternalLink, Search, Headphones } from "lucide-svelte";
 	import { onMount } from "svelte";
-	import type { LanguageCode, LocalizedString, PodcastEpisode } from "$lib/cms/types";
+	import type { LocalizedString, PodcastEpisode } from "$lib/cms/types";
 	import type { PageData } from "./$types";
-
-	const LANGUAGE_STORAGE_KEY = "sxe-language";
+	import { lang } from "$lib/language.svelte.ts";
 
 	type ThemeMode = "dark" | "light";
 
 	let { data } = $props<{ data: PageData }>();
 
-	let language = $state<LanguageCode>("de");
 	let themeMode = $state<ThemeMode>("dark");
 	let searchQuery = $state("");
 	let newsletterSubmitted = $state(false);
@@ -34,39 +32,8 @@
 	});
 
 	onMount(() => {
-		language = getStoredLanguage();
 		themeMode = getCurrentThemeMode();
-		document.documentElement.lang = language;
 	});
-
-	$effect(() => {
-		if (typeof document === "undefined") {
-			return;
-		}
-
-		document.documentElement.lang = language;
-		try {
-			window.localStorage.setItem(LANGUAGE_STORAGE_KEY, language);
-		} catch {
-			// Ignore storage failures in restricted browser modes.
-		}
-	});
-
-	function t(value: LocalizedString): string {
-		return value[language];
-	}
-
-	function getStoredLanguage(): LanguageCode {
-		if (typeof window === "undefined") {
-			return "de";
-		}
-
-		try {
-			return window.localStorage.getItem(LANGUAGE_STORAGE_KEY) === "en" ? "en" : "de";
-		} catch {
-			return "de";
-		}
-	}
 
 	function getCurrentThemeMode(): ThemeMode {
 		if (typeof document === "undefined") {
@@ -81,7 +48,7 @@
 			return "";
 		}
 
-		return new Date(parsed).toLocaleDateString(language === "de" ? "de-DE" : "en-GB", {
+		return new Date(parsed).toLocaleDateString(lang.current === "de" ? "de-DE" : "en-GB", {
 			day: "2-digit",
 			month: "short",
 			year: "numeric"
@@ -94,13 +61,13 @@
 
 	function feedStatusMessage(): string {
 		if (feed.status === "missing-url") {
-			return t(podcast.missingFeedMessage);
+			return lang.t(podcast.missingFeedMessage);
 		}
 		if (feed.status === "error") {
-			return t(podcast.feedErrorMessage);
+			return lang.t(podcast.feedErrorMessage);
 		}
 		if (feed.status === "empty") {
-			return t(podcast.emptyFeedMessage);
+			return lang.t(podcast.emptyFeedMessage);
 		}
 		return "";
 	}
@@ -112,10 +79,10 @@
 </script>
 
 <svelte:head>
-	<title>{language === "de" ? "SxE: Podcast" : "SxE: Podcast"}</title>
-	<meta name="description" content={t(podcast.metaDescription)} />
-	<meta property="og:title" content={t(podcast.metaTitle)} />
-	<meta property="og:description" content={t(podcast.metaDescription)} />
+	<title>{lang.current === "de" ? "SxE: Podcast" : "SxE: Podcast"}</title>
+	<meta name="description" content={lang.t(podcast.metaDescription)} />
+	<meta property="og:title" content={lang.t(podcast.metaTitle)} />
+	<meta property="og:description" content={lang.t(podcast.metaDescription)} />
 	<meta property="og:type" content="website" />
 	<meta property="og:image" content={podcast.fallbackCover} />
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -129,10 +96,10 @@
 <main class="podcast-main">
 		<section class="panel hero-panel">
 			<div class="hero-copy">
-				<p class="kicker"><Headphones size={14} strokeWidth={2.2} /> {t(podcast.kicker)}</p>
-				<h1>{t(podcast.title)}</h1>
-				<p class="lead">{t(podcast.intro)}</p>
-				<div class="hero-actions" aria-label={t(podcast.listenLabel)}>
+				<p class="kicker"><Headphones size={14} strokeWidth={2.2} /> {lang.t(podcast.kicker)}</p>
+				<h1>{lang.t(podcast.title)}</h1>
+				<p class="lead">{lang.t(podcast.intro)}</p>
+				<div class="hero-actions" aria-label={lang.t(podcast.listenLabel)}>
 					{#each podcast.platformLinks as link (link.label)}
 						<a href={link.url} target="_blank" rel="noopener noreferrer" class="button button-primary">
 							{link.label}
@@ -145,7 +112,7 @@
 
 		{#if feed.status !== "ok"}
 			<section class="status-panel" role="status">
-				<h2>{language === "de" ? "RSS-Status" : "RSS status"}</h2>
+				<h2>{lang.current === "de" ? "RSS-Status" : "RSS status"}</h2>
 				<p>{feedStatusMessage()}</p>
 				{#if feed.errorMessage}
 					<code>{feed.errorMessage}</code>
@@ -156,7 +123,7 @@
 		{#if latestEpisode}
 			<section class="latest-panel" aria-labelledby="latest-episode-title">
 				<div>
-					<p class="kicker">{t(podcast.latestLabel)}</p>
+					<p class="kicker">{lang.t(podcast.latestLabel)}</p>
 					<h2 id="latest-episode-title">{latestEpisode.title}</h2>
 					<p>{latestEpisode.description}</p>
 					<div class="episode-meta">
@@ -168,7 +135,7 @@
 						{/if}
 					</div>
 					<a class="button-primary" href={episodeUrl(latestEpisode)} target="_blank" rel="noopener noreferrer">
-						{t(podcast.episodeCtaLabel)}
+						{lang.t(podcast.episodeCtaLabel)}
 						<ArrowRight size={15} />
 					</a>
 				</div>
@@ -179,14 +146,14 @@
 		<section class="episodes-panel" aria-labelledby="recent-episodes-title">
 			<div class="section-head">
 				<div>
-					<p class="kicker">{t(podcast.recentLabel)}</p>
-					<h2 id="recent-episodes-title">{t(podcast.recentLabel)}</h2>
+					<p class="kicker">{lang.t(podcast.recentLabel)}</p>
+					<h2 id="recent-episodes-title">{lang.t(podcast.recentLabel)}</h2>
 				</div>
 				<label class="search-box">
-					<span>{t(podcast.searchLabel)}</span>
+					<span>{lang.t(podcast.searchLabel)}</span>
 					<div>
 						<Search size={15} />
-						<input bind:value={searchQuery} placeholder={t(podcast.searchPlaceholder)} />
+						<input bind:value={searchQuery} placeholder={lang.t(podcast.searchPlaceholder)} />
 					</div>
 				</label>
 			</div>
@@ -201,7 +168,7 @@
 								<h3>{episode.title}</h3>
 								<p>{episode.description}</p>
 								<a href={episodeUrl(episode)} target="_blank" rel="noopener noreferrer">
-									{t(podcast.episodeCtaLabel)}
+									{lang.t(podcast.episodeCtaLabel)}
 									<ExternalLink size={13} />
 								</a>
 							</div>
@@ -209,31 +176,31 @@
 					{/each}
 				</div>
 			{:else}
-				<p class="empty-state">{searchQuery ? t(podcast.noResultsMessage) : feedStatusMessage()}</p>
+				<p class="empty-state">{searchQuery ? lang.t(podcast.noResultsMessage) : feedStatusMessage()}</p>
 			{/if}
 		</section>
 
 		<section class="newsletter-panel">
 			<div>
 				<p class="kicker">Newsletter</p>
-				<h2>{t(podcast.newsletterTitle)}</h2>
-				<p>{t(podcast.newsletterLead)}</p>
+				<h2>{lang.t(podcast.newsletterTitle)}</h2>
+				<p>{lang.t(podcast.newsletterLead)}</p>
 			</div>
 			<form onsubmit={handleNewsletterSubmit}>
-				<label for="podcast-newsletter-email">{t(podcast.newsletterEmailLabel)}</label>
+				<label for="podcast-newsletter-email">{lang.t(podcast.newsletterEmailLabel)}</label>
 				<div class="newsletter-row">
 					<input
 						id="podcast-newsletter-email"
 						name="email"
 						type="email"
 						required
-						placeholder={t(podcast.newsletterEmailPlaceholder)}
+						placeholder={lang.t(podcast.newsletterEmailPlaceholder)}
 					/>
-					<button type="submit">{t(podcast.newsletterSubmitLabel)}</button>
+					<button type="submit">{lang.t(podcast.newsletterSubmitLabel)}</button>
 				</div>
 				{#if newsletterSubmitted}
 					<p class="form-note" role="status">
-						{language === "de" ? "Danke, wir haben deine Eintragung vorgemerkt." : "Thanks, we noted your subscription."}
+						{lang.current === "de" ? "Danke, wir haben deine Eintragung vorgemerkt." : "Thanks, we noted your subscription."}
 					</p>
 				{/if}
 			</form>

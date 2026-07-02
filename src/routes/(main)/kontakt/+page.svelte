@@ -1,28 +1,13 @@
 <script lang="ts">
 	import { Mail } from "lucide-svelte";
 	import type { PageData } from "./$types";
+	import { lang } from "$lib/language.svelte.ts";
 
 	let { data } = $props<{ data: PageData }>();
-	let language = $state<"de" | "en">("de");
 	let isMobile = $state(false);
-
-	function t(value: { de: string; en: string }): string {
-		return value[language];
-	}
-
-	function getStoredLanguage(): "de" | "en" {
-		if (typeof window === "undefined") return "de";
-		try {
-			return window.localStorage.getItem("sxe-language") === "en" ? "en" : "de";
-		} catch {
-			return "de";
-		}
-	}
 
 	$effect(() => {
 		if (typeof window === "undefined") return;
-		language = getStoredLanguage();
-		document.documentElement.lang = language;
 		isMobile = window.innerWidth < 900;
 	});
 
@@ -43,7 +28,7 @@
 </script>
 
 <svelte:head>
-	<title>{language === "de" ? "SxE: Support" : "SxE: Support"}</title>
+	<title>{lang.current === "de" ? "SxE: Support" : "SxE: Support"}</title>
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
 	<link
@@ -54,27 +39,27 @@
 
 <section class="contact-section reveal" aria-labelledby="contact-title">
 	<div class="contact-header">
-		<p class="kicker"><Mail size={14} strokeWidth={2.2} /> {t(landing.contact.kicker)}</p>
-		<h2 id="contact-title">{t(landing.contact.title)}</h2>
-		<p class="lead">{t(landing.contact.lead)}</p>
+		<p class="kicker"><Mail size={14} strokeWidth={2.2} /> {lang.t(landing.contact.kicker)}</p>
+		<h2 id="contact-title">{lang.t(landing.contact.title)}</h2>
+		<p class="lead">{lang.t(landing.contact.lead)}</p>
 		<a href={landing.contact.emailHref} class="email-link">{landing.contact.emailLabelText}</a>
 	</div>
 
 	<div class="contact-content">
 		<form class="newsletter-form" onsubmit={handleContactSubmit}>
-			<h3>{t(landing.contact.newsletterTitle)}</h3>
-			<p>{t(landing.contact.newsletterLead)}</p>
-			<label for="newsletter-email">{t(landing.contact.newsletterEmailLabel)}</label>
+			<h3>{lang.t(landing.contact.newsletterTitle)}</h3>
+			<p>{lang.t(landing.contact.newsletterLead)}</p>
+			<label for="newsletter-email">{lang.t(landing.contact.newsletterEmailLabel)}</label>
 			<div class="newsletter-row">
 				<input
 					id="newsletter-email"
 					name="newsletter-email"
 					type="email"
 					autocomplete="email"
-					placeholder={t(landing.contact.newsletterEmailPlaceholder)}
+					placeholder={lang.t(landing.contact.newsletterEmailPlaceholder)}
 					required
 				/>
-				<button type="submit">{t(landing.contact.newsletterSubmitLabel)}</button>
+				<button type="submit">{lang.t(landing.contact.newsletterSubmitLabel)}</button>
 			</div>
 		</form>
 
@@ -95,7 +80,7 @@
 					rel="noopener noreferrer"
 					class="form-open-button"
 				>
-					{language === "de" ? "Kontaktformular öffnen" : "Open contact form"} →
+					{lang.current === "de" ? "Kontaktformular öffnen" : "Open contact form"} →
 				</a>
 			{/if}
 		</div>
