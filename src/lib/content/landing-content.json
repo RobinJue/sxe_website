@@ -1154,7 +1154,7 @@
           },
           {
             "name": "TUM Venture Labs",
-            "url": "https://www.tumventurelabs.de",
+            "url": "https://www.tum-venture-labs.de/",
             "logo": "/assets/partners/tumventure.webp"
           }
         ]
@@ -1175,19 +1175,24 @@
         },
         "items": [
           {
-            "name": "Atlantic Labs",
-            "url": "https://atlantic.vc/",
-            "logo": "/assets/partners/atlanticlabs.png"
+            "name": "Juni",
+            "url": "https://juni.science/",
+            "logo": "/assets/partners/juni.png"
           },
           {
-            "name": "Cherry Ventures",
-            "url": "https://cherry.vc",
-            "logo": "/assets/partners/cherryventures.png"
+            "name": "Impossible Founders",
+            "url": "https://www.impossible-founders.com",
+            "logo": "/assets/partners/impossiblefounders.png"
           },
           {
-            "name": "UVC Partner",
-            "url": "https://www.uvcpartners.com/",
-            "logo": "/assets/partners/uvcpartners.png"
+            "name": "Deep Pioneers",
+            "url": "https://esmt.berlin/faculty-research/centers-institutes-initiatives/deep-institute-deep-tech-innovation/deep-pioneers",
+            "logo": "/assets/partners/deeppioneers.png"
+          },
+          {
+            "name": "YES",
+            "url": "https://youngentrepreneursinscience.com",
+            "logo": "/assets/partners/yes.png"
           }
         ]
       }
