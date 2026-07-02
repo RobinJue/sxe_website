@@ -13,18 +13,6 @@
 
 	const content = $derived(data.content);
 	const landing = $derived(content.landing);
-
-	function handleContactSubmit(e: SubmitEvent) {
-		e.preventDefault();
-		// Newsletter form submission handler
-		const form = e.target as HTMLFormElement;
-		const email = new FormData(form).get("newsletter-email");
-
-		// Here you could add logic to submit to a service
-		// For now, just show a success message
-		console.log("Newsletter signup:", email);
-		form.reset();
-	}
 </script>
 
 <svelte:head>
@@ -46,23 +34,6 @@
 	</div>
 
 	<div class="contact-content">
-		<form class="newsletter-form" onsubmit={handleContactSubmit}>
-			<h3>{lang.t(landing.contact.newsletterTitle)}</h3>
-			<p>{lang.t(landing.contact.newsletterLead)}</p>
-			<label for="newsletter-email">{lang.t(landing.contact.newsletterEmailLabel)}</label>
-			<div class="newsletter-row">
-				<input
-					id="newsletter-email"
-					name="newsletter-email"
-					type="email"
-					autocomplete="email"
-					placeholder={lang.t(landing.contact.newsletterEmailPlaceholder)}
-					required
-				/>
-				<button type="submit">{lang.t(landing.contact.newsletterSubmitLabel)}</button>
-			</div>
-		</form>
-
 		<div class="contact-form-embed">
 			{#if !isMobile}
 				<iframe
@@ -110,7 +81,6 @@
 
 	.contact-content {
 		display: grid;
-		grid-template-columns: minmax(0, 1fr) minmax(280px, 1.2fr);
 		gap: clamp(1rem, 3vw, 2rem);
 		align-items: flex-start;
 	}
@@ -176,45 +146,21 @@
 		text-decoration: underline;
 	}
 
-	.newsletter-form,
 	.contact-form {
 		display: grid;
 		gap: 0.6rem;
-	}
-
-	.newsletter-form {
-		margin-top: 0.5rem;
-		padding: 1rem;
-		border: 1px solid rgb(var(--rgb-white) / 0.12);
-		border-radius: 0.85rem;
-		background: var(--shell-2);
-	}
-
-	.contact-form {
 		border: 1px solid rgb(var(--rgb-white) / 0.12);
 		border-radius: 0.85rem;
 		background: var(--shell-2);
 		padding: 1rem;
 	}
 
-	.newsletter-form p {
-		color: var(--copy-muted);
-	}
-
-	.newsletter-row {
-		display: grid;
-		grid-template-columns: minmax(0, 1fr) auto;
-		gap: 0.5rem;
-	}
-
-	.newsletter-form label,
 	.contact-form label {
 		color: rgb(var(--rgb-text-bright-dark));
 		font-size: 0.82rem;
 		font-weight: 800;
 	}
 
-	.newsletter-form input,
 	.contact-form input,
 	.contact-form textarea {
 		width: 100%;
@@ -225,27 +171,6 @@
 		font: inherit;
 		padding: 0.72rem 0.8rem;
 		resize: vertical;
-	}
-
-	.newsletter-form button {
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		gap: 0.45rem;
-		min-height: 2.75rem;
-		padding: 0.7rem 1rem;
-		margin-top: 0.25rem;
-		border-radius: 999px;
-		border: 1px solid rgb(var(--rgb-brand-blue) / 0.55);
-		background: rgb(var(--rgb-brand-blue));
-		color: rgb(22 22 18);
-		font-weight: 800;
-		cursor: pointer;
-		transition: transform 0.2s ease;
-	}
-
-	.newsletter-form button:hover {
-		transform: translateY(-1px);
 	}
 
 	.contact-form-embed {
@@ -320,13 +245,11 @@
 		color: rgb(176 112 24);
 	}
 
-	:global(html:not(.dark)) .newsletter-form,
 	:global(html:not(.dark)) .contact-form {
 		border-color: rgb(176 112 24 / 0.18);
 		background: linear-gradient(150deg, rgb(var(--rgb-white) / 0.96), rgb(255 238 214 / 0.48));
 	}
 
-	:global(html:not(.dark)) .newsletter-form input,
 	:global(html:not(.dark)) .contact-form input,
 	:global(html:not(.dark)) .contact-form textarea {
 		border-color: rgb(var(--rgb-slate-900) / 0.18);
@@ -334,19 +257,9 @@
 		color: rgb(18 37 63);
 	}
 
-	@media (max-width: 900px) {
-		.contact-content {
-			grid-template-columns: 1fr;
-		}
-	}
-
 	@media (max-width: 640px) {
 		.contact-section {
 			padding: 1rem;
-		}
-
-		.newsletter-row {
-			grid-template-columns: 1fr;
 		}
 	}
 
