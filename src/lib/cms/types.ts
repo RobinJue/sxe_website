@@ -69,6 +69,7 @@ export type LandingFeature = {
 	icon: string;
 	title: LocalizedString;
 	text: LocalizedString;
+	href?: string;
 };
 
 export type InfographicItem = {
@@ -137,8 +138,9 @@ export type SocialLink = {
 };
 
 export type SocialProof = {
-	number: string;
-	label: LocalizedString;
+	statement: LocalizedString;
+	ctaLabel: LocalizedString;
+	ctaHref: string;
 };
 
 export type Testimonial = {
@@ -182,6 +184,7 @@ export type LandingContent = {
 		teamLabel: LocalizedString;
 		title?: LocalizedString;
 		body?: LocalizedString;
+		offerTitle?: LocalizedString;
 		features?: LandingFeature[];
 		primaryLabel?: LocalizedString;
 		primaryHref?: string;

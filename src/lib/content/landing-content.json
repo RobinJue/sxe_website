@@ -69,8 +69,8 @@
       "en": "The world needs scientists who dare to build."
     },
     "lead": {
-      "de": "SxE ist die Community für Studienstiftungs-Stipendiaten, die Wissenschaft in Wirkung verwandeln wollen.",
-      "en": "SxE is the community for Studienstiftung scholarship holders who want to transform science into impact."
+      "de": "SxE ist die Community für Studienstiftler, die Wissenschaft in Wirkung verwandeln wollen.",
+      "en": "SxE is the community for scholars of the Studienstiftung who want to transform science into impact."
     },
     "primaryLabel": {
       "de": "Mehr über SxE erfahren",
@@ -107,11 +107,15 @@
     ]
   },
   "socialProof": {
-    "number": "1.400",
-    "label": {
-      "de": "Stipendiaten. Wissenschaftler. Gründer.",
-      "en": "Scholarship holders. Scientists. Potential founders."
-    }
+    "statement": {
+      "de": "SxE: Eine Community von 1.400 Studienstiftlern mit Interesse an Entrepreneurship",
+      "en": "SxE: A community of 1,400 Studienstiftung scholars interested in entrepreneurship"
+    },
+    "ctaLabel": {
+      "de": "Mehr über SxE",
+      "en": "More about SxE"
+    },
+    "ctaHref": "/uber-sxe"
   },
   "testimonial": {
     "quote": {
@@ -159,27 +163,32 @@
       "de": "Alle Mitglieder unseres Teams sind Stipendiaten der Studienstiftung des deutschen Volkes.",
       "en": "All members of our team are scholars of the Studienstiftung des deutschen Volkes."
     },
+    "offerTitle": {
+      "de": "Was wir bieten ...",
+      "en": "What we offer ..."
+    },
     "features": [
       {
         "icon": "Compass",
         "title": {
           "de": "Ehrenamtliche Gründerberatung",
-          "en": "Free founder coaching"
+          "en": "Free Founder Coaching"
         },
         "text": {
-          "de": "Erfahrene Gründer:innen und Mentor:innen begleiten Wissenschaftler ehrenamtlich von der ersten Idee bis zur Gründung.",
-          "en": "Experienced founders and mentors support scientists pro bono – from the first idea all the way to founding."
-        }
+          "de": "Wir begleiten Wissenschaftler von der ersten Idee bis zur Gründung.",
+          "en": "We support researchers from the initial idea to the launch of their startup."
+        },
+        "href": "/kontakt"
       },
       {
         "icon": "Users",
         "title": {
-          "de": "Community & Netzwerk",
-          "en": "Community & network"
+          "de": "Community und Netzwerk",
+          "en": "Community and Network"
         },
         "text": {
-          "de": "Eine wachsende Community aus Wissenschaft, Gründung und Förderung – darunter Stipendiaten der Studienstiftung des deutschen Volkes.",
-          "en": "A growing community across science, entrepreneurship and funding – including scholars of the Studienstiftung des deutschen Volkes."
+          "de": "Eine wachsende Community aus Studienstiftlern mit Interesse an Entrepreneurship – enge Vernetzung mit dem Startup-Ökosystem und Non-Profit-Unterstützern.",
+          "en": "A growing community of scholarship recipients interested in entrepreneurship – close ties to the startup ecosystem and non-profit support."
         }
       },
       {
@@ -191,7 +200,8 @@
         "text": {
           "de": "Praxisnahe Workshops und kuratierte Ressourcen helfen dabei, Gründungsideen zu prüfen und voranzubringen.",
           "en": "Hands-on workshops and curated resources help scientists validate and advance their founding ideas."
-        }
+        },
+        "href": "/ressourcen"
       }
     ]
   },
@@ -693,8 +703,8 @@
   },
   "podcast": {
     "kicker": {
-      "de": "Podcast",
-      "en": "Podcast"
+      "de": "Forschergründer Interviews",
+      "en": "Scientist founder interviews"
     },
     "title": {
       "de": "Forschung mit Folgen",

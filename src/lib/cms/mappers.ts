@@ -152,8 +152,9 @@ export function mapLegalContent(source: unknown): LegalContent {
 function mapSocialProof(value: unknown): SocialProof {
 	const row = asRecord(value, "landing_content.socialProof");
 	return {
-		number: requiredString(row.number, "landing_content.socialProof.number"),
-		label: localizedString(row.label, "landing_content.socialProof.label")
+		statement: localizedString(row.statement, "landing_content.socialProof.statement"),
+		ctaLabel: localizedString(row.ctaLabel, "landing_content.socialProof.ctaLabel"),
+		ctaHref: requiredString(row.ctaHref, "landing_content.socialProof.ctaHref")
 	};
 }
 
@@ -280,6 +281,7 @@ function mapAbout(value: unknown): LandingContent["about"] {
 		...(row.lead ? { lead: localizedString(row.lead, "landing_content.about.lead") } : {}),
 		...(row.title ? { title: localizedString(row.title, "landing_content.about.title") } : {}),
 		...(row.body ? { body: localizedString(row.body, "landing_content.about.body") } : {}),
+		...(row.offerTitle ? { offerTitle: localizedString(row.offerTitle, "landing_content.about.offerTitle") } : {}),
 		...(row.features ? { features: list(row.features, "landing_content.about.features").map((feature, index) =>
 			mapFeature(feature, `landing_content.about.features[${index}]`)
 		) } : {}),
@@ -292,7 +294,8 @@ function mapFeature(row: UnknownRecord, context: string): LandingFeature {
 	return {
 		icon: requiredString(row.icon, `${context}.icon`),
 		title: localizedString(row.title, `${context}.title`),
-		text: localizedString(row.text, `${context}.text`)
+		text: localizedString(row.text, `${context}.text`),
+		...(row.href ? { href: optionalString(row.href) } : {})
 	};
 }
 
