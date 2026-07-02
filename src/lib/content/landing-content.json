@@ -269,7 +269,7 @@
     },
     "intro": {
       "de": "Die Antworten sind aus der englischen Arbeitsreferenz abgeleitet und vorsichtig redigiert. Sie ersetzen keine rechtliche, steuerliche oder individuelle Karriereberatung.",
-      "en": "The answers are adapted from the English working reference and carefully edited. They do not replace legal, tax or individual career advice."
+      "en": "Condensed information, no legal or career advice."
     },
     "groups": [
       {
@@ -341,7 +341,7 @@
         },
         "answer": {
           "de": "Starte mit einer Problemhypothese: Wer hat welches Problem, wie häufig tritt es auf und welche Folgen hat es? Sprich früh mit potenziellen Nutzern oder Kunden, ohne direkt dein Produkt zu verkaufen. Prüfe Zahlungsbereitschaft, Alternativen und Wettbewerb, bevor du dich zu sehr in eine technische Lösung verliebst.",
-          "en": "Start with a problem hypothesis: who has which problem, how often does it occur, and what are the consequences? Speak early with potential users or customers without pitching your product too soon. Test willingness to pay, alternatives and competition before falling too deeply in love with a technical solution."
+          "en": "Start with a problem hypothesis and interview potential users: who has which problem and what are the consequences? Research existing solutions and competition. Conceive a fundamentally better solution. Collect feedback from scientific and industry experts and potential customers."
         }
       },
       {
@@ -352,7 +352,7 @@
         },
         "answer": {
           "de": "Kostenloses Erstfeedback bekommst du oft bei Startup-Zentren deiner Universität, Stadt oder regionalen Kammern. Sprich außerdem mit Industrieexperten, wissenschaftlichen Peers, potenziellen Kunden und Menschen aus relevanten Fachveranstaltungen. SxE kann ggf. mit Experten oder weiterer Unterstützung verbinden.",
-          "en": "Free first feedback is often available through startup centers at your university, city or regional business chambers. You can also speak with industry experts, scientific peers, potential customers and people at relevant domain events. SxE may be able to connect you with experts or other support."
+          "en": "If experts and potential customers react positively to your solution, ask what price range they find reasonable. Make a rough estimate of the cost to make one unit. The gap between that cost and the price customers would pay is your profit per sale, and a first sign of whether the idea can work. With these simple numbers, you can already get free initial feedback from your university start-up center or your regional chamber of commerce. You can also contact us at SxE for initial feedback."
         },
         "links": [
           {
@@ -379,7 +379,7 @@
         },
         "answer": {
           "de": "Nutze Podcasts, Bücher, Videos, lokale Events, Workshops und Pitch-Wettbewerbe, um echte Gründungsgeschichten kennenzulernen. Besonders hilfreich ist der Austausch mit Gründern wissenschaftsbasierter Startups in deinem Umfeld. Du musst nicht sofort teilnehmen; oft reicht es, zuzuhören, Fragen zu stellen und Muster zu erkennen.",
-          "en": "Use podcasts, books, videos, local events, workshops and pitch competitions to learn from real founder stories. Speaking with founders of science-based startups around you can be especially helpful. You do not have to participate immediately; listening, asking questions and spotting patterns already helps."
+          "en": "You can listen to podcasts about science startups such as \"TU Startup Stories – von der Idee zum Durchbruch\" (TU Darmstadt) or our \"Forschung mit Folgen\" by SxE. Speaking with founders of science-based startups can be especially helpful. They are often supportive to aspiring science founders."
         },
         "links": [
           {
@@ -434,7 +434,7 @@
         },
         "answer": {
           "de": "Du musst nicht von Anfang an alle Fähigkeiten mitbringen. Entscheidend sind Motivation, Lernbereitschaft und das ernsthafte Arbeiten an einem relevanten Problem. Wissenschaftliche Stärken wie analytisches Denken, Problemlösen, Resilienz und der Umgang mit Unsicherheit können eine starke Grundlage für Gründung sein.",
-          "en": "You do not need to have all the skills from the beginning. Motivation, willingness to learn and serious work on a relevant problem matter most. Scientific strengths such as analytical thinking, problem solving, resilience and working through uncertainty can be a strong foundation for entrepreneurship."
+          "en": "You do not need to have all the skills from the beginning. Your innovation expertise and willingness to learn matter most. Scientific strengths such as analytical thinking, problem solving, resilience and working through uncertainty are a strong foundation for entrepreneurship."
         },
         "links": [
           {
@@ -454,7 +454,7 @@
         },
         "answer": {
           "de": "Ja. Viele Grundlagen lassen sich über Workshops, Online-Programme, Startup-Schools, Bücher und Peer-Learning erarbeiten. Für Wissenschaftler gibt es inzwischen zahlreiche Formate, die erste Schritte wie Problemvalidierung, Produkt-Markt-Passung, Finanzierung und Teamaufbau vermitteln.",
-          "en": "Yes. Many basics can be learned through workshops, online programs, startup schools, books and peer learning. There are now many formats for scientists that cover first steps such as problem validation, product-market fit, funding and team building."
+          "en": "Yes. Business skills are not rocket science. Most entrepreneurs learn by doing. Basics can be learned through online videos, books, workshops, entrepreneurship centers and mentors. There are special offerings for scientists that cover first steps such as problem validation and product-market fit."
         },
         "links": [
           {
@@ -590,7 +590,7 @@
         },
         "answer": {
           "de": "Frühe rechtliche Themen können IP-Rechte, Lizenzierung, Gründervereinbarungen, Beteiligungsverteilung, Vesting, Gesellschaftsform, Mitarbeiterbeteiligung und internationale Strukturfragen sein. Das ist keine Rechtsberatung; bei konkreten Schritten solltest du qualifizierte Beratung einholen.",
-          "en": "Early legal topics may include IP rights, licensing, founder agreements, equity split, vesting, legal entity setup, employee participation and international structure questions. This is not legal advice; for concrete steps you should seek qualified advice."
+          "en": "Early legal topics may include intellectual property rights, legal entity setup, equity split and founder agreement. The long term effects of the legal setup are tremendous. Internet research and AI can give you a first idea. Seek professional advice before you commit to anything binding."
         }
       },
       {
@@ -601,7 +601,7 @@
         },
         "answer": {
           "de": "Veröffentliche IP-relevante Informationen nicht vorschnell, wenn Patentschutz möglich sein könnte. Abhängig von Status, Arbeitsvertrag, Universität oder Forschungseinrichtung gelten unterschiedliche Regeln. Häufig ist die Technologietransferstelle der erste Ansprechpartner. Konkrete Fälle solltest du rechtlich prüfen lassen.",
-          "en": "Do not publish IP-relevant information too early if patent protection may be possible. Rules differ depending on your status, employment contract, university or research institution. The technology transfer office is often the first point of contact. Concrete cases should be reviewed legally."
+          "en": "Important: To obtain a patent, the relevant information cannot have been published yet! Rights to intellectual property differ depending on your university or research institution and employment contract. Usually a technology transfer office negotiates a contract with you. Compare favorable agreements of other researchers."
         },
         "links": [
           {
@@ -653,7 +653,7 @@
         },
         "answer": {
           "de": "Gründen kann zeitweise finanzielle Unsicherheit bedeuten. Das heißt aber nicht, dass du am ersten Tag alles riskieren musst. Teams, Förderprogramme, Grants und eine bewusste Planung können persönliche Risiken reduzieren. Für verbindliche Fragen zu Haftung und Finanzen brauchst du qualifizierte Beratung.",
-          "en": "Founding a company can mean financial uncertainty for a while. That does not mean you have to risk everything on day one. Teams, support programs, grants and conscious planning can reduce personal risk. For binding questions about liability and finances, seek qualified advice."
+          "en": "Founding a company can mean financial uncertainty for a while. That does not mean you have to risk everything on day one. Limited liability companies (GmbH, UG etc.), public support programs such as Exist, grants and conscious planning can reduce personal risk. University startup centers or the local chamber of commerce may be able to provide more clarity."
         }
       },
       {
