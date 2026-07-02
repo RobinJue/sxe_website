@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { page } from "$app/stores";
 	import { onMount } from "svelte";
-	import { Menu, Moon, Sun, X } from "lucide-svelte";
+	import { Linkedin, Menu, Moon, Sun, X } from "lucide-svelte";
 	import type { LayoutData } from "./$types";
 
 	let { data, children }: { data: LayoutData; children: any } = $props();
@@ -210,7 +210,7 @@
 
 	<footer class="site-footer reveal">
 		<div class="inner footer-grid">
-			<div>
+			<div class="footer-brand">
 				<img
 					class="footer-logo"
 					src="/assets/SxE%20Logo.png"
@@ -218,8 +218,19 @@
 					loading="lazy"
 					decoding="async"
 				/>
+				<p class="footer-description">
+					{language === "de"
+						? "SxE ist eine ehrenamtliche Initiative für Wissenschaftler, die Anwendung, Deep Tech und Gründung als mögliche Wege zu Wirkung erkunden möchten."
+						: "SxE is a volunteer-led initiative for scientists who want to explore application, deep tech and entrepreneurship as possible paths to impact."}
+				</p>
 			</div>
 			<div class="footer-links">
+				<a
+					href="https://www.linkedin.com/company/sxe-org/"
+					target="_blank"
+					rel="noopener noreferrer"
+					aria-label="LinkedIn"
+				><Linkedin size={15} /></a>
 				<a href="/impressum">{language === "de" ? "Impressum" : "Imprint"}</a>
 				<a href="/impressum#datenschutz">{language === "de" ? "Datenschutz" : "Privacy"}</a>
 			</div>
@@ -479,14 +490,26 @@
 		display: grid;
 		grid-template-columns: minmax(0, 1fr) auto;
 		gap: 1rem;
-		align-items: center;
+		align-items: start;
+	}
+
+	.footer-brand {
+		display: grid;
+		gap: 0.5rem;
 	}
 
 	.footer-logo {
 		display: block;
 		width: min(12rem, 56vw);
 		height: auto;
-		margin-bottom: 0.55rem;
+	}
+
+	.footer-description {
+		margin: 0;
+		max-width: 38ch;
+		color: rgb(145 158 183);
+		font-size: 0.8rem;
+		line-height: 1.5;
 	}
 
 	.footer-links {
