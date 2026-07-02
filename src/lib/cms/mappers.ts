@@ -49,7 +49,7 @@ const DEFAULT_NAV: LandingNavItem[] = [
 ];
 const DEFAULT_TEAM: LandingContent["team"] = {
 	kicker: { de: "Das Team", en: "The team" },
-	title: { de: "Die Menschen hinter SxE", en: "The people behind SxE" },
+	title: { de: "Die Ehrenamtlichen hinter SxE", en: "The volunteers behind SxE" },
 	lead: { de: "", en: "" },
 	members: []
 };
