@@ -67,17 +67,6 @@
 	</section>
 {/if}
 
-<!-- Who We Are Section -->
-<section class="panel section-panel reveal" aria-labelledby="who-we-are-title">
-	<div class="section-head">
-		<h2 id="who-we-are-title">{lang.current === "de" ? "Wer wir sind ..." : "Who we are ..."}</h2>
-		<p class="lead">{lang.t(landing.hero.lead)}</p>
-		<a href={landing.hero.primaryHref} class="text-link"
-			>{lang.t(landing.hero.primaryLabel)} <ArrowRight size={15} /></a
-		>
-	</div>
-</section>
-
 <!-- What We Offer Section -->
 <section
 	class="panel section-panel reveal"
@@ -258,21 +247,6 @@
 		font-weight: 800;
 		font-size: 0.85rem;
 		flex-shrink: 0;
-	}
-
-	.text-link {
-		display: inline-flex;
-		align-items: center;
-		gap: 0.35rem;
-		width: fit-content;
-		color: rgb(255 205 130);
-		font-weight: 800;
-		text-decoration: none;
-		font-size: 0.95rem;
-	}
-
-	.text-link:hover {
-		text-decoration: underline;
 	}
 
 	.kicker {
