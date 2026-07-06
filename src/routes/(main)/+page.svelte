@@ -45,6 +45,7 @@
 	<div class="hero-copy">
 		<p class="kicker"><Sparkles size={14} strokeWidth={2.2} /> {lang.t(landing.hero.kicker)}</p>
 		<h1 id="hero-title">{lang.t(landing.hero.title)}</h1>
+		<p class="lead">{lang.t(landing.meta.description)}</p>
 	</div>
 
 	<div class="podcast-teaser-wrap">
