@@ -52,7 +52,7 @@
 		<p class="kicker"><Headphones size={14} strokeWidth={2.2} /> {lang.t(landing.podcast.kicker)}</p>
 		<a class="podcast-teaser-card" href="/podcast">
 			<img
-				src={latestEpisode?.image || content.podcastSettings.fallbackCover}
+				src={latestEpisode?.image || landing.testimonial?.photo || content.podcastSettings.fallbackCover}
 				alt={latestEpisode?.title || lang.t(landing.podcast.title)}
 				loading="lazy"
 				decoding="async"
@@ -147,9 +147,6 @@
 <!-- Testimonial Section -->
 {#if landing.testimonial}
 	<section class="panel testimonial-panel reveal" aria-labelledby="testimonial-quote">
-		{#if landing.testimonial.photo}
-			<img src={landing.testimonial.photo} alt={landing.testimonial.author} class="testimonial-image" />
-		{/if}
 		<blockquote class="testimonial-content">
 			<p id="testimonial-quote" class="testimonial-quote">"<em>{lang.t(landing.testimonial.quote)}</em>"</p>
 			<footer class="testimonial-footer">
@@ -610,9 +607,6 @@
 	/* Testimonial Section */
 	.testimonial-panel {
 		display: grid;
-		grid-template-columns: 1fr 2fr;
-		gap: 2.5rem;
-		align-items: center;
 		padding: clamp(2.5rem, 5vw, 4rem);
 		max-width: 100%;
 		overflow: hidden;
@@ -656,15 +650,6 @@
 		text-transform: uppercase;
 		letter-spacing: 0.05em;
 	}
-	.testimonial-image {
-		width: 100%;
-		max-width: 100%;
-		height: auto;
-		border-radius: 0.9rem;
-		object-fit: cover;
-		aspect-ratio: 1;
-	}
-
 	.testimonial-attribution {
 		font-size: 0.85rem;
 		color: var(--copy-muted);
@@ -726,7 +711,8 @@
 
 	:global(html:not(.dark)) h1,
 	:global(html:not(.dark)) h2,
-	:global(html:not(.dark)) h3 {
+	:global(html:not(.dark)) h3,
+	:global(html:not(.dark)) .faq-teaser-text {
 		color: rgb(18 37 63);
 	}
 
@@ -782,11 +768,6 @@
 		}
 	}
 
-	@media (max-width: 768px) {
-		.testimonial-panel {
-			grid-template-columns: 1fr;
-		}
-	}
 	@media (max-width: 640px) {
 		.hero-panel,
 		.section-panel {
