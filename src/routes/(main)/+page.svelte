@@ -51,6 +51,9 @@
 <!-- Testimonial Section -->
 {#if landing.testimonial}
 	<section class="panel testimonial-panel reveal" aria-labelledby="testimonial-quote">
+		{#if landing.testimonial.photo}
+			<img src={landing.testimonial.photo} alt={landing.testimonial.author} class="testimonial-image" />
+		{/if}
 		<blockquote class="testimonial-content">
 			<p id="testimonial-quote" class="testimonial-quote">"<em>{lang.t(landing.testimonial.quote)}</em>"</p>
 			<footer class="testimonial-footer">
@@ -483,9 +486,21 @@
 	/* Testimonial Section */
 	.testimonial-panel {
 		display: grid;
+		grid-template-columns: 1fr 2fr;
+		gap: 2.5rem;
+		align-items: center;
 		padding: clamp(2.5rem, 5vw, 4rem);
 		max-width: 100%;
 		overflow: hidden;
+	}
+
+	.testimonial-image {
+		width: 100%;
+		max-width: 100%;
+		height: auto;
+		border-radius: 0.9rem;
+		object-fit: cover;
+		aspect-ratio: 1;
 	}
 
 	.testimonial-content {
@@ -625,7 +640,8 @@
 
 	@media (max-width: 900px) {
 		.hero-panel,
-		.section-panel {
+		.section-panel,
+		.testimonial-panel {
 			grid-template-columns: 1fr;
 		}
 
