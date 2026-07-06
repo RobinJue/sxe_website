@@ -7,7 +7,7 @@
 
 	let { data, children }: { data: LayoutData; children: any } = $props();
 
-	let themeMode = $state<"dark" | "light">("dark");
+	let themeMode = $state<"dark" | "light">("light");
 	let isMobileMenuOpen = $state(false);
 
 	const navItems = [
@@ -39,7 +39,7 @@
 
 	function getCurrentThemeMode(): "dark" | "light" {
 		if (typeof document === "undefined") {
-			return "dark";
+			return "light";
 		}
 		return document.documentElement.classList.contains("dark") ? "dark" : "light";
 	}
@@ -87,12 +87,12 @@
 
 			try {
 				const stored = localStorage.getItem(storageKey);
-				const mode = stored === "light" ? "light" : "dark";
+				const mode = stored === "dark" ? "dark" : "light";
 				root.classList.toggle("dark", mode === "dark");
 				root.style.colorScheme = mode;
 			} catch {
-				root.classList.add("dark");
-				root.style.colorScheme = "dark";
+				root.classList.remove("dark");
+				root.style.colorScheme = "light";
 			}
 		})();
 	</script>

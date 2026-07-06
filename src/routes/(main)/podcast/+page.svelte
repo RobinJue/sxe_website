@@ -9,7 +9,7 @@
 
 	let { data } = $props<{ data: PageData }>();
 
-	let themeMode = $state<ThemeMode>("dark");
+	let themeMode = $state<ThemeMode>("light");
 	let searchQuery = $state("");
 	let newsletterSubmitted = $state(false);
 
@@ -37,7 +37,7 @@
 
 	function getCurrentThemeMode(): ThemeMode {
 		if (typeof document === "undefined") {
-			return "dark";
+			return "light";
 		}
 		return document.documentElement.classList.contains("dark") ? "dark" : "light";
 	}
