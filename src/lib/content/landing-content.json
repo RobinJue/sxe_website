@@ -786,7 +786,7 @@
               "de": "Programm für Startups im Bereich Advanced Materials.",
               "en": "Program for startups in advanced materials."
             },
-            "url": "https://www.inam.berlin/admalab"
+            "url": "https://www.inam.berlin/programs"
           },
           {
             "name": "Remove Carbon Accelerator",
@@ -874,7 +874,7 @@
               "de": "Pre-incubator-Programm für frühe Ideen.",
               "en": "Pre-incubator program for early ideas."
             },
-            "url": "https://www.kth.se/en/om/innovation/program-extra-stod/forinkubator-program/kth-innovations-forinkubatorprogram-1.414438"
+            "url": "https://www.kth.se/en/om/innovation/kth-innovation-1.956839"
           },
           {
             "name": "Chalmers University",
@@ -882,7 +882,7 @@
               "de": "Venture Creation und Unterstützung für akademienahe Gründungen.",
               "en": "Venture creation and support for university-adjacent startups."
             },
-            "url": "https://chalmersventures.com/venturecreation/"
+            "url": "https://chalmersventures.com/tech-matching-for-encubation/"
           },
           {
             "name": "Planet Positive Lab",
@@ -987,7 +987,7 @@
   "partners": {
     "heroTitle": {
       "de": "Wissenschaft braucht Spitzen‑Partner.",
-      "en": "Science needs top-tier partners."
+      "en": "Scientific founders need top-tier partners."
     },
     "heroLead": {
       "de": "Lerne unsere Partner kennen, die SxE unterstützen.",
