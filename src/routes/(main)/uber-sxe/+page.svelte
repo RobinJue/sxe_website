@@ -7,8 +7,12 @@
 
 	let flipped = $state<Record<string, boolean>>({});
 
-	function toggleFlip(memberId: string) {
-		flipped[memberId] = !flipped[memberId];
+	function flipCard(memberId: string) {
+		flipped[memberId] = true;
+	}
+
+	function unflipCard(memberId: string) {
+		flipped[memberId] = false;
 	}
 
 	const content = $derived(data.content);
@@ -79,10 +83,10 @@
 	</div>
 	<div class="team-grid">
 		{#each landing.team.members as member (member.id)}
-			<div class="team-card-wrapper">
+			<div class="team-card-wrapper" onmouseleave={() => unflipCard(member.id)}>
 				<div class={`team-card ${flipped[member.id] ? 'flipped' : ''}`}>
 					<!-- Front side -->
-					<div class="card-front" onclick={() => toggleFlip(member.id)}>
+					<div class="card-front" onclick={() => flipCard(member.id)}>
 						<div class="card-image">
 							{#if member.photo}
 								<img src={member.photo} alt={member.name} decoding="async" loading="lazy" />
@@ -98,21 +102,16 @@
 								<h3 class="member-name">{member.name}</h3>
 							</div>
 						</div>
-						<button class="member-about-button" onclick={(e) => { e.stopPropagation(); toggleFlip(member.id); }}>
-							→ {lang.current === "de" ? "ÜBER" : "ABOUT"}
+						<button class="member-about-button" onclick={(e) => { e.stopPropagation(); flipCard(member.id); }}>
+							{lang.current === "de" ? "ÜBER" : "ABOUT"}
 						</button>
 					</div>
 
 					<!-- Back side -->
-					<div class="card-back" onclick={() => toggleFlip(member.id)}>
-						<div class="back-content">
-							{#if member.motivation}
-								<p class="motivation-text">{lang.t(member.motivation)}</p>
-							{/if}
-							<a href={member.linkedinUrl} target="_blank" rel="noopener noreferrer" class="linkedin-link" onclick={(e) => e.stopPropagation()}>
-								<Linkedin size={24} />
-							</a>
-						</div>
+					<div class="card-back" onclick={() => unflipCard(member.id)}>
+						<a href={member.linkedinUrl} target="_blank" rel="noopener noreferrer" class="linkedin-link" onclick={(e) => e.stopPropagation()}>
+							<Linkedin size={56} strokeWidth={1.5} />
+						</a>
 					</div>
 				</div>
 			</div>
@@ -341,40 +340,16 @@
 		padding: 1.5rem;
 	}
 
-	.back-content {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		gap: 1.2rem;
-		text-align: center;
-		height: 100%;
-		justify-content: space-between;
-	}
-
-	.motivation-text {
-		font-size: 0.85rem;
-		line-height: 1.6;
-		color: rgb(var(--rgb-text-bright-dark));
-		font-family: "Manrope", sans-serif;
-	}
-
 	.linkedin-link {
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		width: 2.5rem;
-		height: 2.5rem;
-		border-radius: 50%;
-		background: rgb(var(--rgb-white) / 0.1);
-		border: 1px solid var(--line-soft);
-		color: rgb(var(--rgb-brand-blue));
-		transition: all 0.2s ease;
+		color: rgb(18 37 63);
+		transition: transform 0.2s ease;
 		text-decoration: none;
 	}
 
 	.linkedin-link:hover {
-		background: rgb(var(--rgb-brand-blue));
-		color: rgb(var(--rgb-white));
 		transform: scale(1.1);
 	}
 
@@ -507,19 +482,6 @@
 	:global(html:not(.dark)) .card-back {
 		background: linear-gradient(135deg, rgb(var(--rgb-white) / 0.97), rgb(238 246 255 / 0.5));
 		border-color: rgb(176 112 24 / 0.18);
-	}
-
-	:global(html:not(.dark)) .motivation-text {
-		color: rgb(18 37 63);
-	}
-
-	:global(html:not(.dark)) .linkedin-link {
-		background: rgb(var(--rgb-white) / 0.8);
-		border-color: rgb(176 112 24 / 0.18);
-	}
-
-	:global(html:not(.dark)) .linkedin-link:hover {
-		background: rgb(var(--rgb-brand-blue));
 	}
 
 	/* Responsive */
