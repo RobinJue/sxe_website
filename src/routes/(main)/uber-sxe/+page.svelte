@@ -36,14 +36,21 @@
 	{#if landing.about.lead}
 		<p class="lead">{lang.t(landing.about.lead)}</p>
 	{/if}
-	{#if landing.about.primaryLabel && landing.about.primaryHref}
-		<div class="hero-actions">
-			<a href={landing.about.primaryHref} class="button button-primary"
-				>{lang.t(landing.about.primaryLabel)} <ArrowRight size={16} /></a
-			>
-		</div>
-	{/if}
 </section>
+
+<!-- Join CTA -->
+{#if landing.about.primaryLabel && landing.about.primaryHref}
+	<section class="panel join-cta reveal" aria-labelledby="join-cta-title">
+		<p id="join-cta-title" class="join-cta-text">
+			{lang.current === "de"
+				? "Bist du Stipendiat der Studienstiftung? Werde Teil von SxE!"
+				: "Are you a Studienstiftung scholar? Join SxE!"}
+		</p>
+		<a href={landing.about.primaryHref} class="button button-primary"
+			>{lang.t(landing.about.primaryLabel)} <ArrowRight size={16} /></a
+		>
+	</section>
+{/if}
 
 <!-- Story Section -->
 <section class="panel content-section story-section reveal" aria-labelledby="story-title">
@@ -189,11 +196,26 @@
 		font-size: clamp(1rem, 1.5vw, 1.15rem);
 	}
 
-	.hero-actions {
+	/* Join CTA */
+	.join-cta {
+		width: 100%;
 		display: flex;
 		flex-wrap: wrap;
-		gap: 0.7rem;
-		margin-top: 0.25rem;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1rem;
+		padding: clamp(1.5rem, 4vw, 2.25rem) clamp(1.25rem, 4vw, 2rem);
+	}
+
+	.join-cta-text {
+		flex: 1;
+		min-width: 220px;
+		margin: 0;
+		font-family: "Space Grotesk", "Manrope", sans-serif;
+		color: rgb(var(--rgb-text-bright-dark));
+		font-weight: 600;
+		font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+		line-height: 1.25;
 	}
 
 	.button {
@@ -432,7 +454,8 @@
 
 	:global(html:not(.dark)) h1,
 	:global(html:not(.dark)) h2,
-	:global(html:not(.dark)) h3 {
+	:global(html:not(.dark)) h3,
+	:global(html:not(.dark)) .join-cta-text {
 		color: rgb(18 37 63);
 	}
 
