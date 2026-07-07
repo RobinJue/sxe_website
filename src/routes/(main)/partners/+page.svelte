@@ -126,6 +126,13 @@
 			0 24px 50px rgb(var(--rgb-black) / 0.24),
 			inset 0 1px 0 rgb(var(--rgb-white) / 0.1);
 		padding: clamp(1.5rem, 3vw, 2.5rem);
+		transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+	}
+
+	.partner-block:hover {
+		transform: translateY(-4px);
+		border-color: rgb(var(--rgb-brand-blue) / 0.45);
+		box-shadow: 0 16px 24px rgb(var(--rgb-black) / 0.22);
 	}
 
 	.block-content {
@@ -274,6 +281,13 @@
 		padding: clamp(2rem, 5vw, 3.5rem) clamp(1.1rem, 3vw, 2rem);
 		display: grid;
 		align-items: center;
+		transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+	}
+
+	.partners-hero:hover {
+		transform: translateY(-4px);
+		border-color: rgb(var(--rgb-brand-blue) / 0.45);
+		box-shadow: 0 16px 24px rgb(var(--rgb-black) / 0.22);
 	}
 
 	.hero-copy {
