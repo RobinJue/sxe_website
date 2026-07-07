@@ -106,9 +106,6 @@
 								<h3 class="member-name">{member.name}</h3>
 							</div>
 						</div>
-						<button class="member-about-button" onclick={(e) => { e.stopPropagation(); flipCard(member.id); }}>
-							{lang.current === "de" ? "ÜBER" : "ABOUT"}
-						</button>
 					</div>
 
 					<!-- Back side -->
@@ -408,25 +405,6 @@
 		letter-spacing: 0.5px;
 	}
 
-	.member-about-button {
-		font-family: "Space Grotesk", "Manrope", sans-serif;
-		font-size: 0.7rem;
-		font-weight: 700;
-		color: rgb(var(--rgb-text-bright-dark));
-		text-decoration: none;
-		letter-spacing: 0.3px;
-		transition: color 0.2s ease;
-		display: inline-block;
-		border: none;
-		background: none;
-		padding: 0;
-		cursor: pointer;
-	}
-
-	.member-about-button:hover {
-		color: rgb(var(--rgb-brand-blue));
-	}
-
 	/* Animations */
 	.reveal {
 		opacity: 0;
@@ -473,14 +451,6 @@
 
 	:global(html:not(.dark)) .member-name {
 		color: rgb(var(--rgb-white));
-	}
-
-	:global(html:not(.dark)) .member-about-button {
-		color: rgb(18 37 63);
-	}
-
-	:global(html:not(.dark)) .member-about-button:hover {
-		color: rgb(var(--rgb-brand-blue));
 	}
 
 	:global(html:not(.dark)) .card-back {
