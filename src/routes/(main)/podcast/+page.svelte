@@ -12,6 +12,8 @@
 	let themeMode = $state<ThemeMode>("light");
 	let searchQuery = $state("");
 	let newsletterSubmitted = $state(false);
+	let comingSoonFor = $state<string | null>(null);
+	let comingSoonTimeout: ReturnType<typeof setTimeout> | undefined;
 
 	const content = $derived(data.content);
 	const landing = $derived(content.landing);
@@ -76,6 +78,14 @@
 		event.preventDefault();
 		newsletterSubmitted = true;
 	}
+
+	function showComingSoon(label: string) {
+		comingSoonFor = label;
+		clearTimeout(comingSoonTimeout);
+		comingSoonTimeout = setTimeout(() => {
+			comingSoonFor = null;
+		}, 2500);
+	}
 </script>
 
 <svelte:head>
@@ -101,12 +111,17 @@
 				<p class="lead">{lang.t(podcast.intro)}</p>
 				<div class="hero-actions" aria-label={lang.t(podcast.listenLabel)}>
 					{#each podcast.platformLinks as link (link.label)}
-						<a href={link.url} target="_blank" rel="noopener noreferrer" class="button button-primary">
+						<button type="button" class="button button-primary" onclick={() => showComingSoon(link.label)}>
 							{link.label}
 							<ExternalLink size={16} />
-						</a>
+						</button>
 					{/each}
 				</div>
+				<p class="coming-soon-note" role="status" aria-live="polite">
+					{#if comingSoonFor}
+						{comingSoonFor} {lang.current === "de" ? "– bald verfügbar" : "– coming soon"}
+					{/if}
+				</p>
 			</div>
 		</section>
 
@@ -298,9 +313,12 @@
 		min-height: 2.75rem;
 		padding: 0.7rem 1rem;
 		border-radius: 999px;
+		border: 0;
+		font: inherit;
 		font-weight: 800;
 		text-decoration: none;
 		cursor: pointer;
+		appearance: none;
 		transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
 	}
 
@@ -312,6 +330,14 @@
 		border: 1px solid rgb(var(--rgb-brand-blue) / 0.55);
 		background: rgb(var(--rgb-brand-blue));
 		color: rgb(22 22 18);
+	}
+
+	.coming-soon-note {
+		min-height: 1.2rem;
+		margin: 0.35rem 0 0;
+		color: rgb(255 205 130);
+		font-size: 0.85rem;
+		font-weight: 700;
 	}
 
 	.kicker {
