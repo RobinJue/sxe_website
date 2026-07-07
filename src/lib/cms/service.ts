@@ -8,18 +8,25 @@ import {
 	mapPodcastPageContent,
 	mapPodcastSettings
 } from "./mappers";
-import { getPodcastFeed } from "./podcast-rss";
-import type { HomeContent, LegalContent, PodcastPageContent } from "./types";
+import { getDummyPodcastFeed, getPodcastFeed } from "./podcast-rss";
+import type { HomeContent, LegalContent, PodcastFeedResult, PodcastPageContent } from "./types";
 
 type CmsFetch = typeof fetch;
 
+async function resolvePodcastFeed(
+	podcastSettings: ReturnType<typeof mapPodcastSettings>,
+	cmsFetch: CmsFetch
+): Promise<PodcastFeedResult> {
+	if (podcastSettingsSource.useDummyEpisodes) {
+		return getDummyPodcastFeed(podcastSettingsSource.dummyEpisodes ?? []);
+	}
+
+	return getPodcastFeed(podcastSettings.rssUrl, podcastSettings.fallbackCover, cmsFetch);
+}
+
 export async function getHomeContent(cmsFetch: CmsFetch = fetch): Promise<HomeContent> {
 	const podcastSettings = mapPodcastSettings(podcastSettingsSource);
-	const podcastFeed = await getPodcastFeed(
-		podcastSettings.rssUrl,
-		podcastSettings.fallbackCover,
-		cmsFetch
-	);
+	const podcastFeed = await resolvePodcastFeed(podcastSettings, cmsFetch);
 
 	return mapHomeContent({
 		landing: landingContentSource,
@@ -34,11 +41,7 @@ export async function getLegalContent(): Promise<LegalContent> {
 
 export async function getPodcastPageContent(cmsFetch: CmsFetch = fetch): Promise<PodcastPageContent> {
 	const podcastSettings = mapPodcastSettings(podcastSettingsSource);
-	const podcastFeed = await getPodcastFeed(
-		podcastSettings.rssUrl,
-		podcastSettings.fallbackCover,
-		cmsFetch
-	);
+	const podcastFeed = await resolvePodcastFeed(podcastSettings, cmsFetch);
 
 	return mapPodcastPageContent({
 		landing: landingContentSource,

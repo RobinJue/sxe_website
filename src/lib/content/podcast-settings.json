@@ -98,5 +98,48 @@
       "label": "YouTube",
       "url": "https://www.youtube.com/"
     }
+  ],
+  "useDummyEpisodes": true,
+  "dummyEpisodes": [
+    {
+      "id": "ep-01-nicholas-turley",
+      "title": "Forschung mit Folgen – Folge 1: Nicholas Turley",
+      "description": "Nicholas Turley ist Head of ChatGPT bei OpenAI und ehemaliger Studienstiftler. Im Gespräch erzählt er, wie er von der Wissenschaft in die Gründung fand und warum mehr Forscher diesen Schritt wagen sollten.",
+      "date": "2026-05-15T09:00:00.000Z",
+      "url": "",
+      "audioUrl": "",
+      "image": "https://www.schnell.systems/assets/podcast-cover-placeholder.jpeg",
+      "duration": ""
+    },
+    {
+      "id": "ep-02-coming-soon",
+      "title": "Folge 2 – Titel folgt in Kürze",
+      "description": "Diese Folge ist in Vorbereitung. Weitere Informationen folgen, sobald sie veröffentlicht ist.",
+      "date": "2026-04-15T09:00:00.000Z",
+      "url": "",
+      "audioUrl": "",
+      "image": "/assets/podcast-cover-placeholder.jpeg",
+      "duration": ""
+    },
+    {
+      "id": "ep-03-coming-soon",
+      "title": "Folge 3 – Titel folgt in Kürze",
+      "description": "Diese Folge ist in Vorbereitung. Weitere Informationen folgen, sobald sie veröffentlicht ist.",
+      "date": "2026-03-15T09:00:00.000Z",
+      "url": "",
+      "audioUrl": "",
+      "image": "/assets/podcast-cover-placeholder.jpeg",
+      "duration": ""
+    },
+    {
+      "id": "ep-04-coming-soon",
+      "title": "Folge 4 – Titel folgt in Kürze",
+      "description": "Diese Folge ist in Vorbereitung. Weitere Informationen folgen, sobald sie veröffentlicht ist.",
+      "date": "2026-02-15T09:00:00.000Z",
+      "url": "",
+      "audioUrl": "",
+      "image": "/assets/podcast-cover-placeholder.jpeg",
+      "duration": ""
+    }
   ]
 }

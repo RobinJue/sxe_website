@@ -13,6 +13,15 @@ type CacheEntry = {
 
 let feedCache: CacheEntry | undefined;
 
+// Temporary stand-in while the real podcast RSS feed isn't live yet.
+// Switch `useDummyEpisodes` off in podcast-settings.json to go back to getPodcastFeed() below.
+export function getDummyPodcastFeed(episodes: PodcastEpisode[]): PodcastFeedResult {
+	return {
+		status: episodes.length > 0 ? "ok" : "empty",
+		episodes
+	};
+}
+
 export async function getPodcastFeed(
 	rssUrl: string,
 	fallbackCover: string,
