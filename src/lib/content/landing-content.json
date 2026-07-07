@@ -971,6 +971,16 @@
         },
         "linkedinUrl": "https://www.linkedin.com/in/jakob-iven-meyer",
         "photo": "/assets/team/Jakob_Meyer.png"
+      },
+      {
+        "id": "member-17",
+        "name": "Felix Hadasch",
+        "role": {
+          "de": "Ehrenamtlich",
+          "en": "Volunteer"
+        },
+        "linkedinUrl": "https://www.linkedin.com/in/felix-hadasch/",
+        "photo": "/assets/team/Felix_Hadasch.png"
       }
     ]
   },
