@@ -202,21 +202,15 @@
 						: "SxE is a volunteer-led initiative for scientists who want to explore application, deep tech and entrepreneurship as possible paths to impact."}
 				</p>
 			</div>
-			<div class="footer-meta">
-				<address class="footer-address">
-					SxE c/o Oliver Beste, Lychener Str., 10437 Berlin
-					<a href="mailto:sxe.science@gmail.com">sxe.science@gmail.com</a>
-				</address>
-				<div class="footer-links">
-					<a
-						href="https://www.linkedin.com/company/sxe-org/"
-						target="_blank"
-						rel="noopener noreferrer"
-						aria-label="LinkedIn"
-					><Linkedin size={15} /></a>
-					<a href="/impressum">{lang.current === "de" ? "Impressum" : "Imprint"}</a>
-					<a href="/impressum#datenschutz">{lang.current === "de" ? "Datenschutz" : "Privacy"}</a>
-				</div>
+			<div class="footer-links">
+				<a
+					href="https://www.linkedin.com/company/sxe-org/"
+					target="_blank"
+					rel="noopener noreferrer"
+					aria-label="LinkedIn"
+				><Linkedin size={15} /></a>
+				<a href="/impressum">{lang.current === "de" ? "Impressum" : "Imprint"}</a>
+				<a href="/impressum#datenschutz">{lang.current === "de" ? "Datenschutz" : "Privacy"}</a>
 			</div>
 		</div>
 		<p class="footer-end">© {new Date().getFullYear()} Science x Entrepreneurship</p>
@@ -496,29 +490,6 @@
 		line-height: 1.5;
 	}
 
-	.footer-meta {
-		display: grid;
-		gap: 0.5rem;
-		justify-items: end;
-	}
-
-	.footer-address {
-		margin: 0;
-		display: flex;
-		flex-wrap: wrap;
-		gap: 0.35rem;
-		justify-content: flex-end;
-		color: rgb(145 158 183);
-		font-size: 0.78rem;
-		font-style: normal;
-		line-height: 1.4;
-	}
-
-	.footer-address a {
-		color: rgb(145 158 183);
-		text-decoration: underline;
-	}
-
 	.footer-links {
 		display: flex;
 		flex-wrap: wrap;
@@ -635,11 +606,6 @@
 			box-shadow: 0 16px 24px rgb(30 46 71 / 0.14);
 		}
 
-		.footer-meta {
-			justify-items: start;
-		}
-
-		.footer-address,
 		.footer-links {
 			justify-content: flex-start;
 		}
