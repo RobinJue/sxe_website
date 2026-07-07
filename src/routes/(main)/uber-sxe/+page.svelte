@@ -83,7 +83,11 @@
 	</div>
 	<div class="team-grid">
 		{#each landing.team.members as member (member.id)}
-			<div class="team-card-wrapper" onmouseleave={() => unflipCard(member.id)}>
+			<div
+				class="team-card-wrapper"
+				onmouseenter={() => flipCard(member.id)}
+				onmouseleave={() => unflipCard(member.id)}
+			>
 				<div class={`team-card ${flipped[member.id] ? 'flipped' : ''}`}>
 					<!-- Front side -->
 					<div class="card-front" onclick={() => flipCard(member.id)}>
