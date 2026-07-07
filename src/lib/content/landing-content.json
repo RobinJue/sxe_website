@@ -925,115 +925,17 @@
         }
       },
       {
-        "id": "member-2",
-        "name": "Nepomuk Biehl",
-        "role": {
-          "de": "Strategy",
-          "en": "Strategy"
-        },
-        "linkedinUrl": "https://linkedin.com/in/nepomukbiehl",
-        "photo": "/assets/team/Nepomuk_Biehl.png",
-        "motivation": {
-          "de": "Strategie ist das Fundament für nachhaltiges Wachstum. Ich helfe SxE, die richtige Balance zwischen schnellem Lernen und langfristigem Impact zu finden.",
-          "en": "Strategy is the foundation for sustainable growth. I help SxE find the right balance between rapid learning and long-term impact."
-        }
-      },
-      {
-        "id": "member-3",
-        "name": "Nicolas Hecker",
-        "role": {
-          "de": "Partnerships",
-          "en": "Partnerships"
-        },
-        "linkedinUrl": "https://linkedin.com/in/nicolashecker",
-        "photo": "/assets/team/Nicolas_Hecker.png",
-        "motivation": {
-          "de": "Starke Partnerschaften multiplizieren unsere Wirkung. Mein Fokus liegt darauf, Wissenschaftler mit den richtigen Unterstützern zu verbinden.",
-          "en": "Strong partnerships multiply our impact. I focus on connecting scientists with the right supporters who share our vision."
-        }
-      },
-      {
-        "id": "member-4",
-        "name": "Julia Heckmann",
-        "role": {
-          "de": "Podcast & Community",
-          "en": "Podcast & Community"
-        },
-        "linkedinUrl": "https://linkedin.com/in/juliaheckmann",
-        "photo": "/assets/team/Julia_Heckmann.png",
-        "motivation": {
-          "de": "Geschichten inspirieren Menschen. Durch den Podcast bringen wir die Stimmen von Gründer-Wissenschaftlern nach vorne und schaffen Verbindung.",
-          "en": "Stories inspire people. Through our podcast, I amplify the voices of scientist-entrepreneurs and create meaningful connections."
-        }
-      },
-      {
         "id": "member-5",
         "name": "Robin Juengerich",
         "role": {
           "de": "Gründer & Initiative Lead",
           "en": "Founder & Initiative Lead"
         },
-        "linkedinUrl": "https://linkedin.com/in/robinjuengerich",
+        "linkedinUrl": "http://linkedin.com/in/robinjue",
         "photo": "/assets/team/Robin_Juengerich.png",
         "motivation": {
           "de": "SxE entstand aus der Frustration, dass deutsche Wissenschaftler nicht zu Gründern werden. Meine Mission: Das ändern, eine Community aufbauen.",
           "en": "SxE was born from frustration that German scientists don't become founders. My mission: change that, build a thriving community."
-        }
-      },
-      {
-        "id": "member-6",
-        "name": "Christian Kapteyn",
-        "role": {
-          "de": "Strategy & Partnerships",
-          "en": "Strategy & Partnerships"
-        },
-        "linkedinUrl": "https://linkedin.com/in/christiankapteyn",
-        "photo": "/assets/team/Christian_Kapteyn.png",
-        "motivation": {
-          "de": "Ich stelle Fragen, die vorher nicht gestellt wurden. Strategische Klarheit hilft uns, echte Unterschiede in der Wissenschafts-Gründungskultur zu machen.",
-          "en": "I ask questions that weren't asked before. Strategic clarity helps us make real differences in science entrepreneurship culture."
-        }
-      },
-      {
-        "id": "member-7",
-        "name": "Isabelle Kranabetter",
-        "role": {
-          "de": "Community & Events",
-          "en": "Community & Events"
-        },
-        "linkedinUrl": "https://linkedin.com/in/isabellekranabetter",
-        "photo": "/assets/team/Isabelle_Kranabetter.png",
-        "motivation": {
-          "de": "Events und Veranstaltungen schaffen Raum für echte Begegnungen. Ich organisiere Momente, die Beziehungen entstehen lassen und Ideen zum Leben erwecken.",
-          "en": "Events create space for real connections. I organize moments where relationships form and ideas come to life."
-        }
-      },
-      {
-        "id": "member-8",
-        "name": "Kai Kronewitter",
-        "role": {
-          "de": "Resources & Network",
-          "en": "Resources & Network"
-        },
-        "linkedinUrl": "https://linkedin.com/in/kaiskronewitter",
-        "photo": "/assets/team/Kai_Kronewitter.png",
-        "motivation": {
-          "de": "Ein umfassendes Netzwerk ist Gold für Gründer. Ich baue die Infrastruktur auf, die Wissenschaftler mit Ressourcen und Experten verbindet.",
-          "en": "A comprehensive network is gold for founders. I build the infrastructure connecting scientists with resources and expertise."
-        }
-      },
-      {
-        "id": "member-9",
-        "name": "Jools Luft",
-        "role": {
-          "de": "Communications",
-          "en": "Communications"
-        },
-        "linkedinUrl": "https://linkedin.com/in/joolsluft",
-        "photo": "/assets/team/Jools_Luft.png",
-        "motivation": {
-          "de": "Kommunikation ist das Herz einer Bewegung. Ich stelle sicher, dass SxE authentisch, klar und inspirierend zu unserer Community spricht.",
-          "en": "Communication is the heart of a movement. I ensure SxE speaks authentically, clearly, and inspires our community."
         }
       },
       {
@@ -1051,60 +953,14 @@
         }
       },
       {
-        "id": "member-11",
-        "name": "Jakob Meyer",
+        "id": "member-15",
+        "name": "Hendrik Reents",
         "role": {
-          "de": "Workshops & Partnerships",
-          "en": "Workshops & Partnerships"
+          "de": "",
+          "en": ""
         },
-        "linkedinUrl": "https://linkedin.com/in/jakobmeyer",
-        "photo": "/assets/team/Jakob_Meyer.png",
-        "motivation": {
-          "de": "Workshops sind dein erstes Treffen mit Gründertum. Ich gestalte Erfahrungen, die Wissenschaftler von Idee zu Aktion bringen.",
-          "en": "Workshops are your first encounter with entrepreneurship. I design experiences that move scientists from idea to action."
-        }
-      },
-      {
-        "id": "member-12",
-        "name": "Leon Schumacher",
-        "role": {
-          "de": "Outreach",
-          "en": "Outreach"
-        },
-        "linkedinUrl": "https://linkedin.com/in/leonschumacher",
-        "photo": "/assets/team/Leon_Schumacher.png",
-        "motivation": {
-          "de": "Outreach bedeutet, Wissenschaftler überall zu erreichen. Meine Mission: Niemand soll von SxE wissen, es sei denn, wir haben sie erreicht.",
-          "en": "Outreach means reaching scientists everywhere. My mission: ensure no scientist misses SxE because we failed to reach them."
-        }
-      },
-      {
-        "id": "member-13",
-        "name": "Tobias Schnell",
-        "role": {
-          "de": "Growth",
-          "en": "Growth"
-        },
-        "linkedinUrl": "https://linkedin.com/in/tobiasschnell",
-        "photo": "/assets/team/Tobias_Schnell.png",
-        "motivation": {
-          "de": "Wachstum ist nur sinnvoll, wenn es unserem Mission dient. Ich konzentriere mich auf Wachstum, der Wissenschaftler nachhaltig befähigt.",
-          "en": "Growth only matters if it serves our mission. I focus on growth that sustainably empowers scientists."
-        }
-      },
-      {
-        "id": "member-14",
-        "name": "Christoph Soppe",
-        "role": {
-          "de": "Co-Gründer & Operations",
-          "en": "Co-Founder & Operations"
-        },
-        "linkedinUrl": "https://linkedin.com/in/christophsoppe",
-        "photo": "/assets/team/Christoph_Soppe.png",
-        "motivation": {
-          "de": "Gute Operationen sind unsichtbar, aber überall spürbar. Ich baue die Systeme auf, die SxE skalierbar und nachhaltig machen.",
-          "en": "Good operations are invisible but felt everywhere. I build the systems that make SxE scalable and sustainable."
-        }
+        "linkedinUrl": "https://www.linkedin.com/in/hendrik-reents/",
+        "photo": "/assets/team/Hendrik_Reents.png"
       }
     ]
   },
