@@ -15,7 +15,7 @@
 		{ id: "podcast", label: { de: "Podcast", en: "Podcast" }, href: "/podcast" },
 		{ id: "faq", label: { de: "FAQs", en: "FAQs" }, href: "/faq" },
 		{ id: "ressourcen", label: { de: "Ressourcen", en: "Resources" }, href: "/ressourcen" },
-		{ id: "kontakt", label: { de: "Support", en: "Support" }, href: "/kontakt" },
+		{ id: "kontakt", label: { de: "Kontakt", en: "Contact" }, href: "/kontakt" },
 		{ id: "partners", label: { de: "Partner", en: "Partners" }, href: "/partners" },
 		{ id: "uber-sxe", label: { de: "Über SxE", en: "About SxE" }, href: "/uber-sxe" }
 	];

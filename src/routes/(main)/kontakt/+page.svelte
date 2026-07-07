@@ -16,7 +16,7 @@
 </script>
 
 <svelte:head>
-	<title>{lang.current === "de" ? "SxE: Support" : "SxE: Support"}</title>
+	<title>{lang.current === "de" ? "SxE: Kontakt" : "SxE: Contact"}</title>
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
 	<link
