@@ -87,7 +87,7 @@
 	.section-panel {
 		display: grid;
 		gap: 1.15rem;
-		padding: clamp(1.1rem, 3vw, 2rem);
+		padding: clamp(1.15rem, 4vw, 3rem);
 	}
 
 	.section-head {
