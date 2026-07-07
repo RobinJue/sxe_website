@@ -30,7 +30,6 @@
 		<p class="kicker"><Mail size={14} strokeWidth={2.2} /> {lang.t(landing.contact.kicker)}</p>
 		<h2 id="contact-title">{lang.t(landing.contact.title)}</h2>
 		<p class="lead">{lang.t(landing.contact.lead)}</p>
-		<a href={landing.contact.emailHref} class="email-link">{landing.contact.emailLabelText}</a>
 	</div>
 
 	<div class="contact-content">
@@ -131,21 +130,6 @@
 		font-size: clamp(1rem, 1.5vw, 1.15rem);
 	}
 
-	.email-link {
-		display: inline-flex;
-		align-items: center;
-		gap: 0.35rem;
-		width: fit-content;
-		color: rgb(255 205 130);
-		font-weight: 800;
-		text-decoration: none;
-		font-size: 0.95rem;
-	}
-
-	.email-link:hover {
-		text-decoration: underline;
-	}
-
 	.contact-form {
 		display: grid;
 		gap: 0.6rem;
@@ -239,10 +223,6 @@
 
 	:global(html:not(.dark)) .lead {
 		color: rgb(64 84 114);
-	}
-
-	:global(html:not(.dark)) .email-link {
-		color: rgb(176 112 24);
 	}
 
 	:global(html:not(.dark)) .contact-form {
