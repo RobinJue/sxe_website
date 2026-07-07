@@ -196,11 +196,6 @@
 					loading="lazy"
 					decoding="async"
 				/>
-				<p class="footer-description">
-					{lang.current === "de"
-						? "SxE ist eine ehrenamtliche Initiative für Wissenschaftler, die Anwendung, Deep Tech und Gründung als mögliche Wege zu Wirkung erkunden möchten."
-						: "SxE is a volunteer-led initiative for scientists who want to explore application, deep tech and entrepreneurship as possible paths to impact."}
-				</p>
 			</div>
 			<div class="footer-links">
 				<a
@@ -480,14 +475,6 @@
 		display: block;
 		width: min(12rem, 56vw);
 		height: auto;
-	}
-
-	.footer-description {
-		margin: 0;
-		max-width: 38ch;
-		color: rgb(145 158 183);
-		font-size: 0.8rem;
-		line-height: 1.5;
 	}
 
 	.footer-links {
