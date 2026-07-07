@@ -20,12 +20,6 @@
 
 <svelte:head>
 	<title>{lang.current === "de" ? "SxE: Ressourcen" : "SxE: Resources"}</title>
-	<link rel="preconnect" href="https://fonts.googleapis.com" />
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
-	<link
-		href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700;800&display=swap"
-		rel="stylesheet"
-	/>
 </svelte:head>
 
 <section class="panel section-panel reveal" aria-labelledby="resources-title">
@@ -92,7 +86,7 @@
 		width: fit-content;
 		margin: 0;
 		color: rgb(255 205 130);
-		font-size: 0.78rem;
+		font-size: var(--font-size-kicker);
 		font-weight: 800;
 		text-transform: uppercase;
 	}
@@ -111,13 +105,13 @@
 	}
 
 	h2 {
-		font-size: clamp(1.65rem, 3vw, 2.75rem);
+		font-size: var(--font-size-h2);
 		line-height: 1.05;
 	}
 
 	#resources-title {
 		max-width: 20ch;
-		font-size: clamp(2rem, 5.8vw, 4.3rem);
+		font-size: var(--font-size-h1);
 		line-height: 1;
 		white-space: pre-line;
 	}
@@ -125,7 +119,7 @@
 	.lead {
 		color: var(--copy-muted);
 		max-width: 66ch;
-		font-size: clamp(1rem, 1.5vw, 1.15rem);
+		font-size: var(--font-size-lead);
 	}
 
 	.resource-category-grid {

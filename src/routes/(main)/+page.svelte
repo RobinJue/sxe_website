@@ -31,12 +31,6 @@
 	<meta property="og:description" content={lang.t(landing.meta.description)} />
 	<meta property="og:type" content="website" />
 	<meta property="og:image" content={landing.meta.ogImage} />
-	<link rel="preconnect" href="https://fonts.googleapis.com" />
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
-	<link
-		href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700;800&display=swap"
-		rel="stylesheet"
-	/>
 </svelte:head>
 
 <!-- Hero Section -->
@@ -260,7 +254,7 @@
 		background: rgb(var(--rgb-brand-blue));
 		color: rgb(22 22 18);
 		font-weight: 800;
-		font-size: 0.85rem;
+		font-size: var(--font-size-small);
 		flex-shrink: 0;
 	}
 
@@ -272,7 +266,7 @@
 		margin: 0;
 		border-radius: 999px;
 		color: rgb(255 205 130);
-		font-size: 0.78rem;
+		font-size: var(--font-size-kicker);
 		font-weight: 800;
 		letter-spacing: 0.08em;
 		text-transform: uppercase;
@@ -296,17 +290,17 @@
 
 	h1 {
 		max-width: 20ch;
-		font-size: clamp(2rem, 5.8vw, 4.3rem);
+		font-size: var(--font-size-h1);
 		line-height: 1;
 	}
 
 	h2 {
-		font-size: clamp(1.65rem, 3vw, 2.75rem);
+		font-size: var(--font-size-h2);
 		line-height: 1.05;
 	}
 
 	h3 {
-		font-size: 1.05rem;
+		font-size: var(--font-size-h3);
 		line-height: 1.2;
 	}
 
@@ -318,7 +312,7 @@
 	.lead {
 		flex: 1 1 32ch;
 		max-width: 66ch;
-		font-size: clamp(1rem, 1.5vw, 1.15rem);
+		font-size: var(--font-size-lead);
 	}
 
 	.hero-actions {
@@ -372,7 +366,7 @@
 	}
 
 	.newsletter-form h3 {
-		font-size: 1rem;
+		font-size: var(--font-size-body);
 	}
 
 	.newsletter-form p {
@@ -381,7 +375,7 @@
 
 	.newsletter-form label {
 		color: rgb(var(--rgb-text-bright-dark));
-		font-size: 0.82rem;
+		font-size: var(--font-size-caption);
 		font-weight: 800;
 	}
 
@@ -423,7 +417,7 @@
 
 	.form-note {
 		color: rgb(255 205 130);
-		font-size: 0.88rem;
+		font-size: var(--font-size-small);
 	}
 
 	/* Carousel Section */
@@ -489,7 +483,7 @@
 
 	.logo-fallback {
 		color: var(--copy-muted);
-		font-size: 0.7rem;
+		font-size: var(--font-size-tiny);
 		font-weight: 600;
 		text-align: center;
 		word-break: break-word;
@@ -550,7 +544,7 @@
 	}
 
 	.testimonial-author strong {
-		font-size: 1rem;
+		font-size: var(--font-size-body);
 		font-weight: 800;
 		color: rgb(var(--rgb-text-bright-dark));
 	}
@@ -563,7 +557,7 @@
 		letter-spacing: 0.05em;
 	}
 	.testimonial-attribution {
-		font-size: 0.85rem;
+		font-size: var(--font-size-small);
 		color: var(--copy-muted);
 	}
 

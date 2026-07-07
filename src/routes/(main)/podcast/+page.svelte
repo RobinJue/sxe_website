@@ -95,12 +95,6 @@
 	<meta property="og:description" content={lang.t(podcast.metaDescription)} />
 	<meta property="og:type" content="website" />
 	<meta property="og:image" content={podcast.fallbackCover} />
-	<link rel="preconnect" href="https://fonts.googleapis.com" />
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
-	<link
-		href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700;800&display=swap"
-		rel="stylesheet"
-	/>
 </svelte:head>
 
 <main class="podcast-main">
@@ -288,14 +282,14 @@
 
 	.hero-panel h1 {
 		max-width: 6ch;
-		font-size: clamp(2rem, 5.8vw, 4.3rem);
+		font-size: var(--font-size-h1);
 		line-height: 1;
 	}
 
 	.hero-panel .lead {
 		color: var(--copy-muted);
 		max-width: 66ch;
-		font-size: clamp(1rem, 1.5vw, 1.15rem);
+		font-size: var(--font-size-lead);
 	}
 
 	.hero-actions {
@@ -336,7 +330,7 @@
 		min-height: 1.2rem;
 		margin: 0.35rem 0 0;
 		color: rgb(255 205 130);
-		font-size: 0.85rem;
+		font-size: var(--font-size-small);
 		font-weight: 700;
 	}
 
@@ -347,7 +341,7 @@
 		width: fit-content;
 		margin: 0;
 		color: rgb(255 205 130);
-		font-size: 0.78rem;
+		font-size: var(--font-size-kicker);
 		font-weight: 800;
 		letter-spacing: 0.08em;
 		text-transform: uppercase;
@@ -356,7 +350,7 @@
 	.episode-date {
 		margin: 0;
 		color: rgb(255 205 130);
-		font-size: 0.72rem;
+		font-size: var(--font-size-tiny);
 		font-weight: 900;
 		letter-spacing: 0.16em;
 		text-transform: uppercase;
@@ -375,7 +369,7 @@
 
 	h1 {
 		max-width: 20ch;
-		font-size: clamp(2rem, 5.8vw, 4.3rem);
+		font-size: var(--font-size-h1);
 		line-height: 1;
 	}
 
@@ -384,7 +378,7 @@
 	}
 
 	h3 {
-		font-size: 1.05rem;
+		font-size: var(--font-size-h3);
 	}
 
 	p {
@@ -450,7 +444,7 @@
 
 	.episode-meta span {
 		color: rgb(151 173 211);
-		font-size: 0.82rem;
+		font-size: var(--font-size-caption);
 		font-weight: 800;
 	}
 
@@ -477,7 +471,7 @@
 		gap: 0.35rem;
 		min-width: min(100%, 22rem);
 		color: rgb(197 211 234);
-		font-size: 0.82rem;
+		font-size: var(--font-size-caption);
 		font-weight: 800;
 	}
 

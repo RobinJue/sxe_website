@@ -17,12 +17,6 @@
 
 <svelte:head>
 	<title>{lang.current === "de" ? "SxE: Partner" : "SxE: Partners"}</title>
-	<link rel="preconnect" href="https://fonts.googleapis.com" />
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
-	<link
-		href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700;800&display=swap"
-		rel="stylesheet"
-	/>
 </svelte:head>
 
 <div class="partners-page">
@@ -199,7 +193,7 @@
 
 	.logo-fallback {
 		color: var(--copy-muted);
-		font-size: 0.7rem;
+		font-size: var(--font-size-tiny);
 		font-weight: 600;
 		text-align: center;
 		word-break: break-word;
@@ -250,7 +244,7 @@
 		background: rgb(var(--rgb-brand-blue));
 		color: rgb(22 22 18);
 		font-weight: 800;
-		font-size: 0.85rem;
+		font-size: var(--font-size-small);
 		text-decoration: none;
 		cursor: pointer;
 		transition: transform 0.2s ease;
@@ -300,7 +294,7 @@
 		margin: 0;
 		border-radius: 999px;
 		color: rgb(255 205 130);
-		font-size: 0.78rem;
+		font-size: var(--font-size-kicker);
 		font-weight: 800;
 		letter-spacing: 0.08em;
 		text-transform: uppercase;
@@ -313,14 +307,14 @@
 		letter-spacing: 0;
 		margin: 0;
 		max-width: 14ch;
-		font-size: clamp(2rem, 5.8vw, 4.3rem);
+		font-size: var(--font-size-h1);
 		line-height: 1;
 	}
 
 	.lead {
 		color: var(--copy-muted);
 		max-width: 66ch;
-		font-size: clamp(1rem, 1.5vw, 1.15rem);
+		font-size: var(--font-size-lead);
 		margin: 0;
 	}
 

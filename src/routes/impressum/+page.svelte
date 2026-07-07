@@ -9,12 +9,6 @@
 <svelte:head>
 	<title>{content.pageTitle} | {content.brandName}</title>
 	<meta name="description" content={content.pageLead} />
-	<link rel="preconnect" href="https://fonts.googleapis.com" />
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
-	<link
-		href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700;800&display=swap"
-		rel="stylesheet"
-	/>
 </svelte:head>
 
 <div class="legal-page">
@@ -112,7 +106,7 @@
 		background: rgb(var(--rgb-white) / 0.04);
 		color: rgb(215 227 247);
 		text-decoration: none;
-		font-size: 0.82rem;
+		font-size: var(--font-size-caption);
 		font-weight: 700;
 	}
 
@@ -153,7 +147,7 @@
 		display: inline-flex;
 		align-items: center;
 		gap: 0.42rem;
-		font-size: 0.72rem;
+		font-size: var(--font-size-tiny);
 		font-weight: 700;
 		letter-spacing: 0.18em;
 		text-transform: uppercase;
@@ -244,7 +238,7 @@
 
 	.notice {
 		margin: 0.1rem 0 0;
-		font-size: 0.86rem;
+		font-size: var(--font-size-small);
 		color: rgb(158 180 217);
 	}
 

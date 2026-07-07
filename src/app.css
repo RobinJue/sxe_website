@@ -4,8 +4,38 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* Self-hosted fonts (GDPR: avoids requests to Google's font CDN). Both are
+   variable fonts, so one file per family covers their full weight range. */
+@font-face {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 200 800;
+  font-display: swap;
+  src: url("/fonts/manrope-latin-variable.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Space Grotesk";
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url("/fonts/space-grotesk-latin-variable.woff2") format("woff2");
+}
+
 :root {
   --radius: 0.625rem;
+
+  /* Type scale — shared font sizes reused across pages instead of each
+     component retyping its own near-duplicate value. */
+  --font-size-tiny: 0.72rem;
+  --font-size-kicker: 0.78rem;
+  --font-size-caption: 0.82rem;
+  --font-size-small: 0.85rem;
+  --font-size-body: 1rem;
+  --font-size-lead: clamp(1rem, 1.5vw, 1.15rem);
+  --font-size-h3: 1.05rem;
+  --font-size-h2: clamp(1.65rem, 3vw, 2.75rem);
+  --font-size-h1: clamp(2rem, 5.8vw, 4.3rem);
 
   /* Neutral palette */
   --rgb-white: 255 255 255;

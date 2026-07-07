@@ -17,12 +17,6 @@
 
 <svelte:head>
 	<title>{lang.current === "de" ? "SxE: Kontakt" : "SxE: Contact"}</title>
-	<link rel="preconnect" href="https://fonts.googleapis.com" />
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
-	<link
-		href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700;800&display=swap"
-		rel="stylesheet"
-	/>
 </svelte:head>
 
 <section class="contact-section reveal" aria-labelledby="contact-title">
@@ -91,7 +85,7 @@
 		width: fit-content;
 		margin: 0;
 		color: rgb(255 205 130);
-		font-size: 0.78rem;
+		font-size: var(--font-size-kicker);
 		font-weight: 800;
 		text-transform: uppercase;
 	}
@@ -111,23 +105,23 @@
 	}
 
 	h2 {
-		font-size: clamp(1.65rem, 3vw, 2.75rem);
+		font-size: var(--font-size-h2);
 		line-height: 1.05;
 	}
 
 	#contact-title {
 		max-width: 20ch;
-		font-size: clamp(2rem, 5.8vw, 4.3rem);
+		font-size: var(--font-size-h1);
 		line-height: 1;
 	}
 
 	h3 {
-		font-size: 1rem;
+		font-size: var(--font-size-body);
 	}
 
 	.lead {
 		color: var(--copy-muted);
-		font-size: clamp(1rem, 1.5vw, 1.15rem);
+		font-size: var(--font-size-lead);
 	}
 
 	.contact-form {
@@ -141,7 +135,7 @@
 
 	.contact-form label {
 		color: rgb(var(--rgb-text-bright-dark));
-		font-size: 0.82rem;
+		font-size: var(--font-size-caption);
 		font-weight: 800;
 	}
 
@@ -192,7 +186,7 @@
 
 	.form-note {
 		color: rgb(255 205 130);
-		font-size: 0.88rem;
+		font-size: var(--font-size-small);
 	}
 
 	.reveal {

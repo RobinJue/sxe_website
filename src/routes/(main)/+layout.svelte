@@ -330,7 +330,7 @@
 		border: 1px solid transparent;
 		border-radius: 999px;
 		color: rgb(209 220 241);
-		font-size: 0.84rem;
+		font-size: var(--font-size-caption);
 		font-weight: 700;
 		text-decoration: none;
 		transition: all 0.2s ease;
@@ -363,7 +363,7 @@
 		border-radius: 999px;
 		background: transparent;
 		color: rgb(var(--rgb-text-soft-dark));
-		font-size: 0.72rem;
+		font-size: var(--font-size-tiny);
 		font-weight: 800;
 		cursor: pointer;
 	}
@@ -489,7 +489,7 @@
 		width: min(1140px, calc(100% - 2.5rem));
 		margin: 1rem auto 0;
 		color: rgb(145 158 183);
-		font-size: 0.82rem;
+		font-size: var(--font-size-caption);
 	}
 
 	.reveal {
