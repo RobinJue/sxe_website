@@ -69,14 +69,14 @@
       "en": "The world needs scientists who dare to build."
     },
     "lead": {
-      "de": "SxE ist die Community für Studienstiftler, die Wissenschaft in Wirkung verwandeln wollen.",
-      "en": "SxE is the community for scholars of the Studienstiftung who want to transform science into impact."
+      "de": "Hunderttausende Forscher arbeiten unermüdlich daran, Wissenschaft voranzubringen. Doch zu viele Entdeckungen verlassen das Labor nie. Das wollen wir ändern. Wir helfen dir, deine Forschung in die Welt zu tragen.",
+      "en": "Hundreds of thousands of researchers are working tirelessly to advance science, but too many discoveries never leave the lab. We want to change that. We help you take your research into the world."
     },
     "primaryLabel": {
-      "de": "Mehr über SxE erfahren",
-      "en": "Learn more about SxE"
+      "de": "Lass uns helfen",
+      "en": "Let us help"
     },
-    "primaryHref": "/uber-sxe",
+    "primaryHref": "/kontakt",
     "secondaryLabel": {
       "de": "FAQ",
       "en": "FAQ"
@@ -1015,8 +1015,8 @@
           "en": "Silver Partners"
         },
         "title": {
-          "de": "Wir arbeiten mit den besten Partnern zusammen",
-          "en": "We work with the best partners"
+          "de": "Strategische Partner",
+          "en": "Strategic Partners"
         },
         "description": {
           "de": "Mit ihren Ressourcen und ihrem Wissen unterstützen uns diese Partner dabei, die Gründer von morgen auf ihrem Weg zu begleiten.",
@@ -1042,8 +1042,8 @@
           "en": "Bronze Partners"
         },
         "title": {
-          "de": "Wir führen praktische Workshops durch",
-          "en": "We conduct practical workshops"
+          "de": "Praxispartner",
+          "en": "Hands-on Partners"
         },
         "description": {
           "de": "Diese Partner unterstützen uns mit praktischen Formaten und direktem Mentoring, um Wissenschaftler bei ihren ersten Schritten in Richtung Gründung zu begleiten.",
