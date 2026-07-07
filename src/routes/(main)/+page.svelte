@@ -44,7 +44,14 @@
 	<div class="hero-copy">
 		<p class="kicker"><Sparkles size={14} strokeWidth={2.2} /> {lang.t(landing.hero.kicker)}</p>
 		<h1 id="hero-title">{lang.t(landing.hero.title)}</h1>
-		<p class="lead">{lang.t(landing.meta.description)}</p>
+		<div class="hero-bottom-row">
+			<p class="lead">{lang.t(landing.hero.lead)}</p>
+			<div class="hero-actions">
+				<a href={landing.hero.primaryHref} class="button button-primary"
+					>{lang.t(landing.hero.primaryLabel)} <ArrowRight size={16} /></a
+				>
+			</div>
+		</div>
 	</div>
 </section>
 
@@ -202,6 +209,14 @@
 		gap: 0.75rem;
 	}
 
+	.hero-bottom-row {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1.5rem;
+	}
+
 	/* FAQ Teaser */
 	.faq-teaser {
 		display: flex;
@@ -301,8 +316,40 @@
 	}
 
 	.lead {
+		flex: 1 1 32ch;
 		max-width: 66ch;
 		font-size: clamp(1rem, 1.5vw, 1.15rem);
+	}
+
+	.hero-actions {
+		display: flex;
+		flex-wrap: wrap;
+		flex-shrink: 0;
+		gap: 0.7rem;
+	}
+
+	.button {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		gap: 0.45rem;
+		min-height: 2.75rem;
+		padding: 0.7rem 1rem;
+		border-radius: 999px;
+		font-weight: 800;
+		text-decoration: none;
+		cursor: pointer;
+		transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+	}
+
+	.button:hover {
+		transform: translateY(-1px);
+	}
+
+	.button-primary {
+		border: 1px solid rgb(var(--rgb-brand-blue) / 0.55);
+		background: rgb(var(--rgb-brand-blue));
+		color: rgb(22 22 18);
 	}
 
 	/* Newsletter Section */
