@@ -991,6 +991,20 @@
         },
         "linkedinUrl": "https://www.linkedin.com/in/fabian-kalife/",
         "photo": "/assets/team/Fabian_Kalife.png"
+      },
+      {
+        "id": "member-19",
+        "name": "Nicolas Hecker",
+        "role": {
+          "de": "Partnerships",
+          "en": "Partnerships"
+        },
+        "linkedinUrl": "https://www.linkedin.com/in/nicolashecker/",
+        "photo": "/assets/team/Nicolas_Hecker.png",
+        "motivation": {
+          "de": "Starke Partnerschaften multiplizieren unsere Wirkung. Mein Fokus liegt darauf, Wissenschaftler mit den richtigen Unterstützern zu verbinden.",
+          "en": "Strong partnerships multiply our impact. I focus on connecting scientists with the right supporters who share our vision."
+        }
       }
     ]
   },
