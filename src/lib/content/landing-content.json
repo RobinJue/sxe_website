@@ -981,6 +981,16 @@
         },
         "linkedinUrl": "https://www.linkedin.com/in/felix-hadasch/",
         "photo": "/assets/team/Felix_Hadasch.png"
+      },
+      {
+        "id": "member-18",
+        "name": "Fabian Kalife",
+        "role": {
+          "de": "Ehrenamtlich",
+          "en": "Volunteer"
+        },
+        "linkedinUrl": "https://www.linkedin.com/in/fabian-kalife/",
+        "photo": "/assets/team/Fabian_Kalife.png"
       }
     ]
   },
