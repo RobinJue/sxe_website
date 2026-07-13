@@ -1019,6 +1019,20 @@
           "de": "Geschichten inspirieren Menschen. Durch den Podcast bringen wir die Stimmen von Gründer-Wissenschaftlern nach vorne und schaffen Verbindung.",
           "en": "Stories inspire people. Through our podcast, I amplify the voices of scientist-entrepreneurs and create meaningful connections."
         }
+      },
+      {
+        "id": "member-21",
+        "name": "Isabelle Kranabetter",
+        "role": {
+          "de": "Community & Events",
+          "en": "Community & Events"
+        },
+        "linkedinUrl": "https://de.linkedin.com/in/isabelle-kranabetter",
+        "photo": "/assets/team/Isabelle_Kranabetter.png",
+        "motivation": {
+          "de": "Events und Veranstaltungen schaffen Raum für echte Begegnungen. Ich organisiere Momente, die Beziehungen entstehen lassen und Ideen zum Leben erwecken.",
+          "en": "Events create space for real connections. I organize moments where relationships form and ideas come to life."
+        }
       }
     ]
   },
