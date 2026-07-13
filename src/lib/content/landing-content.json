@@ -1005,6 +1005,20 @@
           "de": "Starke Partnerschaften multiplizieren unsere Wirkung. Mein Fokus liegt darauf, Wissenschaftler mit den richtigen Unterstützern zu verbinden.",
           "en": "Strong partnerships multiply our impact. I focus on connecting scientists with the right supporters who share our vision."
         }
+      },
+      {
+        "id": "member-20",
+        "name": "Julia Heckmann",
+        "role": {
+          "de": "Podcast & Community",
+          "en": "Podcast & Community"
+        },
+        "linkedinUrl": "https://de.linkedin.com/in/juliaheckmann",
+        "photo": "/assets/team/Julia_Heckmann.png",
+        "motivation": {
+          "de": "Geschichten inspirieren Menschen. Durch den Podcast bringen wir die Stimmen von Gründer-Wissenschaftlern nach vorne und schaffen Verbindung.",
+          "en": "Stories inspire people. Through our podcast, I amplify the voices of scientist-entrepreneurs and create meaningful connections."
+        }
       }
     ]
   },
