@@ -1033,6 +1033,20 @@
           "de": "Events und Veranstaltungen schaffen Raum für echte Begegnungen. Ich organisiere Momente, die Beziehungen entstehen lassen und Ideen zum Leben erwecken.",
           "en": "Events create space for real connections. I organize moments where relationships form and ideas come to life."
         }
+      },
+      {
+        "id": "member-22",
+        "name": "Tobias Schnell",
+        "role": {
+          "de": "Growth",
+          "en": "Growth"
+        },
+        "linkedinUrl": "https://www.linkedin.com/in/toschnell/",
+        "photo": "/assets/team/Tobias_Schnell.png",
+        "motivation": {
+          "de": "Wachstum ist nur sinnvoll, wenn es unserem Mission dient. Ich konzentriere mich auf Wachstum, der Wissenschaftler nachhaltig befähigt.",
+          "en": "Growth only matters if it serves our mission. I focus on growth that sustainably empowers scientists."
+        }
       }
     ]
   },
