@@ -11,8 +11,10 @@
 	// Get tiers and partners
 	const silverTier = $derived(landing.partners.tiers.find((t) => t.id === "silver") || {});
 	const bronzeTier = $derived(landing.partners.tiers.find((t) => t.id === "bronze") || {});
+	const eventTier = $derived(landing.partners.tiers.find((t) => t.id === "event") || {});
 	const silverPartners = $derived(silverTier.items || []);
 	const bronzePartners = $derived(bronzeTier.items || []);
+	const eventPartners = $derived(eventTier.items || []);
 </script>
 
 <svelte:head>
@@ -71,6 +73,35 @@
 				</div>
 				<div class="block-logos">
 					{#each bronzePartners as partner (partner.name)}
+						<a
+							class="logo-item"
+							href={partner.url}
+							target="_blank"
+							rel="noopener noreferrer"
+							aria-label={`Visit ${partner.name}`}
+							title={partner.name}
+						>
+							{#if partner.logo}
+								<img src={partner.logo} alt={partner.name} loading="lazy" decoding="async" />
+							{:else}
+								<span class="logo-fallback">{partner.name}</span>
+							{/if}
+						</a>
+					{/each}
+				</div>
+			</div>
+		</section>
+	{/if}
+
+	{#if eventPartners.length > 0}
+		<section class="partner-block" aria-labelledby="event-title">
+			<div class="block-content">
+				<div class="block-text">
+					<h2 id="event-title">{lang.t(eventTier.title)}</h2>
+					<p class="block-description">{lang.t(eventTier.description)}</p>
+				</div>
+				<div class="block-logos">
+					{#each eventPartners as partner (partner.name)}
 						<a
 							class="logo-item"
 							href={partner.url}

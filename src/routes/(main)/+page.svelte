@@ -8,9 +8,9 @@
 	const content = $derived(data.content);
 	const landing = $derived(content.landing);
 
-	// Get all partners flattened for carousel
+	// Get all partners flattened for carousel (event/VC partners are Partners-page only)
 	const allPartners = $derived(
-		landing.partners.tiers.flatMap(tier => tier.items)
+		landing.partners.tiers.filter(tier => tier.id !== "event").flatMap(tier => tier.items)
 	);
 
 	const featureIcons = { Compass, Users, BookOpen };
