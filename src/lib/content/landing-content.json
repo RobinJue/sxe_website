@@ -1066,6 +1066,16 @@
         },
         "linkedinUrl": "https://www.linkedin.com/in/ilija-funk/",
         "photo": "/assets/team/Ilija_Funk.png"
+      },
+      {
+        "id": "member-25",
+        "name": "Janik Sauerbier",
+        "role": {
+          "de": "Ehrenamtlich",
+          "en": "Volunteer"
+        },
+        "linkedinUrl": "https://www.linkedin.com/in/janik-sauerbier/",
+        "photo": "/assets/team/Janik_Sauerbier.png"
       }
     ]
   },
