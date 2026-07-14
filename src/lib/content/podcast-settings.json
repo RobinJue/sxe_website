@@ -84,7 +84,7 @@
     "de": "Folge öffnen",
     "en": "Open episode"
   },
-  "fallbackCover": "/assets/podcast-cover-placeholder.jpeg",
+  "fallbackCover": "/assets/podcast-cover-generic.jpeg",
   "platformLinks": [
     {
       "label": "Apple Podcasts",
@@ -138,7 +138,7 @@
       "date": "2026-07-15T09:00:00.000Z",
       "url": "",
       "audioUrl": "",
-      "image": "/assets/podcast-cover-placeholder.jpeg",
+      "image": "/assets/podcast-cover-generic.jpeg",
       "duration": ""
     }
   ]
