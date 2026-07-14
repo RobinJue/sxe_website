@@ -63,9 +63,13 @@
 		background:
 			linear-gradient(150deg, rgb(var(--rgb-white) / 0.09), rgb(var(--rgb-white) / 0.035)),
 			var(--shell-1);
-		box-shadow:
-			0 24px 50px rgb(var(--rgb-black) / 0.24),
-			inset 0 1px 0 rgb(var(--rgb-white) / 0.1);
+		transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+	}
+
+	.panel:hover {
+		transform: translateY(-4px);
+		border-color: rgb(var(--rgb-brand-blue) / 0.45);
+		box-shadow: 0 16px 24px rgb(var(--rgb-black) / 0.22);
 	}
 
 	.section-panel {

@@ -59,12 +59,16 @@
 		background:
 			linear-gradient(150deg, rgb(var(--rgb-white) / 0.09), rgb(var(--rgb-white) / 0.035)),
 			var(--shell-1);
-		box-shadow:
-			0 24px 50px rgb(var(--rgb-black) / 0.24),
-			inset 0 1px 0 rgb(var(--rgb-white) / 0.1);
 		padding: clamp(1.15rem, 4vw, 3rem);
 		display: grid;
 		gap: clamp(1.5rem, 4vw, 2.5rem);
+		transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+	}
+
+	.contact-section:hover {
+		transform: translateY(-4px);
+		border-color: rgb(var(--rgb-brand-blue) / 0.45);
+		box-shadow: 0 16px 24px rgb(var(--rgb-black) / 0.22);
 	}
 
 	.contact-header {
@@ -152,7 +156,7 @@
 	}
 
 	.contact-form-embed {
-		border: 1px solid rgb(var(--rgb-white) / 0.12);
+		border: 1px solid var(--line-soft);
 		border-radius: 0.85rem;
 		background: var(--shell-2);
 		padding: 1rem;
@@ -207,7 +211,6 @@
 			linear-gradient(150deg, rgb(var(--rgb-white) / 0.97), rgb(238 246 255 / 0.5)),
 			rgb(var(--rgb-white));
 		border-color: rgb(176 112 24 / 0.12);
-		box-shadow: 0 4px 12px rgb(0 0 0 / 0.08), inset 0 1px 0 rgb(var(--rgb-white) / 0.6);
 	}
 
 	:global(html:not(.dark)) h2,

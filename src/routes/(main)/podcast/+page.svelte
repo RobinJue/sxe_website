@@ -248,9 +248,7 @@
 		background:
 			linear-gradient(150deg, rgb(var(--rgb-white) / 0.09), rgb(var(--rgb-white) / 0.035)),
 			var(--shell-1);
-		box-shadow:
-			0 24px 50px rgb(var(--rgb-black) / 0.24),
-			inset 0 1px 0 rgb(var(--rgb-white) / 0.1);
+		transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 		display: grid;
 		align-items: center;
 		padding: clamp(2rem, 5vw, 3.5rem) clamp(1.1rem, 3vw, 2rem);
@@ -260,10 +258,22 @@
 	.episodes-panel,
 	.newsletter-panel,
 	.status-panel {
-		border: 1px solid rgb(var(--rgb-white) / 0.14);
+		border: 1px solid var(--line-soft);
 		border-radius: 0.95rem;
-		background: linear-gradient(160deg, rgb(21 30 50 / 0.88), rgb(10 14 23 / 0.92));
-		box-shadow: 0 20px 30px rgb(var(--rgb-black) / 0.22);
+		background:
+			linear-gradient(150deg, rgb(var(--rgb-white) / 0.09), rgb(var(--rgb-white) / 0.035)),
+			var(--shell-1);
+		transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+	}
+
+	.hero-panel:hover,
+	.latest-panel:hover,
+	.episodes-panel:hover,
+	.newsletter-panel:hover,
+	.status-panel:hover {
+		transform: translateY(-4px);
+		border-color: rgb(var(--rgb-brand-blue) / 0.45);
+		box-shadow: 0 16px 24px rgb(var(--rgb-black) / 0.22);
 	}
 
 	.latest-panel,
@@ -511,9 +521,16 @@
 		grid-template-columns: 6rem minmax(0, 1fr);
 		gap: 0.75rem;
 		padding: 0.85rem;
-		border: 1px solid rgb(var(--rgb-white) / 0.12);
+		border: 1px solid var(--line-soft);
 		border-radius: 0.8rem;
 		background: rgb(var(--rgb-white) / 0.06);
+		transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+	}
+
+	.episode-card:hover {
+		transform: translateY(-4px);
+		border-color: rgb(var(--rgb-brand-blue) / 0.45);
+		box-shadow: 0 16px 24px rgb(var(--rgb-black) / 0.22);
 	}
 
 	.episode-card img {
@@ -591,8 +608,9 @@
 	:global(html:not(.dark)) .newsletter-panel,
 	:global(html:not(.dark)) .status-panel {
 		border-color: rgb(176 112 24 / 0.18);
-		background: linear-gradient(150deg, rgb(var(--rgb-white) / 0.97), rgb(238 246 255 / 0.5));
-		box-shadow: 0 18px 28px rgb(var(--rgb-slate-900) / 0.08);
+		background:
+			linear-gradient(150deg, rgb(var(--rgb-white) / 0.97), rgb(238 246 255 / 0.5)),
+			rgb(var(--rgb-white));
 	}
 
 	:global(html:not(.dark)) h1,

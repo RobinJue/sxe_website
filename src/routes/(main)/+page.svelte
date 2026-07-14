@@ -86,6 +86,31 @@
 	</section>
 {/if}
 
+<!-- Newsletter Section -->
+<section class="panel newsletter-panel reveal" aria-labelledby="newsletter-title">
+	<form class="newsletter-form" onsubmit={handleNewsletterSubmit}>
+		<h3 id="newsletter-title">{lang.t(landing.contact.newsletterTitle)}</h3>
+		<p>{lang.t(landing.contact.newsletterLead)}</p>
+		<label for="home-newsletter-email">{lang.t(landing.contact.newsletterEmailLabel)}</label>
+		<div class="newsletter-row">
+			<input
+				id="home-newsletter-email"
+				name="newsletter-email"
+				type="email"
+				autocomplete="email"
+				placeholder={lang.t(landing.contact.newsletterEmailPlaceholder)}
+				required
+			/>
+			<button type="submit">{lang.t(landing.contact.newsletterSubmitLabel)}</button>
+		</div>
+		{#if newsletterSubmitted}
+			<p class="form-note" role="status">
+				{lang.current === "de" ? "Danke, wir haben deine Eintragung vorgemerkt." : "Thanks, we noted your subscription."}
+			</p>
+		{/if}
+	</form>
+</section>
+
 <!-- What We Offer Section -->
 <section
 	class="panel section-panel reveal"
@@ -166,31 +191,6 @@
 	</section>
 {/if}
 
-<!-- Newsletter Section -->
-<section class="panel newsletter-panel reveal" aria-labelledby="newsletter-title">
-	<form class="newsletter-form" onsubmit={handleNewsletterSubmit}>
-		<h3 id="newsletter-title">{lang.t(landing.contact.newsletterTitle)}</h3>
-		<p>{lang.t(landing.contact.newsletterLead)}</p>
-		<label for="home-newsletter-email">{lang.t(landing.contact.newsletterEmailLabel)}</label>
-		<div class="newsletter-row">
-			<input
-				id="home-newsletter-email"
-				name="newsletter-email"
-				type="email"
-				autocomplete="email"
-				placeholder={lang.t(landing.contact.newsletterEmailPlaceholder)}
-				required
-			/>
-			<button type="submit">{lang.t(landing.contact.newsletterSubmitLabel)}</button>
-		</div>
-		{#if newsletterSubmitted}
-			<p class="form-note" role="status">
-				{lang.current === "de" ? "Danke, wir haben deine Eintragung vorgemerkt." : "Thanks, we noted your subscription."}
-			</p>
-		{/if}
-	</form>
-</section>
-
 <style>
 	.panel {
 		width: 100%;
@@ -199,9 +199,13 @@
 		background:
 			linear-gradient(150deg, rgb(var(--rgb-white) / 0.09), rgb(var(--rgb-white) / 0.035)),
 			var(--shell-1);
-		box-shadow:
-			0 24px 50px rgb(var(--rgb-black) / 0.24),
-			inset 0 1px 0 rgb(var(--rgb-white) / 0.1);
+		transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+	}
+
+	.panel:hover {
+		transform: translateY(-4px);
+		border-color: rgb(var(--rgb-brand-blue) / 0.45);
+		box-shadow: 0 16px 24px rgb(var(--rgb-black) / 0.22);
 	}
 
 	.hero-panel,
@@ -239,12 +243,6 @@
 		text-decoration: none;
 		cursor: pointer;
 		transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
-	}
-
-	.faq-teaser:hover {
-		transform: translateY(-3px);
-		border-color: rgb(var(--rgb-brand-blue) / 0.45);
-		box-shadow: 0 16px 24px rgb(var(--rgb-black) / 0.22);
 	}
 
 	:global(.faq-teaser-icon) {
@@ -377,10 +375,6 @@
 		max-width: 34rem;
 		margin: 0 auto;
 		width: 100%;
-		padding: 1.1rem;
-		border: 1px solid rgb(var(--rgb-white) / 0.12);
-		border-radius: 0.85rem;
-		background: var(--shell-2);
 	}
 
 	.newsletter-form h3 {
@@ -628,21 +622,14 @@
 		background:
 			linear-gradient(150deg, rgb(var(--rgb-white) / 0.97), rgb(238 246 255 / 0.5)),
 			rgb(var(--rgb-white));
-		box-shadow:
-			0 20px 32px rgb(var(--rgb-slate-900) / 0.08),
-			inset 0 1px 0 rgb(var(--rgb-white) / 0.8);
 	}
 
 	:global(html:not(.dark)) h1,
 	:global(html:not(.dark)) h2,
 	:global(html:not(.dark)) h3,
-	:global(html:not(.dark)) .faq-teaser-text {
+	:global(html:not(.dark)) .faq-teaser-text,
+	:global(html:not(.dark)) .newsletter-form label {
 		color: rgb(18 37 63);
-	}
-
-	:global(html:not(.dark)) .newsletter-form {
-		border-color: rgb(176 112 24 / 0.18);
-		background: linear-gradient(150deg, rgb(var(--rgb-white) / 0.97), rgb(238 246 255 / 0.5));
 	}
 
 	:global(html:not(.dark)) .newsletter-form input {
