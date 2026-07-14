@@ -1086,6 +1086,16 @@
         },
         "linkedinUrl": "https://www.linkedin.com/in/simon-tautz-137501248",
         "photo": "/assets/team/Simon_Tautz.png"
+      },
+      {
+        "id": "member-27",
+        "name": "Florentine Adam",
+        "role": {
+          "de": "Ehrenamtlich",
+          "en": "Volunteer"
+        },
+        "linkedinUrl": "https://www.linkedin.com/in/florentine-adam",
+        "photo": "/assets/team/Florentine_Adam.png"
       }
     ]
   },
