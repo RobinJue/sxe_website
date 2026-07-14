@@ -102,9 +102,12 @@
 
 <!-- Newsletter Section -->
 <section class="panel newsletter-panel reveal" aria-labelledby="newsletter-title">
-	<form class="newsletter-form" onsubmit={handleNewsletterSubmit}>
-		<h3 id="newsletter-title">{lang.t(landing.contact.newsletterTitle)}</h3>
+	<div>
+		<p class="kicker">Newsletter</p>
+		<h2 id="newsletter-title">{lang.t(landing.contact.newsletterTitle)}</h2>
 		<p>{lang.t(landing.contact.newsletterLead)}</p>
+	</div>
+	<form onsubmit={handleNewsletterSubmit}>
 		<label for="home-newsletter-email">{lang.t(landing.contact.newsletterEmailLabel)}</label>
 		<div class="newsletter-row">
 			<input
@@ -395,28 +398,27 @@
 
 	/* Newsletter Section */
 	.newsletter-panel {
-		display: flex;
-		justify-content: center;
-		padding: clamp(2rem, 4vw, 3rem);
-	}
-
-	.newsletter-form {
 		display: grid;
-		gap: 0.6rem;
-		max-width: 34rem;
-		margin: 0 auto;
-		width: 100%;
+		grid-template-columns: minmax(0, 1.25fr) minmax(15rem, 0.75fr);
+		gap: 1.5rem;
+		align-items: center;
+		padding: clamp(1.5rem, 3vw, 2.25rem);
 	}
 
-	.newsletter-form h3 {
-		font-size: var(--font-size-body);
+	.newsletter-panel h2 {
+		font-size: clamp(1.45rem, 4vw, 2.1rem);
 	}
 
-	.newsletter-form p {
+	.newsletter-panel > div > p:last-child {
 		color: var(--copy-muted);
 	}
 
-	.newsletter-form label {
+	.newsletter-panel form {
+		display: grid;
+		gap: 0.6rem;
+	}
+
+	.newsletter-panel label {
 		color: rgb(var(--rgb-text-bright-dark));
 		font-size: var(--font-size-caption);
 		font-weight: 800;
@@ -428,7 +430,7 @@
 		gap: 0.5rem;
 	}
 
-	.newsletter-form input {
+	.newsletter-panel input {
 		width: 100%;
 		border: 1px solid var(--line-soft);
 		border-radius: 0.65rem;
@@ -438,7 +440,7 @@
 		padding: 0.72rem 0.8rem;
 	}
 
-	.newsletter-form button {
+	.newsletter-panel form button {
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
@@ -454,7 +456,7 @@
 		transition: transform 0.2s ease;
 	}
 
-	.newsletter-form button:hover {
+	.newsletter-panel form button:hover {
 		transform: translateY(-1px);
 	}
 
@@ -472,7 +474,7 @@
 		font-size: var(--font-size-tiny);
 	}
 
-	.newsletter-form button:disabled {
+	.newsletter-panel form button:disabled {
 		opacity: 0.6;
 		cursor: default;
 	}
@@ -682,11 +684,11 @@
 	:global(html:not(.dark)) h2,
 	:global(html:not(.dark)) h3,
 	:global(html:not(.dark)) .faq-teaser-text,
-	:global(html:not(.dark)) .newsletter-form label {
+	:global(html:not(.dark)) .newsletter-panel label {
 		color: rgb(18 37 63);
 	}
 
-	:global(html:not(.dark)) .newsletter-form input {
+	:global(html:not(.dark)) .newsletter-panel input {
 		border-color: rgb(var(--rgb-slate-900) / 0.18);
 		background: rgb(var(--rgb-white) / 0.88);
 		color: rgb(18 37 63);
@@ -715,7 +717,8 @@
 	@media (max-width: 900px) {
 		.hero-panel,
 		.section-panel,
-		.testimonial-panel {
+		.testimonial-panel,
+		.newsletter-panel {
 			grid-template-columns: 1fr;
 		}
 
