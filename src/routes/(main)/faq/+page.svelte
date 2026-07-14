@@ -225,7 +225,7 @@
 	}
 
 	:global(html:not(.dark)) .faq-item {
-		border-color: rgb(176 112 24 / 0.18);
+		border-color: rgb(var(--rgb-slate-900) / 0.18);
 		background: linear-gradient(150deg, rgb(var(--rgb-white) / 0.97), rgb(238 246 255 / 0.5));
 	}
 

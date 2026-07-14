@@ -405,7 +405,7 @@
 
 	:global(html:not(.dark)) .logo-item {
 		background: rgb(var(--rgb-white) / 0.8);
-		border-color: rgb(176 112 24 / 0.18);
+		border-color: rgb(var(--rgb-slate-900) / 0.18);
 	}
 
 	:global(html:not(.dark)) .logo-item:hover {
@@ -414,7 +414,7 @@
 	}
 
 	:global(html:not(.dark)) .partners-cta {
-		border-color: rgb(176 112 24 / 0.18);
+		border-color: rgb(var(--rgb-slate-900) / 0.18);
 		background: linear-gradient(150deg, rgb(var(--rgb-white) / 0.97), rgb(238 246 255 / 0.5));
 	}
 

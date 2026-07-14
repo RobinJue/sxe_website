@@ -223,7 +223,7 @@
 	}
 
 	:global(html:not(.dark)) .resource-card {
-		border-color: rgb(176 112 24 / 0.18);
+		border-color: rgb(var(--rgb-slate-900) / 0.18);
 		background: linear-gradient(150deg, rgb(var(--rgb-white) / 0.97), rgb(238 246 255 / 0.5));
 		color: rgb(64 84 114);
 	}
@@ -233,7 +233,7 @@
 	}
 
 	:global(html:not(.dark)) .resource-logo {
-		border-color: rgb(176 112 24 / 0.2);
+		border-color: rgb(var(--rgb-slate-900) / 0.2);
 		background: rgb(var(--rgb-white) / 0.96);
 	}
 

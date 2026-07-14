@@ -535,13 +535,13 @@
 	:global(html:not(.dark)) .footer-links a:hover {
 		color: rgb(111 70 17);
 		background: rgb(255 238 214 / 0.74);
-		border-color: rgb(176 112 24 / 0.22);
+		border-color: rgb(var(--rgb-slate-900) / 0.22);
 	}
 
 	:global(html:not(.dark)) .language-toggle,
 	:global(html:not(.dark)) .theme-toggle,
 	:global(html:not(.dark)) .menu-toggle {
-		border-color: rgb(176 112 24 / 0.24);
+		border-color: rgb(var(--rgb-slate-900) / 0.24);
 		background: rgb(255 238 214 / 0.72);
 		color: rgb(111 70 17);
 	}

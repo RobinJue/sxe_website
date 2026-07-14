@@ -607,7 +607,7 @@
 	:global(html:not(.dark)) .episodes-panel,
 	:global(html:not(.dark)) .newsletter-panel,
 	:global(html:not(.dark)) .status-panel {
-		border-color: rgb(176 112 24 / 0.18);
+		border-color: rgb(var(--rgb-slate-900) / 0.18);
 		background:
 			linear-gradient(150deg, rgb(var(--rgb-white) / 0.97), rgb(238 246 255 / 0.5)),
 			rgb(var(--rgb-white));
@@ -632,13 +632,13 @@
 	:global(html:not(.dark)) .episode-card a,
 	:global(html:not(.dark)) .search-box div,
 	:global(html:not(.dark)) .newsletter-row input {
-		border-color: rgb(176 112 24 / 0.22);
+		border-color: rgb(var(--rgb-slate-900) / 0.22);
 		background: rgb(var(--rgb-white) / 0.7);
 		color: rgb(111 70 17);
 	}
 
 	:global(html:not(.dark)) .episode-card {
-		border-color: rgb(176 112 24 / 0.18);
+		border-color: rgb(var(--rgb-slate-900) / 0.18);
 		background: linear-gradient(150deg, rgb(var(--rgb-white) / 0.97), rgb(238 246 255 / 0.5));
 	}
 

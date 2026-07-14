@@ -473,7 +473,7 @@
 
 	:global(html:not(.dark)) .card-back {
 		background: linear-gradient(135deg, rgb(var(--rgb-white) / 0.97), rgb(238 246 255 / 0.5));
-		border-color: rgb(176 112 24 / 0.18);
+		border-color: rgb(var(--rgb-slate-900) / 0.18);
 	}
 
 	/* Responsive */
