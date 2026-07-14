@@ -241,8 +241,6 @@ export type LandingContent = {
 		messageLabel: LocalizedString;
 		submitLabel: LocalizedString;
 		successMessage: LocalizedString;
-		emailHref: string;
-		emailLabelText: string;
 		socialLinks: SocialLink[];
 	};
 	team: {

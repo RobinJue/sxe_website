@@ -17,6 +17,15 @@
 
 	const content = $derived(data.content);
 	const landing = $derived(content.landing);
+
+	// Build the mailto link only when clicked, so the raw address never sits
+	// in the server-rendered HTML for bots to scrape.
+	function openJoinMail(e: MouseEvent) {
+		e.preventDefault();
+		const user = "sxe.science";
+		const domain = "gmail.com";
+		window.location.href = `mailto:${user}@${domain}?subject=Bei%20SxE%20einbringen`;
+	}
 </script>
 
 <svelte:head>
@@ -33,14 +42,14 @@
 </section>
 
 <!-- Join CTA -->
-{#if landing.about.primaryLabel && landing.about.primaryHref}
+{#if landing.about.primaryLabel}
 	<section class="panel join-cta reveal" aria-labelledby="join-cta-title">
 		<p id="join-cta-title" class="join-cta-text">
 			{lang.current === "de"
 				? "Bist du Stipendiat der Studienstiftung? Werde Teil von SxE!"
 				: "Are you a Studienstiftung scholar? Join SxE!"}
 		</p>
-		<a href={landing.about.primaryHref} class="button button-primary"
+		<a href="#" class="button button-primary" onclick={openJoinMail}
 			>{lang.t(landing.about.primaryLabel)} <ArrowRight size={16} /></a
 		>
 	</section>

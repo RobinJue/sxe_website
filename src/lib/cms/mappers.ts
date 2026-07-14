@@ -531,8 +531,6 @@ function mapContact(value: unknown): LandingContent["contact"] {
 		messageLabel: localizedString(row.messageLabel, "landing_content.contact.messageLabel"),
 		submitLabel: localizedString(row.submitLabel, "landing_content.contact.submitLabel"),
 		successMessage: localizedString(row.successMessage, "landing_content.contact.successMessage"),
-		emailHref: requiredString(row.emailHref, "landing_content.contact.emailHref"),
-		emailLabelText: requiredString(row.emailLabelText, "landing_content.contact.emailLabelText"),
 		socialLinks: optionalList(row.socialLinks, "landing_content.contact.socialLinks").map(
 			mapSocialLink
 		)

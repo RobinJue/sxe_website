@@ -1,9 +1,26 @@
 <script lang="ts">
+	import { onMount } from "svelte";
 	import { ShieldCheck, Linkedin } from "lucide-svelte";
 	import type { PageData } from "./$types";
 
 	let { data } = $props<{ data: PageData }>();
 	const content = $derived(data.content);
+
+	// Upgrade the obfuscated "user [at] domain" placeholders (see legal-content.json)
+	// into real mailto links client-side only, so the raw address never appears
+	// in the server-rendered HTML for bots to scrape.
+	onMount(() => {
+		document.querySelectorAll(".email-obf").forEach((el) => {
+			const user = el.getAttribute("data-u");
+			const domain = el.getAttribute("data-d");
+			if (!user || !domain) return;
+			const address = `${user}@${domain}`;
+			const link = document.createElement("a");
+			link.href = `mailto:${address}`;
+			link.textContent = address;
+			el.replaceWith(link);
+		});
+	});
 </script>
 
 <svelte:head>
