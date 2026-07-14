@@ -1047,6 +1047,16 @@
           "de": "Wachstum ist nur sinnvoll, wenn es unserem Mission dient. Ich konzentriere mich auf Wachstum, der Wissenschaftler nachhaltig befähigt.",
           "en": "Growth only matters if it serves our mission. I focus on growth that sustainably empowers scientists."
         }
+      },
+      {
+        "id": "member-23",
+        "name": "Richard Oehmichen",
+        "role": {
+          "de": "Ehrenamtlich",
+          "en": "Volunteer"
+        },
+        "linkedinUrl": "https://www.linkedin.com/in/richard-georg-oehmichen/",
+        "photo": "/assets/team/Richard_Oehmichen.png"
       }
     ]
   },
