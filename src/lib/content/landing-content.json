@@ -1057,6 +1057,16 @@
         },
         "linkedinUrl": "https://www.linkedin.com/in/richard-georg-oehmichen/",
         "photo": "/assets/team/Richard_Oehmichen.png"
+      },
+      {
+        "id": "member-24",
+        "name": "Ilija Funk",
+        "role": {
+          "de": "Ehrenamtlich",
+          "en": "Volunteer"
+        },
+        "linkedinUrl": "https://www.linkedin.com/in/ilija-funk/",
+        "photo": "/assets/team/Ilija_Funk.png"
       }
     ]
   },
