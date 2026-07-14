@@ -134,6 +134,49 @@
 			</div>
 		</section>
 
+		<section class="newsletter-panel">
+			<div>
+				<p class="kicker">Newsletter</p>
+				<h2>{lang.t(podcast.newsletterTitle)}</h2>
+				<p>{lang.t(podcast.newsletterLead)}</p>
+			</div>
+			<form onsubmit={handleNewsletterSubmit}>
+				<label for="podcast-newsletter-email">{lang.t(podcast.newsletterEmailLabel)}</label>
+				<div class="newsletter-row">
+					<input
+						id="podcast-newsletter-email"
+						name="email"
+						type="email"
+						required
+						placeholder={lang.t(podcast.newsletterEmailPlaceholder)}
+					/>
+					<button type="submit" disabled={newsletterStatus === "sending"}>
+						{lang.t(podcast.newsletterSubmitLabel)}
+					</button>
+				</div>
+				<input type="hidden" name="source" value="podcast" />
+				<input class="hp-field" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" />
+				<p class="form-hint">
+					{lang.current === "de"
+						? "Wir schicken dir eine Bestätigungs-E-Mail. Du kannst dich jederzeit mit einem Klick abmelden und deine Daten löschen lassen."
+						: "We'll send you a confirmation email. You can unsubscribe and delete your data with one click at any time."}
+				</p>
+				{#if newsletterStatus === "sent"}
+					<p class="form-note" role="status">
+						{lang.current === "de"
+							? "Fast geschafft — bitte bestätige deine Anmeldung über den Link in der E-Mail, die wir dir geschickt haben."
+							: "Almost there — please confirm your subscription via the link we just emailed you."}
+					</p>
+				{:else if newsletterStatus === "error"}
+					<p class="form-note error" role="status">
+						{lang.current === "de"
+							? "Etwas ist schiefgelaufen. Bitte versuche es erneut."
+							: "Something went wrong. Please try again."}
+					</p>
+				{/if}
+			</form>
+		</section>
+
 		{#if feed.status !== "ok"}
 			<section class="status-panel" role="status">
 				<h2>{lang.current === "de" ? "RSS-Status" : "RSS status"}</h2>
@@ -202,49 +245,6 @@
 			{:else}
 				<p class="empty-state">{searchQuery ? lang.t(podcast.noResultsMessage) : feedStatusMessage()}</p>
 			{/if}
-		</section>
-
-		<section class="newsletter-panel">
-			<div>
-				<p class="kicker">Newsletter</p>
-				<h2>{lang.t(podcast.newsletterTitle)}</h2>
-				<p>{lang.t(podcast.newsletterLead)}</p>
-			</div>
-			<form onsubmit={handleNewsletterSubmit}>
-				<label for="podcast-newsletter-email">{lang.t(podcast.newsletterEmailLabel)}</label>
-				<div class="newsletter-row">
-					<input
-						id="podcast-newsletter-email"
-						name="email"
-						type="email"
-						required
-						placeholder={lang.t(podcast.newsletterEmailPlaceholder)}
-					/>
-					<button type="submit" disabled={newsletterStatus === "sending"}>
-						{lang.t(podcast.newsletterSubmitLabel)}
-					</button>
-				</div>
-				<input type="hidden" name="source" value="podcast" />
-				<input class="hp-field" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" />
-				<p class="form-hint">
-					{lang.current === "de"
-						? "Wir schicken dir eine Bestätigungs-E-Mail. Du kannst dich jederzeit mit einem Klick abmelden und deine Daten löschen lassen."
-						: "We'll send you a confirmation email. You can unsubscribe and delete your data with one click at any time."}
-				</p>
-				{#if newsletterStatus === "sent"}
-					<p class="form-note" role="status">
-						{lang.current === "de"
-							? "Fast geschafft — bitte bestätige deine Anmeldung über den Link in der E-Mail, die wir dir geschickt haben."
-							: "Almost there — please confirm your subscription via the link we just emailed you."}
-					</p>
-				{:else if newsletterStatus === "error"}
-					<p class="form-note error" role="status">
-						{lang.current === "de"
-							? "Etwas ist schiefgelaufen. Bitte versuche es erneut."
-							: "Something went wrong. Please try again."}
-					</p>
-				{/if}
-			</form>
 		</section>
 	</main>
 
