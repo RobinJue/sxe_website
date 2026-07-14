@@ -1096,6 +1096,20 @@
         },
         "linkedinUrl": "https://www.linkedin.com/in/florentine-adam",
         "photo": "/assets/team/Florentine_Adam.png"
+      },
+      {
+        "id": "member-28",
+        "name": "Kai Kronewitter",
+        "role": {
+          "de": "Resources & Network",
+          "en": "Resources & Network"
+        },
+        "linkedinUrl": "https://www.linkedin.com/in/kaikronewiter/",
+        "photo": "/assets/team/Kai_Kronewitter.png",
+        "motivation": {
+          "de": "Ein umfassendes Netzwerk ist Gold für Gründer. Ich baue die Infrastruktur auf, die Wissenschaftler mit Ressourcen und Experten verbindet.",
+          "en": "A comprehensive network is gold for founders. I build the infrastructure connecting scientists with resources and expertise."
+        }
       }
     ]
   },
