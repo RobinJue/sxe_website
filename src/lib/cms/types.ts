@@ -271,6 +271,11 @@ export type PodcastPageContent = {
 	podcastFeed: PodcastFeedResult;
 };
 
+export type WebsiteCredit = {
+	name: string;
+	linkedinUrl: string;
+};
+
 export type LegalContent = {
 	brandName: string;
 	pageKicker: string;
@@ -280,7 +285,7 @@ export type LegalContent = {
 	impressumTitle: string;
 	impressumHtml: string;
 	websiteCreditLabel: string;
-	websiteLinkedInUrl: string;
+	websiteCredits: WebsiteCredit[];
 	datenschutzTitle: string;
 	datenschutzHtml: string;
 	noticeText: string;

@@ -35,14 +35,18 @@
 				<div class="legal-html">{@html content.impressumHtml}</div>
 				<p class="website-credit">
 					{content.websiteCreditLabel}
-					<a
-						href={content.websiteLinkedInUrl}
-						target="_blank"
-						rel="noopener noreferrer"
-						aria-label="LinkedIn Profil"
-					>
-						<Linkedin size={16} />
-					</a>
+					{#each content.websiteCredits as credit, index (credit.name)}
+						{#if index > 0},{/if}
+						{credit.name}
+						<a
+							href={credit.linkedinUrl}
+							target="_blank"
+							rel="noopener noreferrer"
+							aria-label={`${credit.name} auf LinkedIn`}
+						>
+							<Linkedin size={16} />
+						</a>
+					{/each}
 				</p>
 			</article>
 

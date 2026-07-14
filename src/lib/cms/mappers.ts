@@ -29,7 +29,8 @@ import type {
 	SocialLink,
 	SocialProof,
 	TeamMember,
-	Testimonial
+	Testimonial,
+	WebsiteCredit
 } from "./types";
 
 const MIN_FAQ_GROUP_SIZE = 4;
@@ -142,10 +143,19 @@ export function mapLegalContent(source: unknown): LegalContent {
 		impressumTitle: requiredString(row.impressumTitle, "legal_content.impressumTitle"),
 		impressumHtml: requiredString(row.impressumHtml, "legal_content.impressumHtml"),
 		websiteCreditLabel: requiredString(row.websiteCreditLabel, "legal_content.websiteCreditLabel"),
-		websiteLinkedInUrl: requiredString(row.websiteLinkedInUrl, "legal_content.websiteLinkedInUrl"),
+		websiteCredits: list(row.websiteCredits, "legal_content.websiteCredits").map((credit, index) =>
+			mapWebsiteCredit(credit, `legal_content.websiteCredits[${index}]`)
+		),
 		datenschutzTitle: requiredString(row.datenschutzTitle, "legal_content.datenschutzTitle"),
 		datenschutzHtml: requiredString(row.datenschutzHtml, "legal_content.datenschutzHtml"),
 		noticeText: requiredString(row.noticeText, "legal_content.noticeText")
+	};
+}
+
+function mapWebsiteCredit(row: UnknownRecord, context: string): WebsiteCredit {
+	return {
+		name: requiredString(row.name, `${context}.name`),
+		linkedinUrl: requiredString(row.linkedinUrl, `${context}.linkedinUrl`)
 	};
 }
 
