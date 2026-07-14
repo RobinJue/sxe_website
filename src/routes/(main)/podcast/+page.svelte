@@ -19,8 +19,14 @@
 	const landing = $derived(content.landing);
 	const podcast = $derived(content.podcastSettings);
 	const feed = $derived(content.podcastFeed);
-	const latestEpisode = $derived(feed.episodes[0]);
-	const recentEpisodes = $derived(feed.episodes.slice(1));
+	// Nick Turley stays the featured/highlight episode even though he isn't
+	// numerically the latest; the full list below still shows every real
+	// episode in order (including him), just not unfinished placeholders.
+	const HIGHLIGHT_EPISODE_ID = "ep-02-nick-turley";
+	const latestEpisode = $derived(
+		feed.episodes.find(episode => episode.id === HIGHLIGHT_EPISODE_ID) ?? feed.episodes[0]
+	);
+	const recentEpisodes = $derived(feed.episodes.filter(episode => !episode.id.includes("coming-soon")));
 	const filteredEpisodes = $derived.by(() => {
 		const query = searchQuery.trim().toLowerCase();
 		const episodes = recentEpisodes;

@@ -102,16 +102,6 @@
   "useDummyEpisodes": true,
   "dummyEpisodes": [
     {
-      "id": "ep-02-nick-turley",
-      "title": "Forschung mit Folgen – Folge 2: Nick Turley",
-      "description": "Nick Turley ist Head of ChatGPT bei OpenAI und ehemaliger Studienstiftler. Im Gespräch erzählt er, wie er von der Wissenschaft in die Gründung fand und warum mehr Forscher diesen Schritt wagen sollten.",
-      "date": "2026-05-15T09:00:00.000Z",
-      "url": "",
-      "audioUrl": "",
-      "image": "/assets/nicholas-turley-ep02.png",
-      "duration": ""
-    },
-    {
       "id": "ep-01-philip-haeusser",
       "title": "Forschung mit Folgen – Folge 1: Dr. Philip Häusser",
       "description": "Dr. Philip Häusser ist Co-Founder von Ablacon und ehemaliger Wissenschaftler. Im Gespräch erzählt er, wie aus seiner Forschung ein eigenes Unternehmen wurde.",
@@ -119,6 +109,16 @@
       "url": "",
       "audioUrl": "",
       "image": "/assets/philip-haeusser-ep01.png",
+      "duration": ""
+    },
+    {
+      "id": "ep-02-nick-turley",
+      "title": "Forschung mit Folgen – Folge 2: Nick Turley",
+      "description": "Nick Turley ist Head of ChatGPT bei OpenAI und ehemaliger Studienstiftler. Im Gespräch erzählt er, wie er von der Wissenschaft in die Gründung fand und warum mehr Forscher diesen Schritt wagen sollten.",
+      "date": "2026-05-15T09:00:00.000Z",
+      "url": "",
+      "audioUrl": "",
+      "image": "/assets/nicholas-turley-ep02.png",
       "duration": ""
     },
     {
