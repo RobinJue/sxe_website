@@ -8,10 +8,28 @@
 	const content = $derived(data.content);
 	const landing = $derived(content.landing);
 
-	// Get all partners flattened for carousel (event/VC partners are Partners-page only)
-	const allPartners = $derived(
-		landing.partners.tiers.filter(tier => tier.id !== "event").flatMap(tier => tier.items)
-	);
+	// Get all partners flattened for carousel, in a fixed display order
+	const PARTNER_ORDER = [
+		"OpenAI",
+		"TUM Venture Labs",
+		"Cherry Ventures",
+		"YES",
+		"Atlantic Labs",
+		"Juni",
+		"UVC Partner",
+		"Deep Pioneers",
+		"Impossible Founders"
+	];
+	const allPartners = $derived.by(() => {
+		const items = landing.partners.tiers.flatMap(tier => tier.items);
+		return [...items].sort((a, b) => {
+			const rank = (name) => {
+				const index = PARTNER_ORDER.indexOf(name);
+				return index === -1 ? PARTNER_ORDER.length : index;
+			};
+			return rank(a.name) - rank(b.name);
+		});
+	});
 
 	const featureIcons = { Compass, Users, BookOpen };
 
