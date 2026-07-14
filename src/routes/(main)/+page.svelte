@@ -33,12 +33,26 @@
 
 	const featureIcons = { Compass, Users, BookOpen };
 
-	let newsletterSubmitted = $state(false);
+	let newsletterStatus = $state<"idle" | "sending" | "sent" | "error">("idle");
 
-	function handleNewsletterSubmit(e: SubmitEvent) {
+	async function handleNewsletterSubmit(e: SubmitEvent) {
 		e.preventDefault();
-		newsletterSubmitted = true;
-		(e.target as HTMLFormElement).reset();
+		const form = e.target as HTMLFormElement;
+		newsletterStatus = "sending";
+
+		try {
+			const res = await fetch("/api/newsletter/subscribe", {
+				method: "POST",
+				body: new FormData(form)
+			});
+			newsletterStatus = res.ok ? "sent" : "error";
+		} catch {
+			newsletterStatus = "error";
+		}
+
+		if (newsletterStatus === "sent") {
+			form.reset();
+		}
 	}
 </script>
 
@@ -95,17 +109,34 @@
 		<div class="newsletter-row">
 			<input
 				id="home-newsletter-email"
-				name="newsletter-email"
+				name="email"
 				type="email"
 				autocomplete="email"
 				placeholder={lang.t(landing.contact.newsletterEmailPlaceholder)}
 				required
 			/>
-			<button type="submit">{lang.t(landing.contact.newsletterSubmitLabel)}</button>
+			<button type="submit" disabled={newsletterStatus === "sending"}>
+				{lang.t(landing.contact.newsletterSubmitLabel)}
+			</button>
 		</div>
-		{#if newsletterSubmitted}
+		<input type="hidden" name="source" value="homepage" />
+		<input class="hp-field" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" />
+		<p class="form-hint">
+			{lang.current === "de"
+				? "Wir schicken dir eine Bestätigungs-E-Mail. Du kannst dich jederzeit mit einem Klick abmelden und deine Daten löschen lassen."
+				: "We'll send you a confirmation email. You can unsubscribe and delete your data with one click at any time."}
+		</p>
+		{#if newsletterStatus === "sent"}
 			<p class="form-note" role="status">
-				{lang.current === "de" ? "Danke, wir haben deine Eintragung vorgemerkt." : "Thanks, we noted your subscription."}
+				{lang.current === "de"
+					? "Fast geschafft — bitte bestätige deine Anmeldung über den Link in der E-Mail, die wir dir geschickt haben."
+					: "Almost there — please confirm your subscription via the link we just emailed you."}
+			</p>
+		{:else if newsletterStatus === "error"}
+			<p class="form-note error" role="status">
+				{lang.current === "de"
+					? "Etwas ist schiefgelaufen. Bitte versuche es erneut."
+					: "Something went wrong. Please try again."}
 			</p>
 		{/if}
 	</form>
@@ -430,6 +461,29 @@
 	.form-note {
 		color: rgb(255 205 130);
 		font-size: var(--font-size-small);
+	}
+
+	.form-note.error {
+		color: rgb(240 130 120);
+	}
+
+	.form-hint {
+		color: var(--copy-muted);
+		font-size: var(--font-size-tiny);
+	}
+
+	.newsletter-form button:disabled {
+		opacity: 0.6;
+		cursor: default;
+	}
+
+	.hp-field {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		overflow: hidden;
+		clip: rect(0 0 0 0);
+		white-space: nowrap;
 	}
 
 	/* Carousel Section */
