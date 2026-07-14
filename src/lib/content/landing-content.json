@@ -1076,6 +1076,16 @@
         },
         "linkedinUrl": "https://www.linkedin.com/in/janik-sauerbier/",
         "photo": "/assets/team/Janik_Sauerbier.png"
+      },
+      {
+        "id": "member-26",
+        "name": "Simon Tautz",
+        "role": {
+          "de": "Ehrenamtlich",
+          "en": "Volunteer"
+        },
+        "linkedinUrl": "https://www.linkedin.com/in/simon-tautz-137501248",
+        "photo": "/assets/team/Simon_Tautz.png"
       }
     ]
   },
