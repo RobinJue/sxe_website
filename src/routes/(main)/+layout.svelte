@@ -197,6 +197,11 @@
 					decoding="async"
 				/>
 			</div>
+			<p class="footer-legal-note">
+				{lang.current === "de"
+					? "SxE ist ein privater Zusammenschluss von Alumni und Geförderten der Studienstiftung. Die Initiative ist rechtlich, organisatorisch und wirtschaftlich unabhängig von der Studienstiftung des deutschen Volkes e.V. Sie wird weder von der Studienstiftung getragen noch handelt sie in ihrem Auftrag."
+					: "SxE is a private association of alumni and scholarship holders of the Studienstiftung. The initiative is legally, organizationally, and financially independent of the Studienstiftung des deutschen Volkes e.V. It is neither supported by nor acts on behalf of the Studienstiftung."}
+			</p>
 			<div class="footer-links">
 				<a
 					href="https://www.linkedin.com/company/sxe-org/"
@@ -461,9 +466,9 @@
 
 	.footer-grid {
 		display: grid;
-		grid-template-columns: minmax(0, 1fr) auto;
-		gap: 1rem;
-		align-items: start;
+		grid-template-columns: auto minmax(0, 1fr) auto;
+		gap: 1.5rem;
+		align-items: center;
 	}
 
 	.footer-brand {
@@ -475,6 +480,14 @@
 		display: block;
 		width: min(12rem, 56vw);
 		height: auto;
+	}
+
+	.footer-legal-note {
+		margin: 0;
+		max-width: 52ch;
+		color: rgb(145 158 183);
+		font-size: var(--font-size-caption);
+		line-height: 1.5;
 	}
 
 	.footer-links {
@@ -591,6 +604,15 @@
 		:global(html:not(.dark)) nav {
 			background: rgb(var(--rgb-white) / 0.97);
 			box-shadow: 0 16px 24px rgb(30 46 71 / 0.14);
+		}
+
+		.footer-grid {
+			grid-template-columns: 1fr;
+			align-items: start;
+		}
+
+		.footer-legal-note {
+			max-width: none;
 		}
 
 		.footer-links {
