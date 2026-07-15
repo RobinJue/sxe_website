@@ -210,9 +210,6 @@
 						{#if formatEpisodeDate(latestEpisode.date)}
 							<span>{formatEpisodeDate(latestEpisode.date)}</span>
 						{/if}
-						{#if latestEpisode.duration}
-							<span>{latestEpisode.duration}</span>
-						{/if}
 					</div>
 					<a class="button-primary" href={episodeUrl(latestEpisode)} target="_blank" rel="noopener noreferrer">
 						{lang.t(podcast.episodeCtaLabel)}
