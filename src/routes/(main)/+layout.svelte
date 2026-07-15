@@ -177,6 +177,13 @@
 					loading="lazy"
 					decoding="async"
 				/>
+			</div>
+			<div class="footer-note-col">
+				<p class="footer-legal-note">
+					{lang.current === "de"
+						? "SxE ist ein privater Zusammenschluss von Alumni und Geförderten der Studienstiftung. Die Initiative ist rechtlich, organisatorisch und wirtschaftlich unabhängig von der Studienstiftung des deutschen Volkes e.V. Sie wird weder von der Studienstiftung getragen noch handelt sie in ihrem Auftrag."
+						: "SxE is a private association of alumni and scholarship holders of the Studienstiftung. The initiative is legally, organizationally, and financially independent of the Studienstiftung des deutschen Volkes e.V. It is neither supported by nor acts on behalf of the Studienstiftung."}
+				</p>
 				<a
 					class="footer-supported-by"
 					href="https://www.wa-recht.de"
@@ -185,18 +192,13 @@
 				>
 					<span>Supported by</span>
 					<img
-						src="/assets/partners/wa-recht.jpg"
+						src="/assets/partners/wa-recht.png"
 						alt="Wegener & Adamaszek Rechtsanwälte"
 						loading="lazy"
 						decoding="async"
 					/>
 				</a>
 			</div>
-			<p class="footer-legal-note">
-				{lang.current === "de"
-					? "SxE ist ein privater Zusammenschluss von Alumni und Geförderten der Studienstiftung. Die Initiative ist rechtlich, organisatorisch und wirtschaftlich unabhängig von der Studienstiftung des deutschen Volkes e.V. Sie wird weder von der Studienstiftung getragen noch handelt sie in ihrem Auftrag."
-					: "SxE is a private association of alumni and scholarship holders of the Studienstiftung. The initiative is legally, organizationally, and financially independent of the Studienstiftung des deutschen Volkes e.V. It is neither supported by nor acts on behalf of the Studienstiftung."}
-			</p>
 			<div class="footer-links">
 				<a
 					href="https://www.linkedin.com/company/sxe-org/"
@@ -498,7 +500,19 @@
 		display: block;
 		height: 0.9rem;
 		width: auto;
-		border-radius: 2px;
+		/* dark wordmark -> white in dark mode */
+		filter: brightness(0) invert(1);
+		opacity: 0.75;
+	}
+
+	:global(html:not(.dark)) .footer-supported-by img {
+		filter: none;
+		opacity: 0.85;
+	}
+
+	.footer-note-col {
+		display: grid;
+		gap: 0.5rem;
 	}
 
 	.footer-legal-note {
