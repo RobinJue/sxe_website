@@ -30,7 +30,13 @@ export const POST: RequestHandler = async ({ request, url }) => {
 	const row = rows[0];
 
 	if (!row.confirmed) {
-		await sendConfirmationEmail(email, row.unsubscribe_token, url.origin);
+		try {
+			await sendConfirmationEmail(email, row.unsubscribe_token, url.origin);
+		} catch (err) {
+			// The subscriber is already stored — don't fail the signup just because
+			// the confirmation mail couldn't go out (e.g. mailer isn't configured yet).
+			console.error("Failed to send newsletter confirmation email:", err);
+		}
 	}
 
 	return json({ ok: true });
