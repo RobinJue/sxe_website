@@ -95,11 +95,6 @@
       "label": "Spotify",
       "url": "https://open.spotify.com/show/033PustXTgikEOe4JJpgxG",
       "available": true
-    },
-    {
-      "label": "YouTube",
-      "url": "https://www.youtube.com/",
-      "available": false
     }
   ],
   "useDummyEpisodes": false,
