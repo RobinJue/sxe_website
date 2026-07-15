@@ -245,5 +245,10 @@
 			animation: none !important;
 			transition: none !important;
 		}
+
+		.reveal {
+			opacity: 1;
+			transform: none;
+		}
 	}
 </style>

@@ -523,5 +523,10 @@
 			transition: none !important;
 			scroll-behavior: auto !important;
 		}
+
+		.reveal {
+			opacity: 1;
+			transform: none;
+		}
 	}
 </style>
