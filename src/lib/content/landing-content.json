@@ -1138,6 +1138,15 @@
           "de": "Outreach bedeutet, Wissenschaftler überall zu erreichen. Meine Mission: Niemand soll von SxE wissen, es sei denn, wir haben sie erreicht.",
           "en": "Outreach means reaching scientists everywhere. My mission: ensure no scientist misses SxE because we failed to reach them."
         }
+      },
+      {
+        "id": "member-31",
+        "name": "Noah Wehn",
+        "role": {
+          "de": "Ehrenamtlich",
+          "en": "Volunteer"
+        },
+        "linkedinUrl": "https://de.linkedin.com/in/noah-wehn"
       }
     ]
   },
