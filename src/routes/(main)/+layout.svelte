@@ -473,8 +473,11 @@
 
 	.footer-logo {
 		display: block;
-		width: min(12rem, 56vw);
-		height: auto;
+		width: auto;
+		height: clamp(3.25rem, 5.4vw, 4.8rem);
+		max-width: min(13.5rem, 42vw);
+		object-fit: contain;
+		object-position: left center;
 	}
 
 	.footer-supported-by {
@@ -643,7 +646,8 @@
 			width: calc(100% - 1.4rem);
 		}
 
-		.brand-logo {
+		.brand-logo,
+		.footer-logo {
 			max-width: 9rem;
 		}
 	}
