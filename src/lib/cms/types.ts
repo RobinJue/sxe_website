@@ -7,6 +7,7 @@ export type LocalizedString = Record<LanguageCode, string>;
 export type PodcastLink = {
 	label: string;
 	url: string;
+	available?: boolean;
 };
 
 export type PodcastEpisode = {

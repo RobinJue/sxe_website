@@ -1,5 +1,5 @@
 {
-  "rssUrl": "/assets/apple-rss-sample.xml",
+  "rssUrl": "https://anchor.fm/s/114ebcd90/podcast/rss",
   "title": {
     "de": "Forschung mit Folgen.",
     "en": "Forschung mit Folgen."
@@ -88,18 +88,21 @@
   "platformLinks": [
     {
       "label": "Apple Podcasts",
-      "url": "https://podcasts.apple.com/"
+      "url": "https://podcasts.apple.com/",
+      "available": false
     },
     {
       "label": "Spotify",
-      "url": "https://open.spotify.com/"
+      "url": "https://open.spotify.com/show/033PustXTgikEOe4JJpgxG",
+      "available": true
     },
     {
       "label": "YouTube",
-      "url": "https://www.youtube.com/"
+      "url": "https://www.youtube.com/",
+      "available": false
     }
   ],
-  "useDummyEpisodes": true,
+  "useDummyEpisodes": false,
   "dummyEpisodes": [
     {
       "id": "ep-01-philip-haeusser",

@@ -581,6 +581,7 @@ function mapFooter(value: unknown): LandingContent["footer"] {
 function mapPodcastLink(row: UnknownRecord, index: number): PodcastLink {
 	return {
 		label: requiredString(row.label, `podcast_settings.platformLinks[${index}].label`),
-		url: requiredString(row.url, `podcast_settings.platformLinks[${index}].url`)
+		url: requiredString(row.url, `podcast_settings.platformLinks[${index}].url`),
+		available: row.available === true
 	};
 }

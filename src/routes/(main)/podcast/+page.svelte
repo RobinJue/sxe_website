@@ -126,10 +126,17 @@
 				<p class="lead">{lang.t(podcast.intro)}</p>
 				<div class="hero-actions" aria-label={lang.t(podcast.listenLabel)}>
 					{#each podcast.platformLinks as link (link.label)}
-						<button type="button" class="button button-primary" onclick={() => showComingSoon(link.label)}>
-							{link.label}
-							<ExternalLink size={16} />
-						</button>
+						{#if link.available}
+							<a href={link.url} target="_blank" rel="noopener noreferrer" class="button button-primary">
+								{link.label}
+								<ExternalLink size={16} />
+							</a>
+						{:else}
+							<button type="button" class="button button-primary" onclick={() => showComingSoon(link.label)}>
+								{link.label}
+								<ExternalLink size={16} />
+							</button>
+						{/if}
 					{/each}
 				</div>
 				<p class="coming-soon-note" role="status" aria-live="polite">
