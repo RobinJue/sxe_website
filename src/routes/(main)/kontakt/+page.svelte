@@ -4,11 +4,20 @@
 	import { lang } from "$lib/language.svelte.ts";
 
 	let { data } = $props<{ data: PageData }>();
-	let isMobile = $state(false);
+	let showEmbed = $state(false);
+
+	const FORM_URL = "https://tarry-skiff-3b7.notion.site/ebd//37da031add738021959cf7d54b86ebbc";
 
 	$effect(() => {
 		if (typeof window === "undefined") return;
-		isMobile = window.innerWidth < 900;
+		const isMobile = window.innerWidth < 900;
+		// Safari's tracking prevention breaks Notion's app inside an iframe
+		// (restricted state, no storage access), so send Safari users to a
+		// new tab instead of showing a broken embed.
+		const isSafari = /^((?!chrome|chromium|crios|fxios|android|edg).)*safari/i.test(
+			navigator.userAgent
+		);
+		showEmbed = !isMobile && !isSafari;
 	});
 
 	const content = $derived(data.content);
@@ -28,22 +37,22 @@
 
 	<div class="contact-content">
 		<div class="contact-form-embed">
-			{#if !isMobile}
+			{#if showEmbed}
 				<iframe
-					src="https://tarry-skiff-3b7.notion.site/ebd//37da031add738021959cf7d54b86ebbc"
+					src={FORM_URL}
 					width="100%"
 					height="600"
 					frameborder="0"
 					loading="lazy"
 					title="Contact Form"
 				></iframe>
+				<a class="form-fallback-link" href={FORM_URL} target="_blank" rel="noopener noreferrer">
+					{lang.current === "de"
+						? "Formular lädt nicht? In neuem Tab öffnen →"
+						: "Form not loading? Open in a new tab →"}
+				</a>
 			{:else}
-				<a
-					href="https://tarry-skiff-3b7.notion.site/ebd//37da031add738021959cf7d54b86ebbc"
-					target="_blank"
-					rel="noopener noreferrer"
-					class="form-open-button"
-				>
+				<a href={FORM_URL} target="_blank" rel="noopener noreferrer" class="form-open-button">
 					{lang.current === "de" ? "Kontaktformular öffnen" : "Open contact form"} →
 				</a>
 			{/if}
@@ -165,6 +174,18 @@
 
 	.contact-form-embed iframe {
 		border-radius: 0.6rem;
+	}
+
+	.form-fallback-link {
+		display: block;
+		margin-top: 0.6rem;
+		color: var(--copy-muted);
+		font-size: var(--font-size-small);
+		text-decoration: none;
+	}
+
+	.form-fallback-link:hover {
+		text-decoration: underline;
 	}
 
 	.form-open-button {
