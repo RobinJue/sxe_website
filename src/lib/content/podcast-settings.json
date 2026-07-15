@@ -88,8 +88,8 @@
   "platformLinks": [
     {
       "label": "Apple Podcasts",
-      "url": "https://podcasts.apple.com/",
-      "available": false
+      "url": "https://podcasts.apple.com/de/podcast/forschung-mit-folgen/id6791125330",
+      "available": true
     },
     {
       "label": "Spotify",
