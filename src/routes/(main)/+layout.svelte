@@ -177,6 +177,7 @@
 					loading="lazy"
 					decoding="async"
 				/>
+				<p class="footer-end">© {new Date().getFullYear()} Science x Entrepreneurship</p>
 			</div>
 			<div class="footer-note-col">
 				<p class="footer-legal-note">
@@ -210,7 +211,6 @@
 				<a href="/impressum#datenschutz">{lang.current === "de" ? "Datenschutz" : "Privacy"}</a>
 			</div>
 		</div>
-		<p class="footer-end">© {new Date().getFullYear()} Science x Entrepreneurship</p>
 	</footer>
 </div>
 
@@ -532,8 +532,7 @@
 	}
 
 	.footer-end {
-		width: min(1140px, calc(100% - 2.5rem));
-		margin: 1rem auto 0;
+		margin: 0;
 		color: rgb(145 158 183);
 		font-size: var(--font-size-caption);
 	}
@@ -655,8 +654,7 @@
 
 	@media (max-width: 640px) {
 		.inner,
-		.main-stack,
-		.footer-end {
+		.main-stack {
 			width: calc(100% - 1.4rem);
 		}
 
