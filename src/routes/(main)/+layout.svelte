@@ -177,6 +177,20 @@
 					loading="lazy"
 					decoding="async"
 				/>
+				<a
+					class="footer-supported-by"
+					href="https://www.wa-recht.de"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					<span>Supported by</span>
+					<img
+						src="/assets/partners/wa-recht.jpg"
+						alt="Wegener & Adamaszek Rechtsanwälte"
+						loading="lazy"
+						decoding="async"
+					/>
+				</a>
 			</div>
 			<p class="footer-legal-note">
 				{lang.current === "de"
@@ -461,6 +475,27 @@
 		display: block;
 		width: min(12rem, 56vw);
 		height: auto;
+	}
+
+	.footer-supported-by {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.45rem;
+		width: fit-content;
+		color: rgb(145 158 183);
+		font-size: var(--font-size-tiny);
+		text-decoration: none;
+	}
+
+	.footer-supported-by:hover {
+		text-decoration: underline;
+	}
+
+	.footer-supported-by img {
+		display: block;
+		height: 0.9rem;
+		width: auto;
+		border-radius: 2px;
 	}
 
 	.footer-legal-note {
