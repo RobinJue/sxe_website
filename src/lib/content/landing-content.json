@@ -1124,6 +1124,20 @@
           "de": "Gute Operationen sind unsichtbar, aber überall spürbar. Ich baue die Systeme auf, die SxE skalierbar und nachhaltig machen.",
           "en": "Good operations are invisible but felt everywhere. I build the systems that make SxE scalable and sustainable."
         }
+      },
+      {
+        "id": "member-30",
+        "name": "Leon Schumacher",
+        "role": {
+          "de": "Outreach",
+          "en": "Outreach"
+        },
+        "linkedinUrl": "https://www.linkedin.com/in/leon-schumacher-911220175/",
+        "photo": "/assets/team/Leon_Schumacher.png",
+        "motivation": {
+          "de": "Outreach bedeutet, Wissenschaftler überall zu erreichen. Meine Mission: Niemand soll von SxE wissen, es sei denn, wir haben sie erreicht.",
+          "en": "Outreach means reaching scientists everywhere. My mission: ensure no scientist misses SxE because we failed to reach them."
+        }
       }
     ]
   },
