@@ -126,14 +126,14 @@
 		<input class="hp-field" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" />
 		<p class="form-hint">
 			{lang.current === "de"
-				? "Wir schicken dir eine Bestätigungs-E-Mail. Du kannst dich jederzeit mit einem Klick abmelden und deine Daten löschen lassen."
-				: "We'll send you a confirmation email. You can unsubscribe and delete your data with one click at any time."}
+				? "Du kannst dich jederzeit mit einem Klick abmelden und deine Daten löschen lassen."
+				: "You can unsubscribe and delete your data with one click at any time."}
 		</p>
 		{#if newsletterStatus === "sent"}
 			<p class="form-note" role="status">
 				{lang.current === "de"
-					? "Fast geschafft — bitte bestätige deine Anmeldung über den Link in der E-Mail, die wir dir geschickt haben."
-					: "Almost there — please confirm your subscription via the link we just emailed you."}
+					? "Danke, du bist eingetragen."
+					: "Thanks, you're on the list."}
 			</p>
 		{:else if newsletterStatus === "error"}
 			<p class="form-note error" role="status">
