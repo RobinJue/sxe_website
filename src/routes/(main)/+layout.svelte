@@ -79,25 +79,6 @@
 	});
 </script>
 
-<svelte:head>
-	<script>
-		(() => {
-			const storageKey = "sxe-theme";
-			const root = document.documentElement;
-
-			try {
-				const stored = localStorage.getItem(storageKey);
-				const mode = stored === "dark" ? "dark" : "light";
-				root.classList.toggle("dark", mode === "dark");
-				root.style.colorScheme = mode;
-			} catch {
-				root.classList.remove("dark");
-				root.style.colorScheme = "light";
-			}
-		})();
-	</script>
-</svelte:head>
-
 <div class="page-shell">
 	<a class="skip-link" href="#main">Skip to content</a>
 	<div class="ambient" aria-hidden="true"></div>

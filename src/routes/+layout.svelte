@@ -22,12 +22,12 @@
 
 			try {
 				const stored = localStorage.getItem(storageKey);
-				const mode = stored === "light" ? "light" : "dark";
+				const mode = stored === "dark" ? "dark" : "light";
 				root.classList.toggle("dark", mode === "dark");
 				root.style.colorScheme = mode;
 			} catch {
-				root.classList.add("dark");
-				root.style.colorScheme = "dark";
+				root.classList.remove("dark");
+				root.style.colorScheme = "light";
 			}
 		})();
 	</script>
