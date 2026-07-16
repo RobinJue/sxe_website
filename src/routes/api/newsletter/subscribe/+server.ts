@@ -12,10 +12,12 @@ export const POST: RequestHandler = async ({ request }) => {
 	const honeypot = String(form.get("company") ?? "");
 
 	if (honeypot) {
+		console.warn(`[newsletter] honeypot triggered, source="${source}"`);
 		return json({ ok: true });
 	}
 
 	if (!EMAIL_RE.test(email)) {
+		console.warn(`[newsletter] rejected invalid email, source="${source}"`);
 		return json({ ok: false, error: "invalid-email" }, { status: 400 });
 	}
 
@@ -23,11 +25,17 @@ export const POST: RequestHandler = async ({ request }) => {
 	// aren't configured yet, so we just store the subscriber. Re-enable the
 	// sendConfirmationEmail call (see git history) once mailer credentials
 	// are set on Railway.
-	await sql`
-		insert into subscribers (email, source)
-		values (${email}, ${source})
-		on conflict (email) do update set consent_at = now()
-	`;
+	try {
+		await sql`
+			insert into subscribers (email, source)
+			values (${email}, ${source})
+			on conflict (email) do update set consent_at = now()
+		`;
+	} catch (err) {
+		console.error(`[newsletter] failed to store subscriber, source="${source}"`, err);
+		return json({ ok: false, error: "storage-failed" }, { status: 500 });
+	}
 
+	console.log(`[newsletter] stored subscriber ${email}, source="${source}"`);
 	return json({ ok: true });
 };
