@@ -1209,6 +1209,11 @@
             "name": "TUM Venture Labs",
             "url": "https://www.tum-venture-labs.de/",
             "logo": "/assets/partners/tumventure.webp"
+          },
+          {
+            "name": "WHU",
+            "url": "https://www.whu.edu",
+            "logo": "/assets/partners/whu.svg"
           }
         ]
       },
