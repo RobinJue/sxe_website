@@ -17,7 +17,6 @@
 		"Atlantic Labs",
 		"Juni",
 		"UVC Partner",
-		"Deep Pioneers",
 		"Impossible Founders"
 	];
 	const allPartners = $derived.by(() => {

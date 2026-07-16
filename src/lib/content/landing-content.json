@@ -924,6 +924,20 @@
         }
       },
       {
+        "id": "member-21",
+        "name": "Isabelle Kranabetter",
+        "role": {
+          "de": "Community & Events",
+          "en": "Community & Events"
+        },
+        "linkedinUrl": "https://de.linkedin.com/in/isabelle-kranabetter",
+        "photo": "/assets/team/Isabelle_Kranabetter.png",
+        "motivation": {
+          "de": "Events und Veranstaltungen schaffen Raum für echte Begegnungen. Ich organisiere Momente, die Beziehungen entstehen lassen und Ideen zum Leben erwecken.",
+          "en": "Events create space for real connections. I organize moments where relationships form and ideas come to life."
+        }
+      },
+      {
         "id": "member-5",
         "name": "Robin Juengerich",
         "role": {
@@ -952,6 +966,20 @@
         }
       },
       {
+        "id": "member-20",
+        "name": "Julia Heckmann",
+        "role": {
+          "de": "Podcast & Community",
+          "en": "Podcast & Community"
+        },
+        "linkedinUrl": "https://de.linkedin.com/in/juliaheckmann",
+        "photo": "/assets/team/Julia_Heckmann.png",
+        "motivation": {
+          "de": "Geschichten inspirieren Menschen. Durch den Podcast bringen wir die Stimmen von Gründer-Wissenschaftlern nach vorne und schaffen Verbindung.",
+          "en": "Stories inspire people. Through our podcast, I amplify the voices of scientist-entrepreneurs and create meaningful connections."
+        }
+      },
+      {
         "id": "member-15",
         "name": "Hendrik Reents",
         "role": {
@@ -960,6 +988,16 @@
         },
         "linkedinUrl": "https://www.linkedin.com/in/hendrik-reents/",
         "photo": "/assets/team/Hendrik_Reents.png"
+      },
+      {
+        "id": "member-27",
+        "name": "Florentine Adam",
+        "role": {
+          "de": "Ehrenamtlich",
+          "en": "Volunteer"
+        },
+        "linkedinUrl": "https://www.linkedin.com/in/florentine-adam",
+        "photo": "/assets/team/Florentine_Adam.png"
       },
       {
         "id": "member-16",
@@ -1003,34 +1041,6 @@
         "motivation": {
           "de": "Starke Partnerschaften multiplizieren unsere Wirkung. Mein Fokus liegt darauf, Wissenschaftler mit den richtigen Unterstützern zu verbinden.",
           "en": "Strong partnerships multiply our impact. I focus on connecting scientists with the right supporters who share our vision."
-        }
-      },
-      {
-        "id": "member-20",
-        "name": "Julia Heckmann",
-        "role": {
-          "de": "Podcast & Community",
-          "en": "Podcast & Community"
-        },
-        "linkedinUrl": "https://de.linkedin.com/in/juliaheckmann",
-        "photo": "/assets/team/Julia_Heckmann.png",
-        "motivation": {
-          "de": "Geschichten inspirieren Menschen. Durch den Podcast bringen wir die Stimmen von Gründer-Wissenschaftlern nach vorne und schaffen Verbindung.",
-          "en": "Stories inspire people. Through our podcast, I amplify the voices of scientist-entrepreneurs and create meaningful connections."
-        }
-      },
-      {
-        "id": "member-21",
-        "name": "Isabelle Kranabetter",
-        "role": {
-          "de": "Community & Events",
-          "en": "Community & Events"
-        },
-        "linkedinUrl": "https://de.linkedin.com/in/isabelle-kranabetter",
-        "photo": "/assets/team/Isabelle_Kranabetter.png",
-        "motivation": {
-          "de": "Events und Veranstaltungen schaffen Raum für echte Begegnungen. Ich organisiere Momente, die Beziehungen entstehen lassen und Ideen zum Leben erwecken.",
-          "en": "Events create space for real connections. I organize moments where relationships form and ideas come to life."
         }
       },
       {
@@ -1086,16 +1096,6 @@
         },
         "linkedinUrl": "https://www.linkedin.com/in/simon-tautz-137501248",
         "photo": "/assets/team/Simon_Tautz.png"
-      },
-      {
-        "id": "member-27",
-        "name": "Florentine Adam",
-        "role": {
-          "de": "Ehrenamtlich",
-          "en": "Volunteer"
-        },
-        "linkedinUrl": "https://www.linkedin.com/in/florentine-adam",
-        "photo": "/assets/team/Florentine_Adam.png"
       },
       {
         "id": "member-28",
@@ -1235,11 +1235,6 @@
             "name": "Impossible Founders",
             "url": "https://www.impossible-founders.com",
             "logo": "/assets/partners/impossiblefounders.jpeg"
-          },
-          {
-            "name": "Deep Pioneers",
-            "url": "https://esmt.berlin/faculty-research/centers-institutes-initiatives/deep-institute-deep-tech-innovation/deep-pioneers",
-            "logo": "/assets/partners/deeppioneers.jpeg"
           },
           {
             "name": "YES",
