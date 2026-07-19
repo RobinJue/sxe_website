@@ -548,6 +548,16 @@
 		height: auto;
 	}
 
+	/* WHU's mark uses dark navy/black on a transparent background;
+	   flatten it to a white silhouette so it stays legible in dark mode. */
+	.carousel-item[title="WHU"] img {
+		filter: brightness(0) invert(1);
+	}
+
+	:global(html:not(.dark)) .carousel-item[title="WHU"] img {
+		filter: none;
+	}
+
 	.logo-fallback {
 		color: var(--copy-muted);
 		font-size: var(--font-size-tiny);
